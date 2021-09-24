@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>IT Audit (Dashboard)</title>
+	<title>AlphaPHP Dashboard</title>
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
 	<link rel="stylesheet" href="assets/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -20,12 +20,11 @@
 	<div class="dboardmain container-fluid">
 		<div class="row content">
 			<div class="col-sm-2 sidenav hidden-xs">
-				<h2>IT Audit</h2>
+				<h2>AlphaPHP</h2>
 				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><a href="dashadmin.php">Main</a></li>
-					<li><a href="menu.php">Field Audit</a></li>
-					<li><a href="duserprof.php">User Profile</a></li>
-					<li><a href="syssecrprt.php" target="_blank">System Security</a></li>
+					<li><a href="../">Visit Site</a></li>
+					<li><a href="duserprof.php">User Profile</a></li></li>
 					<li><a href="">Refresh</a></li>
 					<li><a href="javascript:history.back();">Back</a></li>				
 					<li><a href="config/logout.php">Logout</a></li>				

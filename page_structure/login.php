@@ -55,7 +55,7 @@
 						$_SESSION["ulevpos"] = $useclev;
 
 						if ($useclev == "Field" || $useclev == "Head") {
-							header("location:index.php");
+							header("location:menu.php");
 						} else {
 							$error_message = 'Access Denied!';
 						}
