@@ -26,5 +26,5 @@
 
 	}
 
-	$dbcretbl = new PDO("mysql:host=localhost;dbname=alpaphpdb", "root", "6bNXmSOg6oOfrB3D");
+	$dbcretbl = new PDO("mysql:host=localhost;dbname=alpaphpdb", "root", "");
 	// 6bNXmSOg6oOfrB3D
