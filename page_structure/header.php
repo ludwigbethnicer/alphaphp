@@ -22,11 +22,4 @@
 		<em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</em>
 	</div>
 	<div class="container-fluid mb-5">
-		<a class="float-right btn btn-sm btn-light mb-2" href="">Refresh</a>
-		<?php
-			if(empty($_SESSION["usercode"])) {
-				echo '<a class="float-right btn btn-sm btn-success mb-2" href="login.php">Login</a>';
-			}else{
-				echo '<a class="float-right btn btn-sm btn-inline btn-danger" href="config/logout.php">Logout</a>';
-			}
-		?>
+		
