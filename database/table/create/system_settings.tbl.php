@@ -25,7 +25,7 @@
 
 			$sql = "INSERT INTO tbl_system_settings (
 				sys_title, 
-				tagline, 
+				tagline
 			) 
 				VALUES (
 				'AlphaPHP', 
