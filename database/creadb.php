@@ -13,6 +13,7 @@
 			$sql = "use alpaphpdb";
 			$conn->exec($sql);
 			echo "Database: alpaphpdb; Successfully Created!<br>";
+			echo '<a href="../">Continue..</a>';
 		} catch(PDOException $e) {
 			echo "Error".$e->getMessage()."<br>";
 		}
