@@ -2,6 +2,7 @@
 
 	include_once "creadb.php";
 	include_once "table/create/user.tbl.php";
+	include_once "table/create/system_settings.tbl.php";
 	
 ?>
 
