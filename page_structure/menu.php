@@ -16,25 +16,6 @@
 	
 ?>
 
-<script>
-	function showUser(str) {
-		if (str == "") {
-			document.getElementById("listBranchAudit2").style.display = 'none';
-			location.reload();
-		} else {
-			var xmlhttp = new XMLHttpRequest();
-			xmlhttp.onreadystatechange = function() {
-				if (this.readyState == 4 && this.status == 200) {
-					document.getElementById("txtHint").innerHTML = this.responseText;
-				}
-			};
-			xmlhttp.open("GET","view/ajaxaudlist.php?controlnum="+str,true);
-			xmlhttp.send();
-			document.getElementById("listBranchAudit").style.display = 'none';
-		}
-	}
-</script>
-
 <div class="text-left">
 	<a class="btn btn-sm btn-inline btn-danger" href="config/logout.php">Logout</a>
 	<?php
