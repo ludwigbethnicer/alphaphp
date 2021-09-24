@@ -1,6 +1,6 @@
 <?php
 
-	if ($_SESSION["ulevpos"] == "Field" || $_SESSION["ulevpos"] == "Head") {
+	if ($_SESSION["ulevpos"] == "Staff" || $_SESSION["ulevpos"] == "Head") {
 		
 	} else {
 		session_start();

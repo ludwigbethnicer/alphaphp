@@ -54,7 +54,7 @@
 						$_SESSION["fullname"] = $fullname;
 						$_SESSION["ulevpos"] = $useclev;
 
-						if ($useclev == "Field" || $useclev == "Head") {
+						if ($useclev == "Staff" || $useclev == "Head") {
 							header("location:menu.php");
 						} else {
 							$error_message = 'Access Denied!';
