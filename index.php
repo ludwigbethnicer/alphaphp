@@ -7,6 +7,6 @@
 		header('location:login.php');
 	}
 
-	include_once "view/header.php";
-	include_once "view/menu.php";
-	include_once "view/footer.php";
+	include_once "page_structure/header.php";
+	include_once "page_structure/menu.php";
+	include_once "page_structure/footer.php";

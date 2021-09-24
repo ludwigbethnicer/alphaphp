@@ -3,9 +3,9 @@
 	class Database {
 
 		private $shost = "localhost";
-		private $dbname = "dbiads";
+		private $dbname = "alpaphpdb";
 		private $username = "root";
-		private $password = "6bNXmSOg6oOfrB3D";
+		private $password = "";
 
 		private $dbcnn;
 
@@ -26,5 +26,5 @@
 
 	}
 
-	$dbcretbl = new PDO("mysql:host=localhost;dbname=dbiads", "root", "6bNXmSOg6oOfrB3D");
+	$dbcretbl = new PDO("mysql:host=localhost;dbname=alpaphpdb", "root", "6bNXmSOg6oOfrB3D");
 	// 6bNXmSOg6oOfrB3D

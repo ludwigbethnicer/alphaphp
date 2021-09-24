@@ -1,13 +1,13 @@
 <?php
 
 	try {
-		$conn = new PDO("mysql:host=localhost;", "root", "6bNXmSOg6oOfrB3D");
+		$conn = new PDO("mysql:host=localhost;", "root", "");
 		$conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-		$sql = "CREATE DATABASE IF NOT EXISTS dbiads";
+		$sql = "CREATE DATABASE IF NOT EXISTS alpaphpdb";
 		$conn->exec($sql);
-		$sql = "use dbiads";
+		$sql = "use alpaphpdb";
 		$conn->exec($sql);
-		echo "Database: dbiads; Successfully Created!<br>";
+		echo "Database: alpaphpdb; Successfully Created!<br>";
 	} catch(PDOException $e) {
 	    echo "Error".$e->getMessage()."<br>";
 	}
