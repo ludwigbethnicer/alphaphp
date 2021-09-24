@@ -6,12 +6,14 @@
 	<title><?php echo $main_title; ?> Dashboard</title>
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
-	<link rel="stylesheet" href="assets/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="icon" type="image/png">
+	<link rel="stylesheet" href="assets/fontawesome/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" href="assets/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="assets/css/dashboard.css">
 	<link rel="stylesheet" href="assets/css/dboard.css">
 	<script src="assets/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="assets/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-	<script src="assets/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src="assets/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script src = "https://www.gstatic.com/charts/loader.js"></script>
 	<script type = "text/javascript">
 		google.charts.load('current', {packages: ['corechart','line']});
