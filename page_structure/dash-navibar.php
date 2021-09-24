@@ -21,7 +21,7 @@
 				<span class="user-name">
 					<strong><?php echo $_SESSION["fullname"]; ?></strong>
 				</span>
-				<span class="user-role">Job Title</span>
+				<span class="user-role"><?php echo $_SESSION["ulevpos"]; ?></span>
 				<span class="user-status">
 					<i class="fa fa-circle"></i>
 					<span>Online</span>
