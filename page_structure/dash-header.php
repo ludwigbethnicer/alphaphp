@@ -18,6 +18,12 @@
 </head>
 <body>
 	<div class="dboardmain container-fluid">
+		<div class="row">
+			<div class="col-sm-6">
+				<img class="px-3 ulogo" src="assets/img/logo.png">
+			</div>
+			<div class="col-sm-6"></div>
+		</div>
 		<div class="row content">
 			<div class="col-sm-2 sidenav hidden-xs">
 				<h2>AlphaPHP</h2>
