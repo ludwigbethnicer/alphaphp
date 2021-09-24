@@ -27,7 +27,7 @@
 
 			$sql = "INSERT INTO tbl_user (username, passcode, fullname, ulevpos, createdby, created, uonline, ustatz, uemail, umobileno) 
 				VALUES ('admin', 'admin', 'Firstname M. Surname', 'Head', 'admin', '2020-11-03', '0', '1', 'headadmin@email.com', '+639154826025'), 
-				('user', 'user', 'Username C. Lhuillier', 'Field', 'admin', '2020-11-04', '0', '1', 'usermember@email.com', '+639123456789'), 
+				('user', 'user', 'Username C. Doe', 'Field', 'admin', '2020-11-04', '0', '1', 'usermember@email.com', '+639123456789'), 
 				('rst', 'rst', 'Branch B. Sample', 'Technical', 'admin', '2020-11-04', '0', '0', 'rstech@email.com', '+639098765432')";
 			// use exec() because no results are returned
 			$dbcretbl->exec($sql);

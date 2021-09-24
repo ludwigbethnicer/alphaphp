@@ -17,7 +17,7 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" oncontextmenu="return false;">
 	<div class="jumbotron text-center">
 		<h5 class="card-title text-center">AlphaPHP</h5>
-		<img class="w-100 px-3 ulogo" src="assets/img/mlhuillier-red.png">
+		<img class="w-100 px-3 ulogo" src="assets/img/logo.png">
 		<br>
 		<em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</em>
 	</div>
