@@ -7,7 +7,7 @@
 			if(empty($_SESSION["usercode"])) {
 				echo '<a class="float-right btn btn-sm btn-inline btn-success mr-2" href="login.php">Login</a>';
 			}else{
-				echo '<a class="float-right btn btn-sm btn-inline btn-danger mr-2" href="/menu.php">Menu</a>';
+				echo '<a class="float-right btn btn-sm btn-inline btn-danger mr-2" href="menu.php">Menu</a>';
 				echo '<a class="float-right btn btn-sm btn-inline btn-danger mr-2" href="config/logout.php">Logout</a>';
 			}
 		?>
