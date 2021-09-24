@@ -10,7 +10,7 @@
 
 	if(empty($_SESSION["usercode"])) {
 		$usercodenow = null;
-	else {
+	} else {
 		$usercodenow = $_SESSION['usercode'];
 	}
 	
@@ -56,7 +56,9 @@
 						echo '<td class="">'.$row['ustatz'].'</td>';
 						echo '<td class="align-middle d-none d-lg-inline">'.$row['created'].'</td>';
 						echo '<td class="align-middle d-none d-lg-inline">'.$row['modified'].'</td>';
-						echo '<td class="">'.$row[''].'</td>';
+						echo '<td class="text-right">';
+							echo "<a class='btn btn-sm m-1 btn-success btn-inline' href='adduser.php?id=".$row['usercode']."'>View</a>";
+						echo '</td>';
 					echo '</tr>';
 				}
 			?>
