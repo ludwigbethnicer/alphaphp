@@ -48,7 +48,7 @@
 						echo '<td class="align-middle d-none d-lg-inline">'.$row['usercode'].'</td>';
 						echo '<td class="align-middle">'.$row['username'].'</td>';
 						echo '<td class="align-middle d-none d-lg-inline">'.$row['fullname'].'</td>';
-						echo '<td class="align-middle d-none d-lg-inline">'.$row['uemail'].'</td>';
+						echo '<td class="align-middle d-none d-lg-inline"><a href="mailto:'.$row['uemail'].'">'.$row['uemail'].'</a></td>';
 						echo '<td class="">'.$row['umobileno'].'</td>';
 						echo '<td class="align-middle d-none d-lg-inline">'.$row['ulevpos'].'</td>';
 						echo '<td class="align-middle d-none d-lg-inline">'.$row['createdby'].'</td>';
