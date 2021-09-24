@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>IT Audit (Dashboard)</title>
+	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
+	<META HTTP-EQUIV="Expires" CONTENT="-1">
+	<link rel="stylesheet" href="assets/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/dboard.css">
+	<script src="assets/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script src="assets/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+	<script src="assets/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+	<script src = "https://www.gstatic.com/charts/loader.js"></script>
+	<script type = "text/javascript">
+		google.charts.load('current', {packages: ['corechart','line']});
+	</script>
+</head>
+<body>
+	<div class="dboardmain container-fluid">
+		<div class="row content">
+			<div class="col-sm-2 sidenav hidden-xs">
+				<h2>IT Audit</h2>
+				<ul class="nav nav-pills nav-stacked">
+					<li class="active"><a href="dashadmin.php">Main</a></li>
+					<li><a href="menu.php">Field Audit</a></li>
+					<li><a href="duserprof.php">User Profile</a></li>
+					<li><a href="syssecrprt.php" target="_blank">System Security</a></li>
+					<li><a href="">Refresh</a></li>
+					<li><a href="javascript:history.back();">Back</a></li>				
+					<li><a href="config/logout.php">Logout</a></li>				
+				</ul><br>
+			</div>
+			<br>
+
+			<div class="col-sm-10">
+				<div class="well">
+					<p class="float-right">as of 2020</p>
+					<h4>Statistics</h4>
+					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+				</div>
