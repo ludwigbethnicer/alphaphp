@@ -17,7 +17,6 @@
 ?>
 
 <div class="text-left">
-	<a class="btn btn-sm btn-inline btn-danger" href="config/logout.php">Logout</a>
 	<?php
 		if ($_SESSION["ulevpos"] == "Head") {
 			echo "<a class='btn btn-sm btn-inline btn-link' href='dashadmin.php'>Dashboard</a>";
