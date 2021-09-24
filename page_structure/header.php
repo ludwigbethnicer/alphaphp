@@ -27,6 +27,6 @@
 			if(empty($_SESSION["usercode"])) {
 				echo '<a class="float-right btn btn-sm btn-success mb-2" href="login.php">Login</a>';
 			}else{
-				echo '<a class="btn btn-sm btn-inline btn-danger" href="config/logout.php">Logout</a>';
+				echo '<a class="float-right btn btn-sm btn-inline btn-danger" href="config/logout.php">Logout</a>';
 			}
 		?>
