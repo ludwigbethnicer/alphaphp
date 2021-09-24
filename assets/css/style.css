@@ -22,6 +22,10 @@
 	max-height: 120px;
 }
 
+.alink-none:hover {
+	text-decoration: none;
+}
+
 .mx-w-208px {
 	max-width: 208px;
 }
