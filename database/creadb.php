@@ -2,7 +2,7 @@
 
 	try {
 		$pdo = new PDO('mysql:host=localhost;dbname=alpaphpdb', 'root', '', [ PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION ]);
-		die('Database Exist!');
+		echo "Database Exist!<br>";
 	} catch (PDOException $e) {
 		try {
 			$conn = new PDO("mysql:host=localhost;", "root", "");
