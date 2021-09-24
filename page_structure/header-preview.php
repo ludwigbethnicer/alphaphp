@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="refresh" content="3600;url=config/logout.php">
-	<title>AlphaPHP Dashboard</title>
+	<title><?php echo $main_title; ?> Dashboard</title>
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
 	<style type="text/css">

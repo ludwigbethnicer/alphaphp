@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>AlphaPHP Dashboard</title>
+	<title><?php echo $main_title; ?> Dashboard</title>
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
 	<link rel="stylesheet" href="assets/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -26,7 +26,7 @@
 		</div>
 		<div class="row content">
 			<div class="col-sm-2 sidenav hidden-xs">
-				<h2>AlphaPHP</h2>
+				<h2><?php echo $main_title; ?></h2>
 				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><a href="dashadmin.php">Main</a></li>
 					<li><a href="./">Visit Site</a></li>

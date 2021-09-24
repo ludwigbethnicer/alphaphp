@@ -18,7 +18,7 @@
 			</div>
 		</div>
 		<div class="bg-footer-color pb-1 pt-2">
-			<p>© <?php echo date("Y");?> <a href="https://www.alphaphp.com" target="_blank" title="Visit AlphaPHP, Inc. Philippines">AlphaPHP</a>, Inc. Philippines. All Rights Reserved.</p>
+			<p>© <?php echo date("Y");?> <a href="https://www.<?php echo $main_title; ?>.com" target="_blank" title="Visit <?php echo $main_title; ?>, Inc. Philippines"><?php echo $main_title; ?></a>, Inc. Philippines. All Rights Reserved.</p>
 		</div>
 	</footer>
 	<script src="assets/js/script.js"></script>

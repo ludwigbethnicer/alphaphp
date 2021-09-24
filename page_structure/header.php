@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="refresh" content="300;url=config/logout.php">
-	<title>AlphaPHP</title>
+	<title><?php echo $main_title; ?></title>
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
 	<link rel="stylesheet" href="assets/fontawesome/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
@@ -17,11 +17,11 @@
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60" oncontextmenu="return false;">
 	<div class="jumbotron text-center">
 		<a href="./" class="alink-none">
-			<h5 class="card-title text-center">AlphaPHP</h5>
+			<h5 class="card-title text-center"><?php echo $main_title; ?></h5>
 			<img class="px-3 ulogo" src="assets/img/logo.png">
 		</a>
 		<br>
-		<em>"Lorem ipsum dolor sit amet, consectetur adipiscing elit"</em>
+		<em>"<?php echo $tagline; ?>"</em>
 	</div>
 	<div class="container-fluid mb-5">
 		
