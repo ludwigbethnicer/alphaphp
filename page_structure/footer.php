@@ -1,4 +1,10 @@
 	</div>
+	<div class="container-fluid footer-menu">
+		<div class="row">
+			<div class="col-sm-6"></div>
+			<div class="col-sm-6"></div>
+		</div>
+	</div>
 	<footer class="container-fluid text-center footer pt-2">
 		<a href="#myPage" title="To Top">
 			<span class="glyphicon glyphicon-chevron-up"></span>
