@@ -2,6 +2,11 @@
 	margin-bottom: 28px;
 }
 
+.dlogo {
+	max-height: 68px;
+	padding: 10px;
+}
+
 .float-right {
 	float: right;
 }

@@ -20,7 +20,7 @@
 	<div class="dboardmain container-fluid">
 		<div class="row">
 			<div class="col-sm-6">
-				<img class="px-3 ulogo" src="assets/img/logo.png">
+				<img class="px-3 dlogo" src="assets/img/logo.png">
 			</div>
 			<div class="col-sm-6"></div>
 		</div>
