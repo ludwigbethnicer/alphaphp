@@ -1,7 +1,7 @@
 	</div>
 	<footer class="container-fluid text-center footer p-0">
 		<a href="#myPage" title="To Top">
-			<span class="glyphicon glyphicon-chevron-up">Up</span>
+			&#9757;
 		</a>
 		<div class="row pb-1 pt-2">
 			<div class="col-sm-6"></div>
