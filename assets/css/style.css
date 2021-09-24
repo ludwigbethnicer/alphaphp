@@ -1,0 +1,82 @@
+.w360center {
+	width: 100%;
+	max-width: 453px;
+	margin: 0 auto;
+	margin-bottom: 4rem;
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: #323232;
+	color: white;
+}
+
+.jumbotron {
+	margin-bottom: 8px;
+}
+
+.ulogo {
+	max-width: 288px;
+}
+
+.mx-w-208px {
+	max-width: 208px;
+}
+
+.mb-62px {
+	margin-bottom: 62px!important;
+}
+
+.mw-116px {
+	max-width: 94px;
+}
+
+.page-item.active .page-link {
+	z-index: 0!important;
+}
+
+.secnodsp {
+	font-size: 1.3rem;
+}
+
+fieldset {
+	padding: revert;
+	border: double;
+}
+
+legend {
+	width: auto;
+	font-size: 1rem;
+}
+
+.circleAlert {
+	max-width: 100px;
+	max-height: 100px;
+	border-radius: 50%;
+	display: inline-block;
+}
+
+@media (min-width: 992px) {
+	.d-lg-inline {
+		display: table-cell!important;
+	}
+}
+
+@media (min-width: 576px) {
+	#myPage .jumbotron {
+		padding: 2rem 1rem;
+	}
+}
+
+@media (max-width: 740px) {
+	.hmobiled {
+		font-size: small;
+	}
+
+	.mw-116px {
+		max-width: 64px!important;
+	}
+}
