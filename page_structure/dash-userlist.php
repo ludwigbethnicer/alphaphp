@@ -49,7 +49,7 @@
 						echo '<td class="align-middle">'.$row['username'].'</td>';
 						echo '<td class="align-middle d-none d-lg-inline">'.$row['fullname'].'</td>';
 						echo '<td class="align-middle d-none d-lg-inline"><a href="mailto:'.$row['uemail'].'">'.$row['uemail'].'</a></td>';
-						echo '<td class=""><a href="//web.whatsapp.com/send?phone=%2B'.substr($row['umobileno'], 1, -1).'&text&app_absent=0" title="Send from WhatsApp" target="_blank">'.$row['umobileno'].'</a></td>';
+						echo '<td class=""><a href="//web.whatsapp.com/send?phone=%2B'.substr($row['umobileno'], 1, strlen($row['umobileno'])).'&text&app_absent=0" title="Send from WhatsApp" target="_blank">'.$row['umobileno'].'</a></td>';
 						echo '<td class="align-middle d-none d-lg-inline">'.$row['ulevpos'].'</td>';
 						echo '<td class="align-middle d-none d-lg-inline">'.$row['createdby'].'</td>';
 						echo '<td class="">'.$row['uonline'].'</td>';
