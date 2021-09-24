@@ -1,10 +1,12 @@
 <?php
 
+	include_once "../_.php";
+
 	// used to connect to the database 6bNXmSOg6oOfrB3D
-	$host = "localhost";
-	$db_name = "alpaphpdb";
-	$db_username = "root";
-	$db_password = "";
+	$host = $host_databse;
+	$db_name = $name_databse;
+	$db_username = $username_database;
+	$db_password = $password_database;
 	$error_message = "";
 	$dbcon = null;
 	

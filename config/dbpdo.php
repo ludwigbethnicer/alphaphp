@@ -1,11 +1,13 @@
 <?php
 
+	include_once "../_.php";
+
 	class Database {
 
-		private $shost = "localhost";
-		private $dbname = "alpaphpdb";
-		private $username = "root";
-		private $password = "";
+		private $shost = $host_databse;
+		private $dbname = $name_databse;
+		private $username = $username_database;
+		private $password = $password_database;
 
 		private $dbcnn;
 
@@ -26,5 +28,5 @@
 
 	}
 
-	$dbcretbl = new PDO("mysql:host=localhost;dbname=alpaphpdb", "root", "");
+	$dbcretbl = new PDO("mysql:host={$host_databse};dbname={$name_databse}", $username_database, $password_database);
 	// 6bNXmSOg6oOfrB3D
