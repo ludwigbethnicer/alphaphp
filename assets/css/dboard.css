@@ -30,6 +30,32 @@
 	height: 100vh;
 }
 
+/** Dashboard Style **/
+#listRecView .btn-sm, 
+#listRecView2 .btn-sm {
+	padding: .25rem!important;
+}
+
+#myDashB .alert {
+	padding-top: 6px;
+	padding-bottom: 0;
+}
+
+#myDashB .alert-dismissible .close {
+	padding: 4px;
+}
+
+#myDashB .footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: transparent;
+	color: inherit;
+	font-style: 
+}
+/** Dashboard Style **/
+
 /* On small screens, set height to 'auto' for the grid */
 @media screen and (max-width: 767px) {
 	.row.content {height: auto;} 
