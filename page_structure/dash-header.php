@@ -34,7 +34,7 @@
 
 			<div class="col-sm-10">
 				<div class="well">
-					<p class="float-right">as of 2020</p>
+					<p class="float-right">as of <?php echo date("Y");?></p>
 					<h4>Statistics</h4>
 					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
 				</div>
