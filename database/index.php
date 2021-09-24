@@ -12,6 +12,6 @@
 	<title>Install Database</title>
 </head>
 <body>
-	
+	<a href="../">Continue..</a>'
 </body>
 </html>
