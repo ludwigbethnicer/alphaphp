@@ -1,6 +1,6 @@
 <?php
 
-	include_once "../_.php";
+	include_once "./_.php";
 
 	// used to connect to the database 6bNXmSOg6oOfrB3D
 	$host = $host_databse;
