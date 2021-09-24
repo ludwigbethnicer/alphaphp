@@ -3,7 +3,7 @@
 		<a href="#myPage" title="To Top">
 			<span class="glyphicon glyphicon-chevron-up">Up</span>
 		</a>
-		<div class="row">
+		<div class="row pb-1 pt-2">
 			<div class="col-sm-6"></div>
 			<div class="col-sm-6">
 				<?php
@@ -17,7 +17,7 @@
 				<a class="float-right btn btn-sm btn-light mr-2" href="">Refresh</a>
 			</div>
 		</div>
-		<div class="bg-footer-color">
+		<div class="bg-footer-color pb-1 pt-2">
 			<p>© <?php echo date("Y");?> <a href="https://www.alphaphp.com" target="_blank" title="Visit AlphaPHP, Inc. Philippines">AlphaPHP</a>, Inc. Philippines. All Rights Reserved.</p>
 		</div>
 	</footer>
