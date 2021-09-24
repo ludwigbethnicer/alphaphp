@@ -5,19 +5,14 @@
 	margin-bottom: 4rem;
 }
 
-.footer-menu {
-	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	background-color: transparent;
-}
-
 .footer {
 	position: fixed;
 	left: 0;
 	bottom: 0;
 	width: 100%;
+}
+
+.bg-footer-color {
 	background-color: #323232;
 	color: white;
 }
