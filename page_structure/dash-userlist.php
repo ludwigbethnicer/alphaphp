@@ -7,6 +7,12 @@
 		session_destroy();
 		header("location:login.php");
 	}
+
+	if(empty($_SESSION["usercode"])) {
+		$usercodenow = null;
+	else {
+		$usercodenow = $_SESSION['usercode'];
+	}
 	
 	include_once "dash-navibar.php";
 	
@@ -14,8 +20,8 @@
 
 <div class="panel panel-default">
 	<div class="panel-heading">Users</div>
-	<div class="panel-body">
-		<table>
+	<div id="responseBody" class="panel-body">
+		<table id="listUsers" class="table table-hover">
 			<thead>
 				<tr>
 					<th class="align-middle d-none d-lg-inline">ID</th>
@@ -32,6 +38,29 @@
 					<th class="align-middle text-right">Action</th>
 				</tr>
 			</thead>
+			<tbody>
+			<?php
+				$query = "SELECT * FROM tbl_user";
+				$stmt = $dbcon->prepare($query);
+				$stmt->execute();
+				foreach ($stmt as $row) {
+					echo '<tr>';
+						echo '<td class="align-middle d-none d-lg-inline">'.$row['usercode'].'</td>';
+						echo '<td class="align-middle">'.$row['username'].'</td>';
+						echo '<td class="align-middle d-none d-lg-inline">'.$row['fullname'].'</td>';
+						echo '<td class="align-middle d-none d-lg-inline">'.$row['uemail'].'</td>';
+						echo '<td class="">'.$row['umobileno'].'</td>';
+						echo '<td class="align-middle d-none d-lg-inline">'.$row['ulevpos'].'</td>';
+						echo '<td class="align-middle d-none d-lg-inline">'.$row['createdby'].'</td>';
+						echo '<td class="">'.$row['uonline'].'</td>';
+						echo '<td class="">'.$row['ustatz'].'</td>';
+						echo '<td class="align-middle d-none d-lg-inline">'.$row['created'].'</td>';
+						echo '<td class="align-middle d-none d-lg-inline">'.$row['modified'].'</td>';
+						echo '<td class="">'.$row[''].'</td>';
+					echo '</tr>';
+				}
+			?>
+			</tbody>
 		</table>
 	</div>
 	<div class="panel-footer">List of Users.</div>
