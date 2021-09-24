@@ -1,8 +1,8 @@
 <?php
 
-	// used to connect to the database 6bNXmSOg6oOfrB3D | rootmlaudit
+	// used to connect to the database 6bNXmSOg6oOfrB3D
 	$host = "localhost";
-	$db_name = "dbiads";
+	$db_name = "alpaphpdb";
 	$db_username = "root";
 	$db_password = "";
 	$error_message = "";
