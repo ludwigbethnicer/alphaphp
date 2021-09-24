@@ -20,7 +20,7 @@
 
 <div class="panel panel-default">
 	<div class="panel-heading">Users</div>
-	<div id="responseBody" class="panel-body">
+	<div id="responseBody" class="panel-body table-responsive">
 		<table id="listUsers" class="table table-hover">
 			<thead>
 				<tr>
