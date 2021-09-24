@@ -24,7 +24,7 @@
 				<ul class="nav nav-pills nav-stacked">
 					<li class="active"><a href="dashadmin.php">Main</a></li>
 					<li><a href="./">Visit Site</a></li>
-					<li><a href="duserprof.php">User Profile</a></li></li>
+					<li><a href="duserprof.php">Users</a></li></li>
 					<li><a href="">Refresh</a></li>
 					<li><a href="javascript:history.back();">Back</a></li>				
 					<li><a href="config/logout.php">Logout</a></li>				
