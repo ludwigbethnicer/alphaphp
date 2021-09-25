@@ -4,3 +4,5 @@ ErrorDocument 500 /alphaphp/401.html
 ErrorDocument 403 /alphaphp/401.html
 ErrorDocument 400 /alphaphp/401.html
 ErrorDocument 401 /alphaphp/401.html
+
+Options -Indexes
