@@ -1,3 +1,6 @@
 RewriteEngine On
-ErrorDocument 404 Page Not Found
-ErrorDocument 500 Server error
+ErrorDocument 404 /alphaphp/404.html
+ErrorDocument 500 /alphaphp/401.html
+ErrorDocument 403 /alphaphp/401.html
+ErrorDocument 400 /alphaphp/401.html
+ErrorDocument 401 /alphaphp/401.html
