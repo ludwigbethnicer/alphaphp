@@ -6,3 +6,5 @@ ErrorDocument 400 /alphaphp/401.html
 ErrorDocument 401 /alphaphp/401.html
 
 Options -Indexes
+
+RedirectMatch 403 ^+\.(txt)$
