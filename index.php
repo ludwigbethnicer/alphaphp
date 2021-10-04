@@ -1,7 +1,5 @@
 <?php
 
-	include_once "config/core.php";
-	include_once "config/database.php";
-	include_once "page_structure/header.php";
-	include_once "views/index.php";
-	include_once "page_structure/footer.php";
+	include_once "inc/core.php";
+	include_once "inc/cnndb.php";
+	include_once "routes/index/index.php";

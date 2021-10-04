@@ -2,6 +2,11 @@
 	cursor: pointer;
 }
 
+img#mlogo {
+	max-height: 48px;
+}
+
+/** Default Style **/
 .w360center {
 	width: 100%;
 	max-width: 453px;
@@ -9,85 +14,42 @@
 	margin-bottom: 4rem;
 }
 
-.footer {
+#myAuth footer {
 	position: fixed;
 	left: 0;
 	bottom: 0;
 	width: 100%;
-}
-
-.bg-footer-color {
 	background-color: #323232;
 	color: white;
 }
 
-.jumbotron {
-	margin-bottom: 8px;
+.table-hover tbody tr:hover {
+	cursor: pointer;
 }
 
-.ulogo {
-	max-height: 120px;
+/** Dashboard Style **/
+#listRecView .btn-sm, 
+#listRecView2 .btn-sm {
+	padding: .25rem!important;
 }
 
-.alink-none:hover {
-	text-decoration: none;
+#myDashB .alert {
+	padding-top: 6px;
+	padding-bottom: 0;
 }
 
-.mx-w-208px {
-	max-width: 208px;
+#myDashB .alert-dismissible .close {
+	padding: 4px;
 }
 
-.mb-62px {
-	margin-bottom: 62px!important;
+#myDashB .footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: transparent;
+	color: inherit;
+	font-style: 
 }
+/** Dashboard Style **/
 
-.mw-116px {
-	max-width: 94px;
-}
-
-.page-item.active .page-link {
-	z-index: 0!important;
-}
-
-.secnodsp {
-	font-size: 1.3rem;
-}
-
-fieldset {
-	padding: revert;
-	border: double;
-}
-
-legend {
-	width: auto;
-	font-size: 1rem;
-}
-
-.circleAlert {
-	max-width: 100px;
-	max-height: 100px;
-	border-radius: 50%;
-	display: inline-block;
-}
-
-@media (min-width: 992px) {
-	.d-lg-inline {
-		display: table-cell!important;
-	}
-}
-
-@media (min-width: 576px) {
-	#myPage .jumbotron {
-		padding: 2rem 1rem;
-	}
-}
-
-@media (max-width: 740px) {
-	.hmobiled {
-		font-size: small;
-	}
-
-	.mw-116px {
-		max-width: 64px!important;
-	}
-}

@@ -82,11 +82,3 @@ function PwHideShow2() {
 		$('#show_hide_password2 i').removeClass( "fa-eye" );
 	}
 }
-
-$('input:radio[name="secured"]').change(function() {
-	if ($(this).val() == '0') {
-		$('#comment').removeClass('d-none');
-	} else {
-		$('#comment').addClass('d-none');
-	}
-});
