@@ -3,7 +3,7 @@
 	$tblname = "tblcrud";
 	$prim_id = "id";
 	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-	$qry = "SELECT fieldtxt, status, modified, created, id FROM {$tblname} WHERE deletedx=0 ORDER BY {$prim_id} DESC LIMIT :from_record_num, :records_per_page";
+	$qry = "SELECT fieldtxt, status, modified, created, {$prim_id} FROM {$tblname} WHERE deletedx=0 ORDER BY {$prim_id} DESC LIMIT :from_record_num, :records_per_page";
 	$stmt = $cnn->prepare($qry);
 	$stmt->bindParam(":from_record_num", $from_record_num, PDO::PARAM_INT);
 	$stmt->bindParam(":records_per_page", $records_per_page, PDO::PARAM_INT);
@@ -46,7 +46,7 @@
 						echo "<td>{$modified}</td>";
 						echo "<td>{$created}</td>";
 						echo "<td>{$id}</td>";
-						echo "<td class='text-right'>";
+						echo "<td class='text-right tbl-action'>";
 							echo "<a href='../../routes/crud/editupdate?id={$id}' class='btn-sm btn-success btn-inline' title='Edit'><span class='far fa-edit'></span></a>";
 							echo "<a class='btn-sm btn-dark btn-inline ml-1' href='#' onclick='trash({$id})' title='Delete'><span class='fas fa-trash-alt'></span></a>";
 						echo '</td>';

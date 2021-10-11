@@ -5,7 +5,7 @@
 ?>
 
 <main class="page-content">
-	<div class="container-fluid">
+	<div class="container-fluid bg-light-opacity">
 		<h2>Pro Sidebar</h2>
 		<hr>
 		<div class="row">

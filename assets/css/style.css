@@ -27,7 +27,23 @@ img#mlogo {
 	cursor: pointer;
 }
 
+.tbl-action {
+	padding: 0!important;
+	padding-top: 5px!important;
+	padding-right: 5px!important;
+}
+
 /** Dashboard Style **/
+.bg-light-opacity {
+	background-color: #f8f9fa6b!important;
+}
+
+.dboardbg {
+	background-image: url("../../storage/img/dashboard-bg.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
 #listRecView .btn-sm, 
 #listRecView2 .btn-sm {
 	padding: .25rem!important;
@@ -51,5 +67,15 @@ img#mlogo {
 	color: inherit;
 	font-style: 
 }
+
+@media only screen and (max-width: 1280px) {
+	.table-responsive-sm {
+		display: block;
+		width: 100%;
+		overflow-x: auto;
+		webkit-overflow-scrolling: touch;
+	}	
+}
+
 /** Dashboard Style **/
 

@@ -1,9 +1,9 @@
 <?php
-	echo "<ul class='pagination justify-content-end'>";	
+	echo "<ul class='pagination justify-content-end pt-3'>";	
 		$action = isset($_GET['action']) ? $_GET['action'] : "";
 		$upidid = isset($_GET['upidid']) ? $_GET['upidid'] : "";
 		if ($action=='deleted') {
-			echo "<div class='alert alert-danger alert-dismissible mb-0 fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button>You have deleted 1 record. Ctrl#[{$upidid}]</div>";
+			echo "<div class='alert alert-danger alert-dismissible mb-0 fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button>You have deleted a record. Ctrl#[{$upidid}]</div>";
 		}
 
 		// first page button will be here
@@ -15,7 +15,7 @@
 				echo "</a>";
 			echo "</li>";
 		}
-		 
+
 		// clickable page numbers will be here
 		// clickable page numbers
 

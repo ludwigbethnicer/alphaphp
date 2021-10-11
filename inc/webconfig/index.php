@@ -48,7 +48,8 @@
 		$err = $e->getMessage();
 		$err2 = strrchr($e,"1049");
 		if($err2=1049){
-			header('location:../');
+			echo "Error: Unknown Database.<br><a href='dbase/creadb'>Fix It!</a>";
+			die;
 		}
 	}
 	$cnn = null;

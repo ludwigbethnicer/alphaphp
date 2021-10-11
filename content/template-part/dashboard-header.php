@@ -27,4 +27,4 @@
 </head>
 <body id="myDashB" class="bg-light" data-spy="scroll" data-target=".navbar" data-offset="60" oncontextmenu="return false;">
 	<!-- page-wrapper -->
-	<div class="page-wrapper chiller-theme toggled">
+	<div class="page-wrapper chiller-theme toggled dboardbg">

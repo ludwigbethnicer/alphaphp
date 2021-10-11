@@ -30,6 +30,7 @@
 				lname text NOT NULL, 
 				fname text NOT NULL, 
 				mname text NOT NULL, 
+				deletedx INT(1) NOT NULL, 
 				created DATETIME NOT NULL DEFAULT current_timestamp(), 
 				modified TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp());";
 			$cnn->exec($sql);

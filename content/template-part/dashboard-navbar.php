@@ -45,7 +45,7 @@
 		<div class="sidebar-menu">
 			<ul>
 				<li class="header-menu">
-					<span>System</span>
+					<span>Main</span>
 				</li>
 				<li>
 					<a href="<?php echo $baklnk; ?>routes/dashboard">
@@ -55,14 +55,14 @@
 					</a>
 				</li>
 				<li class="sidebar-dropdown">
-					<a href="#">
+					<a href="<?php echo $baklnk; ?>routes/user/#" title="User">
 						<i class="fas fa-users"></i>
 						<span>User</span>
 					</a>
 					<div class="sidebar-submenu">
 						<ul>
 							<li>
-								<a href="#">All User</a>
+								<a href="<?php echo $baklnk; ?>routes/user">All User</a>
 							</li>
 							<li>
 								<a href="#">Add New</a>
@@ -120,6 +120,11 @@
 						</ul>
 					</div>
 				</li>
+
+				<li class="header-menu">
+					<span>System</span>
+				</li>
+				<?php include_once "dashboard-menu.php"; ?>
 
 				<li class="header-menu">
 					<span>Extra</span>

@@ -6,13 +6,13 @@
 ?>
 
 <main class="page-content">
-	<div class="container-fluid">
+	<div class="container-fluid bg-light-opacity">
 		<form method="post" class="needs-validation" novalidate>
 			<div class="input-group mb-3 input-group-sm">
 				<div class="input-group-prepend">
 					<span class="input-group-text">Fieldtxt</span>
 				</div>
-				<input id="idxfieldtxt" type="text" class="form-control" placeholder="Fieldtxt" name="idxfieldtxt" required>
+				<input id="idxfieldtxt" type="text" class="form-control" placeholder="Fieldtxt" name="idxfieldtxt" required autofocus>
 				<div class="valid-feedback">Valid.</div>
 				<div class="invalid-feedback">Please fill out this field.</div>
 			</div>

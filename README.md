@@ -27,3 +27,5 @@ Password: user
 
 Username: guest
 Password: guest
+
+How to Delete/Drop Database: http://localhost/alphaphp/dbase/dropdb

@@ -57,7 +57,7 @@
 </script>
 
 <main class="page-content">
-	<div class="container-fluid">
+	<div class="container-fluid bg-light-opacity">
 		<div class="d-flex">
 			<h4 class="mr-2 mb-2">CRUD</h4>
 			<a href="../../routes/crud/addnew" class="btn btn-outline-info btn-sm mr-2 mb-2">Add New</a>

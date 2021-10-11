@@ -1,0 +1,24 @@
+https://www.w3schools.com/js/tryit.asp?filename=tryjson_object_loop
+
+https://www.microverse.org/blog/how-to-loop-through-the-array-of-json-objects-in-javascript
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Looping Object Properties</h2>
+<p id="demo"></p>
+
+<script>
+const myJSON = '{"name":"John", "age":30, "car":null}';
+const myObj = JSON.parse(myJSON);
+
+let text = "";
+for (const x in myObj) {
+  text += x + ", " + myObj[x];
+}
+document.getElementById("demo").innerHTML = text;
+</script>
+
+</body>
+</html>

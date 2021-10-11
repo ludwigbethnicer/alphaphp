@@ -19,7 +19,7 @@
 ?>
 
 <main class="page-content">
-	<div class="container-fluid">
+	<div class="container-fluid bg-light-opacity">
 		<form method="post" class="needs-validation" novalidate>
 			<div class="input-group mb-3 input-group-sm">
 				<div class="input-group-prepend">
