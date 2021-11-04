@@ -39,7 +39,7 @@ img#mlogo {
 }
 
 .dboardbg {
-	background-image: url("../../storage/img/dashboard-bg.jpg");
+	background-image: url("../../storage/img/dashboard-bg.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -78,4 +78,9 @@ img#mlogo {
 }
 
 /** Dashboard Style **/
+@media only screen and (max-height: 690px) {
+	.page-wrapper {
+		height: 100%!important;
+	}
+}
 

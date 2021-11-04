@@ -1,3 +1,5 @@
+
+
 <nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
 	<a class="navbar-brand" href="<?php echo $domainhome; ?>">
 		<img id="mlogo" src="<?php echo $domainhome ?>storage/img/logo.png">

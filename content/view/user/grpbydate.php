@@ -63,10 +63,10 @@
 						echo "<td>{$createdby}</td>";
 						echo "<td>{$modified}</td>";
 						echo "<td>{$created}</td>";
-						echo "<td>{$id}</td>";
+						echo "<td>{$usercode}</td>";
 						echo "<td class='text-right'>";
 							echo "<a href='../../routes/user/editupdate' class='btn-sm btn-success btn-inline' title='Edit'><span class='far fa-edit'></span></a>";
-							echo "<a class='btn-sm btn-dark btn-inline' href='#' onclick='trash({$id})' title='Delete'><span class='fas fa-trash-alt'></span></a>";
+							echo "<a class='btn-sm btn-dark btn-inline' href='#' onclick='trash({$usercode})' title='Delete'><span class='fas fa-trash-alt'></span></a>";
 						echo '</td>';
 					echo '</tr>';
 				}

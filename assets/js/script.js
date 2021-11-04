@@ -44,6 +44,7 @@ function goBack() {
 	window.history.back();
 }
 
+/** Password **/
 function PwHideShow() {
 	var x = document.getElementById("passcode");
 	if (x.type === "password") {
@@ -81,4 +82,27 @@ function PwHideShow2() {
 		$('#show_hide_password2 i').addClass( "fa-eye-slash" );
 		$('#show_hide_password2 i').removeClass( "fa-eye" );
 	}
+}
+
+/** Mobile link target **/
+function FnPhoneURLTarget(elem) {
+	var phoneurl;
+	var value = elem.title;
+	var chooseTarget = prompt("Type 'p' for phone; 'w' for whatsapp; 't' for telegram", "p");
+	switch(chooseTarget) {
+		case "p":
+			phoneurl = "tel:" + value;
+			break;
+		case "w":
+			phoneurl = "//web.whatsapp.com/send?phone=%2B" + value + "&text=Hello&app_absent=0";
+			break;
+		case "t":
+			phoneurl = "https://telegram.me/" + value;
+			break;
+		default:
+		phoneurl = "#";
+	}
+
+	elem.target = '_blank';
+	elem.href = phoneurl;
 }

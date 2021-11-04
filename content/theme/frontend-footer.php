@@ -7,6 +7,7 @@
 	<script src="<?php echo $domainhome; ?>assets/js/sysconf.js"></script>
 	<script src="<?php echo $domainhome; ?>assets/js/script.js"></script>
 	<script src="<?php echo $domainhome; ?>content/theme/<?php echo $themename; ?>/assets/js/script.js"></script>
+	<script src="<?php echo $domainhome; ?>content/theme/<?php echo $themename; ?>/assets/js/custom-script.js"></script>
 </body>
 </html>
 

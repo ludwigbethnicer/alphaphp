@@ -51,7 +51,7 @@
 	function trash(id) {
 		var answer = confirm('Delete record User ID: '+id+' ?');
 		if (answer) {
-			window.location = '../../content/view/crud/deteled.php?upidid=' + id;
+			window.location = '../../content/view/user/deteled.php?upidid=' + id;
 		} 
 	}
 </script>
@@ -85,11 +85,11 @@
 								$tblname = "tblsysuser";
 								$prim_id = "usercode";
 								$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-								$qry_grpby = $cnn->prepare("SELECT username FROM {$tblname} WHERE deletedx=0 GROUP BY username ORDER BY {$prim_id} ASC");
+								$qry_grpby = $cnn->prepare("SELECT xposition FROM {$tblname} WHERE deletedx=0 GROUP BY xposition ORDER BY {$prim_id} ASC");
 								$qry_grpby->execute();
 								$rslt_grpby = $qry_grpby->setFetchMode(PDO::FETCH_ASSOC);
 								foreach ($qry_grpby as $row_grpby) {
-									echo "<option value='".$row_grpby['username']."'>";
+									echo "<option value='".$row_grpby['xposition']."'>";
 								}
 							?>
 						</datalist>

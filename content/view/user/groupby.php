@@ -1,12 +1,12 @@
 <?php
 
-	$tblname = "tblcrud";
-	$prim_id = "id";
+	$tblname = "tblsysuser";
+	$prim_id = "usercode";
 	include_once "../../../inc/core.php";
 	include_once "../../../inc/srvr.php";
 	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 	$groupbyx = $_GET['groupbyx'];
-	$qry = "SELECT * FROM {$tblname} WHERE fieldtxt=:groupbyx AND deletedx=0 ORDER BY fieldtxt ASC LIMIT :from_record_num, :records_per_page";
+	$qry = "SELECT * FROM {$tblname} WHERE xposition=:groupbyx AND deletedx=0 ORDER BY xml_set_processing_instruction_handler(parser, handler) ASC LIMIT :from_record_num, :records_per_page";
 	$stmt = $cnn->prepare($qry);
 	$stmt->bindValue(":groupbyx", $groupbyx);
 	$stmt->bindParam(":from_record_num", $from_record_num, PDO::PARAM_INT);
@@ -29,11 +29,18 @@
 	<thead>
 		<tr>
 			<th>No.</th>
-			<th>Fieldtext</th>
+			<th>Username</th>
+			<th>Fullname</th>
+			<th>e-mail</th>
+			<th>Mobile</th>
+			<th>Position</th>
+			<th>User Level</th>
+			<th>Online</th>
 			<th>Status</th>
+			<th>Created by</th>
 			<th>Modified</th>
 			<th>Created</th>
-			<th>Ctrl#</th>
+			<th>User ID</th>
 			<th class="text-right">Action</th>
 		</tr>
 	</thead>
@@ -45,14 +52,21 @@
 					extract($row);
 					echo '<tr>';
 						echo "<td>".$xno."</td>";
-						echo "<td>{$fieldtxt}</td>";
-						echo "<td>{$status}</td>";
+						echo "<td>{$username}</td>";
+						echo "<td>{$fullname}</td>";
+						echo "<td>{$uemail}</td>";
+						echo "<td>{$umobileno}</td>";
+						echo "<td>{$xposition}</td>";
+						echo "<td>{$ulevpos}</td>";
+						echo "<td>{$uonline}</td>";
+						echo "<td>{$ustatz}</td>";
+						echo "<td>{$createdby}</td>";
 						echo "<td>{$modified}</td>";
 						echo "<td>{$created}</td>";
-						echo "<td>{$id}</td>";
+						echo "<td>{$usercode}</td>";
 						echo "<td class='text-right'>";
-							echo "<a href='../../routes/crud/editupdate' class='btn-sm btn-success btn-inline' title='Edit'><span class='far fa-edit'></span></a>";
-							echo "<a class='btn-sm btn-dark btn-inline' href='#' onclick='trash({$id})' title='Delete'><span class='fas fa-trash-alt'></span></a>";
+							echo "<a href='../../routes/user/editupdate' class='btn-sm btn-success btn-inline' title='Edit'><span class='far fa-edit'></span></a>";
+							echo "<a class='btn-sm btn-dark btn-inline' href='#' onclick='trash({$usercode})' title='Delete'><span class='fas fa-trash-alt'></span></a>";
 						echo '</td>';
 					echo '</tr>';
 				}

@@ -2,18 +2,30 @@
 				<!-- https://www.w3schools.com/icons/fontawesome5_icons_files.asp -->
 				<!-- <?php //echo $baklnk; ?>routes/ -->
 
-				<li class="sidebar-dropdown"> <!-- Sample Menu 1 -->
-					<a href="#" title="Sample Menu">
+				<li class="sidebar-dropdown"> <!-- Human Resource -->
+					<a href="#" title="Human Resource">
 						<i class="far fa-file-alt"></i>
-						<span>Sample Menu 1</span>
+						<span>Human Resource</span>
 					</a>
 					<div class="sidebar-submenu">
 						<ul>
 							<li>
-								<a href="#">Sample Sub-Menu 1</a>
+								<a href="#">Personal Profile</a>
 							</li>
 							<li>
-								<a href="#">Sample Sub-Menu 2</a>
+								<a href="#">Daily Time Record</a>
+							</li>
+							<li>
+								<a href="#">Payroll</a>
+							</li>
+							<li>
+								<a href="#">Benifits</a>
+							</li>
+							<li>
+								<a href="#">Talent Acquisition</a>
+							</li>
+							<li>
+								<a href="#">Job Board</a>
 							</li>
 						</ul>
 					</div>
@@ -27,10 +39,16 @@
 					<div class="sidebar-submenu">
 						<ul>
 							<li>
+								<a href="#">Item(s)</a>
+							</li>
+							<li>
 								<a href="#">All Sale</a>
 							</li>
 							<li>
 								<a href="#">Pay</a>
+							</li>
+							<li>
+								<a href="#">Inventory</a>
 							</li>
 						</ul>
 					</div>
@@ -39,7 +57,7 @@
 				<li class="sidebar-dropdown"> <!-- Reporst -->
 					<a href="#" title="Sample Menu">
 						<i class="far fa-file-alt"></i>
-						<span>Reports</span>
+						<span>Logs / Reports</span>
 					</a>
 					<div class="sidebar-submenu">
 						<ul>
@@ -52,6 +70,23 @@
 							</li>
 							<li>
 								<a href="#">System Log</a>
+							</li>
+						</ul>
+					</div>
+				</li>
+
+				<li class="sidebar-dropdown"> <!-- Sample Menu 1 -->
+					<a href="#" title="Sample Menu">
+						<i class="far fa-file-alt"></i>
+						<span>Sample Menu 1</span>
+					</a>
+					<div class="sidebar-submenu">
+						<ul>
+							<li>
+								<a href="#">Sample Sub-Menu 1</a>
+							</li>
+							<li>
+								<a href="#">Sample Sub-Menu 2</a>
 							</li>
 						</ul>
 					</div>

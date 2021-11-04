@@ -24,20 +24,20 @@
 <table id="listRecView" class="table table-hover table-sm">
 	<thead>
 		<tr>
-			<th>No.</th>
-			<th>Username</th>
-			<th>Fullname</th>
-			<th>e-mail</th>
-			<th>Mobile</th>
-			<th>Position</th>
-			<th>User Level</th>
-			<th>Online</th>
-			<th>Status</th>
-			<th>Created by</th>
-			<th>Date Modified</th>
-			<th>Date Created</th>
-			<th>User ID</th>
-			<th class="text-right">Action</th>
+			<th class="align-middle">No.</th>
+			<th class="align-middle">Username</th>
+			<th class="align-middle">Fullname</th>
+			<th class="align-middle">e-mail</th>
+			<th class="align-middle">Mobile</th>
+			<th class="align-middle">Position</th>
+			<th class="align-middle">User Level</th>
+			<th class="align-middle">Online</th>
+			<th class="align-middle">Status</th>
+			<th class="align-middle">Created by</th>
+			<th class="align-middle">Date Modified</th>
+			<th class="align-middle">Date Created</th>
+			<th class="align-middle">User ID</th>
+			<th class="text-right align-middle">Action</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -50,8 +50,8 @@
 						echo "<td>".$xno."</td>";
 						echo "<td>{$username}</td>";
 						echo "<td>{$fullname}</td>";
-						echo "<td>{$uemail}</td>";
-						echo "<td>{$umobileno}</td>";
+						echo "<td><a href='mailto:{$uemail}' target='_blank'>{$uemail}</a></td>";
+						echo "<td><a href='#' title='{$umobileno}' onclick='FnPhoneURLTarget(this);'>{$umobileno}</a></td>";
 						echo "<td>{$xposition}</td>";
 						echo "<td>{$ulevpos}</td>";
 						echo "<td>{$uonline}</td>";

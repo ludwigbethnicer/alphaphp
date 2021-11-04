@@ -99,6 +99,7 @@ font-size: 0.9rem;
 	border-radius: 0 4px 4px 0px;
 	width: 35px;
 	transition-delay: 0.3s;
+	z-index: 1;
 }
 .page-wrapper.toggled #show-sidebar {
 	left: -40px;
@@ -132,6 +133,7 @@ font-size: 0.9rem;
 	height: calc(100% - 30px);
 	overflow-y: auto;
 	position: relative;
+	padding-bottom: 180px;
 }
 
 .sidebar-content.desktop {
@@ -368,6 +370,10 @@ font-size: 0.9rem;
 	overflow-x: hidden;
 }
 
+.page-content {
+	height: 100vh;
+}
+
 /*------scroll bar---------------------*/
 
 ::-webkit-scrollbar {
@@ -480,4 +486,19 @@ font-size: 0.9rem;
 
 .chiller-theme .sidebar-footer>a:last-child {
 	border-right: none;
+}
+
+/** DataTable **/
+.dataTables_wrapper input, 
+.dataTables_wrapper select {
+	background-color: #fff!important;
+}
+
+#listRecView tfoot tr td input, 
+#listRecView select {
+	width: 100%;
+}
+#listRecView tfoot tr td.remove-dropdown select, 
+#listRecView tfoot tr td.remove-dropdown input {
+	display: none;
 }
