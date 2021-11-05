@@ -59,7 +59,7 @@
 									<a href="../../routes/crud-datatable/editupdate?id=<?php echo $id; ?>" class="btn-sm btn-success btn-inline" title="Edit">
 										<span class="far fa-edit"></span>
 									</a>
-									<a class="btn-sm btn-dark btn-inline ml-1" href="#" onclick="trash(<?php echo $id; ?>)" title="Delete">
+									<a class="btn-sm btn-dark btn-inline ml-1" href="#" onclick="trash(<?php echo $id2; ?>)" title="Delete">
 										<span class="fas fa-trash-alt"></span>
 									</a>
 								</td>
