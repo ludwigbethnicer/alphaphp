@@ -4,7 +4,7 @@
 	$prim_id = "usercode";
 	include_once "../../../inc/core.php";
 	include_once "../../../inc/srvr.php";
-	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+	include_once "../../../inc/cnndb.php";
 	$fltrbydate = date("Y-m-d", strtotime($_GET['fltrbydate']));
 	$qry = "SELECT * FROM {$tblname} WHERE DATE_FORMAT(created, '%Y-%m-%d')=:fltrbydate AND deletedx=0 ORDER BY {$prim_id} DESC LIMIT :from_record_num, :records_per_page";
 	$stmt = $cnn->prepare($qry);

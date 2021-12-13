@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: #c01217;">
+<nav class="navbar navbar-expand-sm navbar-dark sticky-top" style="background-color: transparent;">
 	<a class="navbar-brand" href="<?php echo $domainhome; ?>">
 		<img id="mlogo" src="<?php echo $domainhome; ?>storage/img/logo.png">
 	</a>

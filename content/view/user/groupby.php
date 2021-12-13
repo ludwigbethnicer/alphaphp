@@ -4,9 +4,9 @@
 	$prim_id = "usercode";
 	include_once "../../../inc/core.php";
 	include_once "../../../inc/srvr.php";
-	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+	include_once "../../../inc/cnndb.php";
 	$groupbyx = $_GET['groupbyx'];
-	$qry = "SELECT * FROM {$tblname} WHERE xposition=:groupbyx AND deletedx=0 ORDER BY xml_set_processing_instruction_handler(parser, handler) ASC LIMIT :from_record_num, :records_per_page";
+	$qry = "SELECT * FROM {$tblname} WHERE xposition=:groupbyx AND deletedx=0 ORDER BY {$prim_id} ASC LIMIT :from_record_num, :records_per_page";
 	$stmt = $cnn->prepare($qry);
 	$stmt->bindValue(":groupbyx", $groupbyx);
 	$stmt->bindParam(":from_record_num", $from_record_num, PDO::PARAM_INT);

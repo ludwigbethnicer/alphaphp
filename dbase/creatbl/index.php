@@ -6,4 +6,7 @@
 		include_once "../tbl/creatbl/autoid.tbl.php";
 		include_once "../tbl/creatbl/user.autoid.tbl.php";
 		include_once "../tbl/creatbl/user.tbl.php";
+
+		include_once "../tbl/creatbl/contactform.tbl.php";
+		include_once "../tbl/creatbl/item.tbl.php";
 		echo "<a href='../../'>Continue..</a>";

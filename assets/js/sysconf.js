@@ -10,5 +10,5 @@ xmlhttp_sysconfig.onreadystatechange = function() {
 		document.getElementById("themeScript").src = myObj_sysconfig.ThemeName+"/assets/js/script.js";
 	}
 };
-xmlhttp_sysconfig.open("GET", "inc/webconfig", true);
+xmlhttp_sysconfig.open("GET", "inc/webconfig/index.php", true);
 xmlhttp_sysconfig.send();

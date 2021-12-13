@@ -33,6 +33,7 @@
 		$maddress = $row_webconf['maddress'];
 		$themename = $row_webconf['themename'];
 		$domainhome = $row_webconf['domainhome'];
+		$fontglobal = $row_webconf['fontglobal'];
 		$geomap = $row_webconf['geo_map'];
 		$idletime = $row_webconf['idletime'] * 60;
 	} catch(PDOException $e) {

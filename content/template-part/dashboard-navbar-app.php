@@ -39,7 +39,7 @@
 					<div class="sidebar-submenu">
 						<ul>
 							<li>
-								<a href="#">Item(s)</a>
+								<a href="<?php echo $baklnk; ?>routes/item">Item(s)</a>
 							</li>
 							<li>
 								<a href="#">All Sale</a>

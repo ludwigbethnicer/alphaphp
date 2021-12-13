@@ -1,4 +1,5 @@
 <?php
+
 	// ID Format :	 2020 11 24 000 	||		4 2 2 3		||		=> 11
 	include_once "../../inc/cnndb.php";
 	$tblname = "tblsysuser";
@@ -15,7 +16,7 @@
 	} else {
 		try {
 			$sql = "CREATE TABLE IF NOT EXISTS {$tblname2}(
-				usercode VARCHAR(11) PRIMARY KEY, 
+				usercode VARCHAR(254) PRIMARY KEY, 
 				username VARCHAR(254) NOT NULL, 
 				passcode VARCHAR(254) NOT NULL, 
 				pin VARCHAR(6) NOT NULL, 
@@ -23,6 +24,8 @@
 				uemail VARCHAR(254) NOT NULL, 
 				umobileno VARCHAR(254) NOT NULL, 
 				xposition VARCHAR(254) NOT NULL, 
+				secquest VARCHAR(254) NOT NULL, 
+				secans VARCHAR(254) NOT NULL, 
 				ulevpos INT(3) NOT NULL, 
 				uonline INT(1) NOT NULL, 
 				ustatz INT(1) NOT NULL, 
@@ -30,6 +33,7 @@
 				lname text NOT NULL, 
 				fname text NOT NULL, 
 				mname text NOT NULL, 
+				img_url text NOT NULL, 
 				deletedx INT(1) NOT NULL, 
 				created DATETIME NOT NULL DEFAULT current_timestamp(), 
 				modified TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp());";
@@ -49,6 +53,8 @@
 					uemail, 
 					umobileno, 
 					xposition, 
+					secquest, 
+					secans, 
 					ulevpos, 
 					uonline, 
 					ustatz, 
@@ -66,6 +72,8 @@
 					'admin@info.com', 
 					'+639154826025', 
 					'Administrator', 
+					'What is your the name of your favorite dog?', 
+					'you', 
 					'1', 
 					'0', 
 					'1', 
@@ -81,7 +89,9 @@
 					'User U. Resu', 
 					'user@info.com', 
 					'+639123456789', 
-					'User', 
+					'User',  
+					'What is your the name of your favorite dog?', 
+					'me', 
 					'2', 
 					'0', 
 					'1', 
@@ -97,7 +107,9 @@
 					'Guest G. Tseug', 
 					'guest@info.com', 
 					'+639123456789', 
-					'Guest', 
+					'Guest',  
+					'What is your the name of your favorite dog?', 
+					'him', 
 					'3', 
 					'0', 
 					'0', 

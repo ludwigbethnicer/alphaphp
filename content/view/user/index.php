@@ -84,7 +84,7 @@
 							<?php
 								$tblname = "tblsysuser";
 								$prim_id = "usercode";
-								$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+								include_once "../../inc/cnndb.php";
 								$qry_grpby = $cnn->prepare("SELECT xposition FROM {$tblname} WHERE deletedx=0 GROUP BY xposition ORDER BY {$prim_id} ASC");
 								$qry_grpby->execute();
 								$rslt_grpby = $qry_grpby->setFetchMode(PDO::FETCH_ASSOC);

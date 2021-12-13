@@ -2,7 +2,7 @@
 
 	$tblname = "tblsysuser";
 	$prim_id = "usercode";
-	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+	include_once "../../inc/cnndb.php";
 	$qry = "SELECT username, fullname, uemail, umobileno, xposition, ulevpos, uonline, ustatz, createdby, modified, created, {$prim_id} FROM {$tblname} WHERE deletedx=0 ORDER BY {$prim_id} DESC LIMIT :from_record_num, :records_per_page";
 	$stmt = $cnn->prepare($qry);
 	$stmt->bindParam(":from_record_num", $from_record_num, PDO::PARAM_INT);

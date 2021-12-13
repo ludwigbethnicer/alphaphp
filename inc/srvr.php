@@ -7,6 +7,7 @@
 	$err		= ""; // Database Error Connection
 	$cnn		= null;
 	$dir		= "/alphaphp/"; // Domain Directory
+	$lnkfont	= "//fonts.googleapis.com/css?family=Sofia"; // Google Font
 
 	$company	= "Company"; // Company Name
 	$title		= "Title"; // System Title
@@ -17,3 +18,5 @@
 	$mobileno	= "+63 909 482 6025"; // Mobile Number
 	$address	= "Sed ut perspiciatis unde omnis iste natus"; // Address
 	$gps		= "7.784875,122.592581"; // Google Map Location
+
+	$gauthlogin	= "915105451708-09slv78bomdcnij292kvgmfijv229f3i.apps.googleusercontent.com";

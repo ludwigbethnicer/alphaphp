@@ -10,10 +10,12 @@
 					echo '</div>';
 				} else {
 					$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-					$query = "SELECT * FROM tblsysuser WHERE ustatz=1 AND username=:username AND passcode=:passcode LIMIT 1";
+					$query = "SELECT * FROM tblsysuser WHERE username=:username OR uemail=:uemail OR umobileno=:uemail AND passcode=:passcode AND ustatz=1 LIMIT 1";
 					$statement = $cnn->prepare($query);
 					$statement->execute(array(
 						'username'	=>	$_POST["username"],
+						'uemail'	=>	$_POST["username"],
+						'umobileno'	=>	$_POST["username"],
 						'passcode'	=>	md5($_POST["passcode"])));
 
 					$row = $statement->fetch(PDO::FETCH_ASSOC);
@@ -53,5 +55,3 @@
 	} else {
 		header('location:../../');
 	}
-	
-?>

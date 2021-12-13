@@ -1,4 +1,6 @@
-#show_hide_password .fa-eye-slash {
+#show_hide_password .fa-eye-slash, 
+#show_hide_password1 .fa-eye-slash, 
+#show_hide_password2 .fa-eye-slash {
 	cursor: pointer;
 }
 
@@ -6,10 +8,10 @@ img#mlogo {
 	max-height: 48px;
 }
 
-/** Default Style **/
+/** Default Style - Start **/
 .w360center {
 	width: 100%;
-	max-width: 453px;
+	max-width: 468px;
 	margin: 0 auto;
 	margin-bottom: 4rem;
 }
@@ -33,51 +35,29 @@ img#mlogo {
 	padding-right: 5px!important;
 }
 
-/** Dashboard Style **/
-.bg-light-opacity {
-	background-color: #f8f9fa6b!important;
+#myAuth .g-signin2 {
+	top: 9px;
+	left: 18px;
 }
 
-.dboardbg {
-	background-image: url("../../storage/img/dashboard-bg.png");
-	background-repeat: no-repeat;
-	background-size: cover;
+#imgogsrc2 {
+	margin-left: auto;
+	margin-right: auto;
 }
 
-#listRecView .btn-sm, 
-#listRecView2 .btn-sm {
-	padding: .25rem!important;
-}
-
-#myDashB .alert {
-	padding-top: 6px;
-	padding-bottom: 0;
-}
-
-#myDashB .alert-dismissible .close {
-	padding: 4px;
-}
-
-#myDashB .footer {
+#topnotchaer {
 	position: fixed;
-	left: 0;
-	bottom: 0;
-	width: 100%;
-	background-color: transparent;
-	color: inherit;
-	font-style: 
+	bottom: 12px;
+	right: 32px;
 }
 
-@media only screen and (max-width: 1280px) {
-	.table-responsive-sm {
-		display: block;
-		width: 100%;
-		overflow-x: auto;
-		webkit-overflow-scrolling: touch;
-	}	
+#dash-itemprod .img-thumbnail {
+	max-height: 182px;
+	margin: 0 auto;
 }
 
-/** Dashboard Style **/
+/** Default Style - End **/
+
 @media only screen and (max-height: 690px) {
 	.page-wrapper {
 		height: 100%!important;

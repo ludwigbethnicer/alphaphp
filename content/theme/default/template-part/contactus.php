@@ -11,21 +11,65 @@
 				<p><a class="text-body" href="//facebook.com" target="_blank"><span class="fab fa-facebook-square"></span> facebookname | facebookid</a></p>
 			</div>
 			<div class="col-sm-7 slideanim">
-				<div class="row">
-					<div class="col-sm-6 form-group">
-						<input class="form-control" id="name" name="name" placeholder="Name" type="text" required>
+				<form method="post" class="needs-validation" novalidate>
+					<div class="row">
+						<div class="col-sm-6 form-group">
+							<input class="form-control" id="fullname" name="fullname" placeholder="Name" type="text" required autofocus>
+						</div>
+						<div class="col-sm-6 form-group">
+							<input class="form-control" id="mphone" name="mphone" placeholder="Phone" type="text">
+						</div>
 					</div>
-					<div class="col-sm-6 form-group">
-						<input class="form-control" id="email" name="email" placeholder="Email" type="email" required>
+					<div class="form-group">
+						<input class="form-control" id="emailx" name="emailx" placeholder="Email" type="email" required>
 					</div>
-				</div>
-				<textarea class="form-control" id="comments" name="comments" placeholder="Comment" rows="5"></textarea><br>
-				<div class="row">
-					<div class="col-sm-12 form-group">
-						<button class="btn btn-secondary pull-right" type="submit">Send</button>
+					<div class="form-group">
+						<input class="form-control" id="subjects" name="subjects" placeholder="Subject" type="text">
 					</div>
-				</div>
+					<textarea class="form-control" id="messages" name="messages" placeholder="Message" rows="5" required></textarea><br>
+					<div class="row">
+						<div class="col-sm-12 form-group">
+							<input type="submit" name="btnSend" value="Send" class="btn btn-warning pull-right">
+						</div>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
 </div>
+
+<?php
+
+	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+
+	try {
+		if (isset($_POST['btnSend'])) {
+			if (empty($_POST['fullname']) || empty($_POST['emailx']) || empty($_POST['messages'])) {
+				$err_msg = "Please fill-up the form properly.";
+			} else {
+				$stblname = "tbl_contactform";
+				$qry_insert = "INSERT INTO {$stblname} SET fullname=:fullname, email=:emailx, phone=:mphone, subject=:subjects, message=:messages, deleted=0";
+				$stmt_insert = $cnn->prepare($qry_insert);
+				$fullname = $_POST['fullname'];
+				$emailx = $_POST['emailx'];
+				$mphone = $_POST['mphone'];
+				$subjects = $_POST['subjects'];
+				$messages = $_POST['messages'];
+				$stmt_insert->bindParam(':fullname', $fullname);
+				$stmt_insert->bindParam(':emailx', $emailx);
+				$stmt_insert->bindParam(':mphone', $mphone);
+				$stmt_insert->bindParam(':subjects', $subjects);
+				$stmt_insert->bindParam(':messages', $messages);
+				$stmt_insert->execute();
+
+				$err_msg = "Message successfully sent.";
+				echo "<script>alert('".$err_msg."');</script>";
+			}
+		}
+	} catch (PDOException $error) {
+		$err_msg = $error->getMessage();
+		echo "<p>Error: {$err_msg}</p>";
+		die;
+	}
+
+?>

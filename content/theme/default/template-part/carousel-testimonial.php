@@ -1,4 +1,4 @@
-<div class="pt-5 pb-5 border-bottom">
+<div class="pt-5 pb-5" style="background-color: #fff2f4;">
 	<div class="container">
 		<h2 class="text-center">Testimonial</h2>
 		<br>

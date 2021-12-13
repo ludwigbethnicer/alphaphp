@@ -14,7 +14,7 @@
 	} else {
 		try {
 			$sql = "CREATE TABLE IF NOT EXISTS {$tblname2}(
-				id INT(3) UNSIGNED ZEROFILL NOT NULL AUTO_INCREMENT PRIMARY KEY, 
+				id INT(11) AUTO_INCREMENT PRIMARY KEY, 
 				fieldtxt TEXT NOT NULL, 
 				created TIMESTAMP NOT NULL DEFAULT current_timestamp());";
 			$cnn->exec($sql);

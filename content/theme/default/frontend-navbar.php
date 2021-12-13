@@ -1,8 +1,6 @@
-
-
-<nav class="navbar navbar-expand-sm bg-dark navbar-dark sticky-top">
+<nav class="navbar navbar-expand-sm bg-danger navbar-danger sticky-top">
 	<a class="navbar-brand" href="<?php echo $domainhome; ?>">
-		<img id="mlogo" src="<?php echo $domainhome ?>storage/img/logo.png">
+		<img id="mlogo" src="<?php echo $domainhome ?>storage/img/logo-white.png">
 	</a>
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
 		<span class="navbar-toggler-icon"></span>
@@ -11,6 +9,9 @@
 		<ul class="navbar-nav mr-auto">
 			<li class="nav-item">
 				<a class="nav-link" href="<?php echo $domainhome; ?>routes/aboutus">About</a>
+			</li>
+			<li class="nav-item">
+				<a class="nav-link" href="<?php echo $domainhome; ?>routes/productsitems">Products</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link" href="<?php echo $domainhome; ?>routes/testimonials">Testimonial</a>

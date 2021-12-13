@@ -488,7 +488,56 @@ font-size: 0.9rem;
 	border-right: none;
 }
 
-/** DataTable **/
+/** Custom Style **/
+
+.bg-light-opacity {
+	background-color: #f8f9fa6b!important;
+}
+
+.dboardbg {
+	background-image: url("../../storage/img/dashboard-bg.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#listRecView .btn-sm, 
+#listRecView2 .btn-sm {
+	padding: .25rem!important;
+}
+
+#myDashB .alert {
+	padding-top: 6px;
+	padding-bottom: 0;
+}
+
+#myDashB .alert-dismissible .close {
+	padding: 4px;
+}
+
+#myDashB .footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background-color: transparent;
+	color: inherit;
+	font-style: 
+}
+
+#myDashB .card .card-icon i {
+	width: 50px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	border-radius: 50%;
+	font-size: 3rem;
+	color: #98a4c7;
+}
+
+#myDashB .w360center {
+	margin-bottom: unset;
+}
+
 .dataTables_wrapper input, 
 .dataTables_wrapper select {
 	background-color: #fff!important;
@@ -501,4 +550,13 @@ font-size: 0.9rem;
 #listRecView tfoot tr td.remove-dropdown select, 
 #listRecView tfoot tr td.remove-dropdown input {
 	display: none;
+}
+
+@media only screen and (max-width: 1440px) {
+	.table-responsive-sm {
+		display: block;
+		width: 100%;
+		overflow-x: auto;
+		webkit-overflow-scrolling: touch;
+	}
 }

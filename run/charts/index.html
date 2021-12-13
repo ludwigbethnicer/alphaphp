@@ -1,0 +1,42 @@
+<html>
+  <head>
+    <script type="text/javascript" src="../../assets/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+          ['Checkpoints', 'Yes', 'No', 'N/A'],
+          ['BIOS', 100, 0, 0],
+          ['BOS Control', 100, 0, 0],
+          ['Branch Acct', 100, 0, 0],
+          ['Desktop', 100, 0, 0],
+          ['Player & Games', 100, 0, 0],
+          ['Taskbar', 100, 0, 0],
+          ['Date & Time', 100, 0, 0],
+          ['Control Panel', 55, 45, 0],
+          ['Run CMD', 100, 0, 0],
+          ['RegEdit', 10, 70, 20],
+          ['Right Click', 50, 40, 10],
+          ['Comp. Mngt.', 90, 0, 10],
+          ['Internet Access', 80, 10, 10]
+        ]);
+
+        var options = {
+          chart: {
+            title: 'System Security',
+            subtitle: 'Secured, Unsecured, and Not Applicable: as of 2020 - 2021',
+          }
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('columnchart_material'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+    </script>
+  </head>
+  <body>
+    <div id="columnchart_material" style="width: auto; height: 100%;"></div>
+  </body>
+</html>

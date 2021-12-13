@@ -2,7 +2,7 @@
 	include_once "../../../content/template-part/dashboard-navbar.php";
 	include_once "../../../inc/core.php";
 	include_once "../../../inc/srvr.php";
-	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+	include_once "../../../inc/cnndb.php";
 ?>
 
 <main class="page-content">
@@ -18,7 +18,7 @@
 			</div>
 			<div class="row justify-content-end">
 				<input type="submit" name="btnSave" value="Save" class="btn btn-info btn-sm m-2">
-				<a href="../../../routes/crud" class="btn btn-danger btn-sm m-2">Close</a>
+				<a href="../../../routes/user" class="btn btn-danger btn-sm m-2">Close</a>
 			</div>
 		</form>
 	</div>
@@ -32,7 +32,7 @@
 				$err_msg = "Please fill-up the form properly.";
 			} else {
 				// search for duplicate
-				$stblname = "tblcrud";
+				$stblname = "tblsysuser";
 				$dupli_txt = "fieldtxt";
 				$qry_dupli = "SELECT {$dupli_txt} FROM {$stblname} WHERE {$dupli_txt}=:txtfields";
 				$stmt_dupli = $cnn->prepare($qry_dupli);

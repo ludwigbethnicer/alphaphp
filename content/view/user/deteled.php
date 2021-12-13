@@ -1,19 +1,19 @@
 <?php
 
-	$tblname = "tblcrud";
-	$prim_id = "id";
+	$tblname = "tblsysuser";
+	$prim_id = "usercode";
 	include_once "../../../inc/core.php";
 	include_once "../../../inc/srvr.php";
-	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+	include_once "../../../inc/cnndb.php";
 
 	try {
 		$upidid = isset($_GET['upidid']) ? $_GET['upidid'] : die('ERROR: Record ID not found.');
 
-		$qry = "UPDATE {$tblname} SET deletedx = 1 WHERE id = :upidid";
+		$qry = "UPDATE {$tblname} SET deletedx = 1 WHERE {$prim_id} = :upidid";
 		$stmt = $cnn->prepare($qry);
 		$stmt->bindParam(':upidid', $upidid);
 		if ($stmt->execute()) {
-			header('Location:../../../routes/crud/?action=deleted&upidid='.$upidid);
+			header('Location:../../../routes/user/?action=deleted&upidid='.$upidid);
 		} else {
 			die('Unable to delete record.');
 		}

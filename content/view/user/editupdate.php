@@ -2,7 +2,7 @@
 	include_once "../../../content/template-part/dashboard-navbar.php";
 	include_once "../../../inc/core.php";
 	include_once "../../../inc/srvr.php";
-	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+	include_once "../../../inc/cnndb.php";
 
 	$idedit = $_GET['id'];
 
@@ -31,7 +31,7 @@
 			</div>
 			<div class="row justify-content-end">
 				<input type="submit" name="btnUpdate" value="Update" class="btn btn-warning btn-sm m-2">
-				<a href="../../../routes/crud" class="btn btn-danger btn-sm m-2">Close</a>
+				<a href="../../../routes/user" class="btn btn-danger btn-sm m-2">Close</a>
 			</div>
 		</form>
 	</div>

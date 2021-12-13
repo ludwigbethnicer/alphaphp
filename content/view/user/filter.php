@@ -4,9 +4,9 @@
 	$prim_id = "usercode";
 	include_once "../../../inc/core.php";
 	include_once "../../../inc/srvr.php";
-	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-	$searchforx = $_GET['searchforx'];
-	$qry = "SELECT * FROM {$tblname} WHERE deletedx = 0 AND fullname LIKE :searchforx OR {$prim_id} LIKE :searchforx ORDER BY {$prim_id} DESC LIMIT :from_record_num, :records_per_page";
+	include_once "../../../inc/cnndb.php";
+	$searchforx = trim($_GET['searchforx']);
+	$qry = "SELECT * FROM {$tblname} WHERE fullname LIKE :searchforx OR {$prim_id} LIKE :searchforx AND deletedx=0 ORDER BY {$prim_id} DESC LIMIT :from_record_num, :records_per_page";
 	$stmt = $cnn->prepare($qry);
 	$stmt->bindValue(":searchforx", '%'.$searchforx.'%');
 	$stmt->bindParam(":from_record_num", $from_record_num, PDO::PARAM_INT);

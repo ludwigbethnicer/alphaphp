@@ -5,6 +5,7 @@
 	$tblname2 = strtoupper($tblname);
 	$TableTitle = "Configuration";
 	$msg_insert = "Insert default data for {$TableTitle} <br>";
+	$dettodet = date("Ymd");
 
 	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 	$chksql = "SELECT 1 FROM {$tblname} LIMIT 1";
@@ -31,6 +32,8 @@
 				idletime INT(11) NOT NULL, 
 				themename VARCHAR(254) NOT NULL, 
 				domainhome VARCHAR(254) NOT NULL, 
+				fontglobal TEXT NOT NULL, 
+				datetoday VARCHAR(8) NOT NULL, 
 				created DATETIME NOT NULL, 
 				primary_color VARCHAR(254) NOT NULL, 
 				second_color VARCHAR(254) NOT NULL, 
@@ -62,6 +65,8 @@
 					maddress, 
 					themename, 
 					domainhome, 
+					fontglobal, 
+					datetoday, 
 					idletime, 
 					geo_map, 
 					created) 
@@ -80,6 +85,8 @@
 					'".$address."', 
 					'default', 
 					'".$dir."', 
+					'".$lnkfont."', 
+					'".$dettodet."', 
 					5, 
 					'".$gps."', 
 					current_timestamp()
@@ -92,10 +99,3 @@
 		}
 		$cnn = null;
 	}
-
-
-
-
-
-
-

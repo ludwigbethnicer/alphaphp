@@ -4,18 +4,22 @@
 		<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
 		<li data-target="#myCarousel" data-slide-to="1"></li>
 		<li data-target="#myCarousel" data-slide-to="2"></li>
+		<li data-target="#myCarousel" data-slide-to="3"></li>
 	</ul>
 
 	<!-- The slideshow -->
 	<div class="carousel-inner">
 		<div class="carousel-item active">
-			<img src="<?php echo $domainhome; ?>storage/img/la.jpg" alt="Los Angeles">
+			<img src="<?php echo $domainhome; ?>storage/img/Picture1.jpg" alt="Los Angeles">
 		</div>
 		<div class="carousel-item">
-			<img src="<?php echo $domainhome; ?>storage/img/chicago.jpg" alt="Chicago">
+			<img src="<?php echo $domainhome; ?>storage/img/banner2.jpg" alt="Chicago">
 		</div>
 		<div class="carousel-item">
-			<img src="<?php echo $domainhome; ?>storage/img/ny.jpg" alt="New York">
+			<img src="<?php echo $domainhome; ?>storage/img/banner3.jpg" alt="New York">
+		</div>
+		<div class="carousel-item">
+			<img src="<?php echo $domainhome; ?>storage/img/banner3.jpg" alt="New York">
 		</div>
 	</div>
 

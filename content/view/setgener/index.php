@@ -69,9 +69,9 @@
 				<div class="col-lg-6">
 					<div class="input-group mb-3 input-group-sm">
 						<div class="input-group-prepend">
-							<span class="input-group-text">Sub Title</span>
+							<span class="input-group-text">Tagline</span>
 						</div>
-						<input id="idxquote_title" type="text" class="form-control" placeholder="Sub Title" name="idxquote_title" required value="<?php echo $vquote_title; ?>">
+						<textarea class="form-control" id="idxquote_title" name="idxquote_title" placeholder="Tagline" required><?php echo $vquote_title; ?></textarea>				
 						<div class="valid-feedback">Valid.</div>
 						<div class="invalid-feedback">Please fill out this field.</div>
 					</div>

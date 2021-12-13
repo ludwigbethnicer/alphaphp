@@ -1,5 +1,36 @@
 /** Theme Style **/
 
+.frontpageimglogo {
+	height: auto;
+	max-height: 300px;
+	margin-left: auto;
+}
+
+.dropdown-toggle::after {
+	margin-left: 12px;
+}
+
+.nav-link, .nav-link:hover {
+	color: #fff;
+}
+
+.img-front-product {
+	width: auto;
+	max-height: 182px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+#productitemz .card-title {
+	display:inline-block;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	max-width: 13ch;
+}
+
+/** Carousel Style **/
+
 .carousel-inner img {
 	width: 100%;
 	height: 100%;
