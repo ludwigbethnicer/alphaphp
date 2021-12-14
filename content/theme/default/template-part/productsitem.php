@@ -20,10 +20,10 @@
 		?>
 
 			<div class="card border-0">
-				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id ?>.jpg" alt="Card image">
+				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id.'.'.$extnem; ?>" alt="Card image">
 				<div class="card-body text-right">
-					<h4 class="card-title">Product Name</h4>
-					<p class="card-text">P100.00</p>
+					<h4 class="card-title"><?php echo $name; ?></h4>
+					<p class="card-text"><?php echo $dcurrencyx.' '.$sell_price; ?></p>
 					<a href="#" class="btn btn-danger">Add to Cart</a>
 				</div>
 			</div>
@@ -37,7 +37,36 @@
 				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
 				<div class="card-body text-right">
 					<h4 class="card-title">No Item Available</h4>
-					<p class="card-text">P0.00</p>
+				</div>
+			</div>
+			<div class="card border-0">
+				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
+				<div class="card-body text-right">
+					<h4 class="card-title">No Item Available</h4>
+				</div>
+			</div>
+			<div class="card border-0">
+				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
+				<div class="card-body text-right">
+					<h4 class="card-title">No Item Available</h4>
+				</div>
+			</div>
+			<div class="card border-0">
+				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
+				<div class="card-body text-right">
+					<h4 class="card-title">No Item Available</h4>
+				</div>
+			</div>
+			<div class="card border-0">
+				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
+				<div class="card-body text-right">
+					<h4 class="card-title">No Item Available</h4>
+				</div>
+			</div>
+			<div class="card border-0">
+				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
+				<div class="card-body text-right">
+					<h4 class="card-title">No Item Available</h4>
 				</div>
 			</div>
 

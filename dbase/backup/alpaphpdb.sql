@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 13, 2021 at 10:25 AM
+-- Generation Time: Dec 14, 2021 at 03:52 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -59,6 +59,9 @@ CREATE TABLE `conf` (
   `ninght_color` varchar(254) NOT NULL,
   `tenth_color` varchar(254) NOT NULL,
   `geo_map` text NOT NULL,
+  `build_by` varchar(254) NOT NULL,
+  `cwebzite` varchar(254) NOT NULL,
+  `dcurrencyx` varchar(15) NOT NULL,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -66,8 +69,8 @@ CREATE TABLE `conf` (
 -- Dumping data for table `conf`
 --
 
-INSERT INTO `conf` (`id`, `cmpny_name`, `sys_name`, `sys_ver`, `sys_logo`, `navbar_logo`, `favicon`, `quote_title`, `ceo_pres`, `memail`, `telno`, `mobileno`, `maddress`, `idletime`, `themename`, `domainhome`, `fontglobal`, `datetoday`, `created`, `primary_color`, `second_color`, `third_color`, `forth_color`, `fifth_color`, `sixth_color`, `seventh_color`, `eight_color`, `ninght_color`, `tenth_color`, `geo_map`, `modified`) VALUES
-(1, 'Company', 'Title', '1.0.0', 'Logo.png', 'Logo.svg', 'Logo.png', 'This letter is my genuine apology for disappearing from the work without informing you beforehand. As a matter of fact, I found myself in circumstances that were beyond my control. For that reason, I had no choice but to take time off from work without i', 'Owner T. Businness', 'info@contact.com', '+32 333 2469', '+63 909 482 6025', 'Sed ut perspiciatis unde omnis iste natus', 5, 'default', '/alphaphp/', '', '20211211', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.784875,122.592581', '2021-12-12 23:51:54');
+INSERT INTO `conf` (`id`, `cmpny_name`, `sys_name`, `sys_ver`, `sys_logo`, `navbar_logo`, `favicon`, `quote_title`, `ceo_pres`, `memail`, `telno`, `mobileno`, `maddress`, `idletime`, `themename`, `domainhome`, `fontglobal`, `datetoday`, `created`, `primary_color`, `second_color`, `third_color`, `forth_color`, `fifth_color`, `sixth_color`, `seventh_color`, `eight_color`, `ninght_color`, `tenth_color`, `geo_map`, `build_by`, `cwebzite`, `dcurrencyx`, `modified`) VALUES
+(1, 'KJJ\'s Closets', 'KJJ\'s Closets', '1.0.0', 'Logo.png', 'Logo.svg', 'Logo.png', 'Bring the customers closer to their dream fashion.', 'Baay Katherine', 'kjjscloset@gmail.com', '+32 333 2469', '+63 967 840 7618', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 5, 'default', '/alphaphp/', '', '20211211', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.6010913,122.4230158', 'Joseph Drillon', 'kjjsclosets.com', '&#8369;', '2021-12-13 23:21:02');
 
 -- --------------------------------------------------------
 
@@ -153,6 +156,7 @@ CREATE TABLE `tblitem` (
   `supplier_price` double NOT NULL,
   `stock_available` int(11) NOT NULL,
   `status` int(1) NOT NULL,
+  `extnem` varchar(10) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `deletedx` int(1) NOT NULL
@@ -162,8 +166,10 @@ CREATE TABLE `tblitem` (
 -- Dumping data for table `tblitem`
 --
 
-INSERT INTO `tblitem` (`item_id`, `barcode`, `name`, `description`, `category`, `unit`, `sell_price`, `sale_price`, `supplier_price`, `stock_available`, `status`, `created`, `modified`, `deletedx`) VALUES
-(1, '0001', 'Nike Suck', 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor', 'Mens', 'pc', 52.36, 0, 0, 1, 0, '2021-12-13 16:10:37', '2021-12-13 08:10:37', 0);
+INSERT INTO `tblitem` (`item_id`, `barcode`, `name`, `description`, `category`, `unit`, `sell_price`, `sale_price`, `supplier_price`, `stock_available`, `status`, `extnem`, `created`, `modified`, `deletedx`) VALUES
+(1, '', 'Nike Sock', '', 'Footware', 'pair', 55, 0, 0, 100, 0, 'jpg', '2021-12-14 08:31:30', '2021-12-14 00:31:30', 0),
+(2, '', 'Victoria Secret', '', 'Perfume', 'pc', 350, 0, 0, 30, 0, 'jpg', '2021-12-14 08:34:07', '2021-12-14 00:34:07', 0),
+(3, '', 'Pink Body Mist', '', 'Perfume', 'pc', 130, 0, 0, 20, 0, 'jpg', '2021-12-14 08:34:42', '2021-12-14 00:34:42', 0);
 
 -- --------------------------------------------------------
 
@@ -368,7 +374,7 @@ ALTER TABLE `tblcrud`
 -- AUTO_INCREMENT for table `tblitem`
 --
 ALTER TABLE `tblitem`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `tblsysuser_autoid`

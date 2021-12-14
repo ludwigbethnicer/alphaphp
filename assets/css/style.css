@@ -54,6 +54,19 @@ img#mlogo {
 #dash-itemprod .img-thumbnail {
 	max-height: 182px;
 	margin: 0 auto;
+	cursor: pointer;
+}
+
+#itemfilenem {
+	padding: 0.2rem 0.75rem;
+}
+
+#itmvwimgfl2 {
+	height: 82vh;
+}
+
+#ymModalItemPreview .modal-dialog {
+	max-width: max-content;
 }
 
 /** Default Style - End **/

@@ -18,5 +18,8 @@
 	$mobileno	= "+63 909 482 6025"; // Mobile Number
 	$address	= "Sed ut perspiciatis unde omnis iste natus"; // Address
 	$gps		= "7.784875,122.592581"; // Google Map Location
+	$build_by	= "Who";
+	$cwebzite	= "google.com";
+	$dcurrencyx	= "$";
 
 	$gauthlogin	= "915105451708-09slv78bomdcnij292kvgmfijv229f3i.apps.googleusercontent.com";

@@ -46,6 +46,9 @@
 				ninght_color VARCHAR(254) NOT NULL, 
 				tenth_color VARCHAR(254) NOT NULL, 
 				geo_map text NOT NULL, 
+				build_by VARCHAR(254) NOT NULL, 
+				cwebzite VARCHAR(254) NOT NULL, 
+				dcurrencyx VARCHAR(15) NOT NULL, 
 				modified TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp());";
 			$cnn->exec($sql);
 			echo "Database Table created successfully: {$TableTitle}.<br>";
@@ -69,6 +72,9 @@
 					datetoday, 
 					idletime, 
 					geo_map, 
+					build_by, 
+					cwebzite, 
+					dcurrencyx, 
 					created) 
 				VALUES (
 					'".$company."', 
@@ -89,6 +95,9 @@
 					'".$dettodet."', 
 					5, 
 					'".$gps."', 
+					'".$build_by."', 
+					'".$cwebzite."', 
+					'".$dcurrencyx."', 
 					current_timestamp()
 				)
 				";

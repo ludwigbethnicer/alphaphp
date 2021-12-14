@@ -217,19 +217,6 @@ $(document).ready(function(){
 	});
 });
 
-window.addEventListener('load', function() {
-	document.querySelector('#dash-itemprod input[type="file"]').addEventListener('change', function() {
-		if (this.files && this.files[0]) {
-			var img = document.querySelector('#dash-itemprod .img-thumbnail');
-			img.onload = () => {
-				URL.revokeObjectURL(img.src);  // no longer needed, free memory
-			}
-
-			img.src = URL.createObjectURL(this.files[0]); // set src to blob url
-		}
-	});
-});
-
 function VerifyUploadSizeIsOK() {
 	/* Attached file size check. Will Bontrager Software LLC, https://www.willmaster.com */
 	var UploadFieldID = "itemfilenem";

@@ -36,6 +36,9 @@
 		$fontglobal = $row_webconf['fontglobal'];
 		$geomap = $row_webconf['geo_map'];
 		$idletime = $row_webconf['idletime'] * 60;
+		$build_by = $row_webconf['build_by'];
+		$cwebzite = $row_webconf['cwebzite'];
+		$dcurrencyx = $row_webconf['dcurrencyx'];
 	} catch(PDOException $e) {
 		$err = $e->getMessage();
 		$err2 = strrchr($e,"1049");

@@ -50,3 +50,13 @@ console.log("ID: " + g_id); // Don't send this directly to your server!
 -------
 
 https://www.w3schools.com/sql/func_mysql_round.asp
+
+---------
+
+URL to compose a message in Gmail (with full Gmail interface and specified to, bcc, subject, etc.)
+
+https://mail.google.com/mail/u/1/#inbox?compose=new
+
+https://mail.google.com/mail/?view=cm&fs=1&to=someone@example.com&su=SUBJECT&body=BODY&bcc=someone.else@example.com
+
+-------

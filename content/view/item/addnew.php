@@ -4,6 +4,25 @@
 	include_once "../../../inc/srvr.php";
 	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);	
 ?>
+<script>
+	window.addEventListener('load', function() {
+		document.querySelector('#itemfilenem').addEventListener('change', function() {
+			if (this.files && this.files[0]) {
+				var img = document.querySelector('#itmvwimgfl');
+				img.onload = () => {
+					URL.revokeObjectURL(img.src);  // no longer needed, free memory
+				}
+				img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+
+				var img2 = document.querySelector('#itmvwimgfl2');
+				img2.onload = () => {
+					URL.revokeObjectURL(img2.src);  // no longer needed, free memory
+				}
+				img2.src = URL.createObjectURL(this.files[0]); // set src to blob url
+			}
+		});
+	});
+</script>
 <main id="dash-itemprod" class="page-content">
 	<div class="container-fluid bg-light-opacity">
 		<div class="w360center">
@@ -12,17 +31,17 @@
 					<div class="input-group my-3">
 						<input type="file" id="itemfilenem" name="itemfilenem" class="form-control" placeholder="Upload File" accept="image/*">
 					</div>
-					<img src="../../../storage/img/no-image.jpg" class="img-thumbnail">
+					<img id="itmvwimgfl" src="../../../storage/img/no-image.jpg" class="img-thumbnail" data-toggle="modal" data-target="#ymModalItemPreview">
 				</div>
 
-				<div class="input-group mb-3 input-group-sm">
+				<!-- div class="input-group mb-3 input-group-sm">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Item Code</span>
 					</div>
-					<input id="barcode" type="text" class="form-control" placeholder="Item BarCode" name="barcode" required autofocus>
+					<input id="barcode" type="text" class="form-control" placeholder="Item BarCode" name="barcode" readonly disabled autofocus>
 					<div class="valid-feedback">Valid.</div>
 					<div class="invalid-feedback">Please fill out this field.</div>
-				</div>
+				</div -->
 
 				<div class="input-group mb-3 input-group-sm">
 					<div class="input-group-prepend">
@@ -33,12 +52,12 @@
 					<div class="invalid-feedback">Please fill out this field.</div>
 				</div>
 
-				<div class="input-group mb-3 input-group-sm">
+				<!-- div class="input-group mb-3 input-group-sm">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Item Description</span>
 					</div>
 					<textarea id="description" class="form-control" rows="5" placeholder="Item Description" name="description" autofocus></textarea>
-				</div>
+				</div -->
 
 				<div class="input-group mb-3 input-group-sm">
 					<div class="input-group-prepend">
@@ -67,19 +86,19 @@
 					<div class="invalid-feedback">Please fill out this field.</div>
 				</div>
 
-				<div class="input-group mb-3 input-group-sm">
+				<!-- div class="input-group mb-3 input-group-sm">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Sale Price</span>
 					</div>
 					<input id="sale_price" type="number" class="form-control" placeholder="Sale Price" name="sale_price" value="0.00" step=".01">
-				</div>
+				</div -->
 
-				<div class="input-group mb-3 input-group-sm">
+				<!-- div class="input-group mb-3 input-group-sm">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Supplier Price</span>
 					</div>
 					<input id="supplier_price" type="number" class="form-control" placeholder="Supplier Price" name="supplier_price" value="0.00" step=".01">
-				</div>
+				</div -->
 
 				<div class="input-group mb-3 input-group-sm">
 					<div class="input-group-prepend">
@@ -102,12 +121,13 @@
 							// search for duplicate
 							$stblname = "tblitem";
 							$dupli_txt = "name";
-							$qry_dupli = "SELECT * FROM {$stblname} WHERE {$dupli_txt}=:itemname OR barcode=:barcode LIMIT 1";
+							// $qry_dupli = "SELECT * FROM {$stblname} WHERE {$dupli_txt}=:itemname OR barcode=:barcode LIMIT 1";
+							$qry_dupli = "SELECT * FROM {$stblname} WHERE {$dupli_txt}=:itemname LIMIT 1";
 							$stmt_dupli = $cnn->prepare($qry_dupli);
-							$barcode = trim($_POST['barcode']);
+							// $barcode = trim($_POST['barcode']);
 							$itemname = trim($_POST['nameitem']);
 							$stmt_dupli->bindParam(':itemname', $itemname);
-							$stmt_dupli->bindParam(':barcode', $barcode);
+							// $stmt_dupli->bindParam(':barcode', $barcode);
 							$stmt_dupli->execute();
 							$rw_counts = $stmt_dupli->rowCount();
 
@@ -115,28 +135,34 @@
 								$err_msg = "Record already exist.";
 								echo "<script>alert('".$err_msg."');</script>";
 							} else {
-								$qry_insert = "INSERT INTO {$stblname} SET barcode=:barcode, name=:nameitem, description=:description, category=:category, unit=:unit, sell_price=:sell_price, sale_price=:sale_price, supplier_price=:supplier_price, stock_available=:stock_available, deletedx=0";
+								// $qry_insert = "INSERT INTO {$stblname} SET barcode=:barcode, name=:nameitem, description=:description, category=:category, unit=:unit, sell_price=:sell_price, sale_price=:sale_price, supplier_price=:supplier_price, stock_available=:stock_available, deletedx=0";
+								$qry_insert = "INSERT INTO {$stblname} SET name=:nameitem, category=:category, unit=:unit, sell_price=:sell_price, stock_available=:stock_available, extnem=:extnem, deletedx=0";
 								$stmt_insert = $cnn->prepare($qry_insert);
 
-								$barcode = trim($_POST['barcode']);
+								// $barcode = trim($_POST['barcode']);
 								$nameitem = trim($_POST['nameitem']);
-								$description = trim($_POST['description']);
+								// $description = trim($_POST['description']);
 								$category = trim($_POST['category']);
 								$unit = trim($_POST['unit']);
 								$sell_price = trim($_POST['sell_price']);
-								$sale_price = trim($_POST['sale_price']);
-								$supplier_price = trim($_POST['supplier_price']);
+								// $sale_price = trim($_POST['sale_price']);
+								// $supplier_price = trim($_POST['supplier_price']);
 								$stock_available = trim($_POST['stock_available']);
 
-								$stmt_insert->bindParam(':barcode', $barcode);
+								// Get Filename Extension
+								$filename = $_FILES['itemfilenem']['name'];
+								$ext = pathinfo($filename, PATHINFO_EXTENSION);
+
+								// $stmt_insert->bindParam(':barcode', $barcode);
 								$stmt_insert->bindParam(':nameitem', $nameitem);
-								$stmt_insert->bindParam(':description', $description);
+								// $stmt_insert->bindParam(':description', $description);
 								$stmt_insert->bindParam(':category', $category);
 								$stmt_insert->bindParam(':unit', $unit);
 								$stmt_insert->bindParam(':sell_price', $sell_price);
-								$stmt_insert->bindParam(':sale_price', $sale_price);
-								$stmt_insert->bindParam(':supplier_price', $supplier_price);
+								// $stmt_insert->bindParam(':sale_price', $sale_price);
+								// $stmt_insert->bindParam(':supplier_price', $supplier_price);
 								$stmt_insert->bindParam(':stock_available', $stock_available);
+								$stmt_insert->bindParam(':extnem', $ext);
 
 								$stmt_insert->execute();
 
@@ -151,8 +177,6 @@
 								$thelastid = $row_lastid['item_id'];
 								$imgitemnem = trim('ITEM'.$thelastid);
 
-								$filename = $_FILES['itemfilenem']['name'];
-								$ext = pathinfo($filename, PATHINFO_EXTENSION);
 								$target_dir = "../../../storage/img/items/".$imgitemnem.".".$ext;
 								$target_file = $target_dir . basename($_FILES["itemfilenem"]["name"]);
 								$uploadOk = 1;
@@ -177,11 +201,11 @@
 								}
 
 								// Check file size
-								if ($_FILES["itemfilenem"]["size"] > 500000) {
-									$err_msg = "Sorry, your file is too large.";
-									echo "<script>alert('".$err_msg."');</script>";
-									$uploadOk = 0;
-								}
+								// if ($_FILES["itemfilenem"]["size"] > 500000) {
+								// 	$err_msg = "Sorry, your file is too large.";
+								// 	echo "<script>alert('".$err_msg."');</script>";
+								// 	$uploadOk = 0;
+								// }
 
 								// Allow certain file formats
 								if ($imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg" && $imageFileType != "gif" ) {
@@ -215,3 +239,14 @@
 		</div>
 	</div>
 </main>
+
+<div class="modal" id="ymModalItemPreview">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<button type="button" class="close text-right mr-1" data-dismiss="modal">&times;</button>
+			<div class="modal-body">
+				<img id="itmvwimgfl2" src="../../../storage/img/no-image.jpg">
+			</div>
+		</div>
+	</div>
+</div>
