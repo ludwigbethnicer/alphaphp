@@ -25,6 +25,9 @@
 				sale_price DOUBLE NOT NULL, 
 				supplier_price DOUBLE NOT NULL, 
 				stock_available INT(11) NOT NULL, 
+				size VARCHAR(50) NOT NULL, 
+				color VARCHAR(50) NOT NULL, 
+				quality VARCHAR(100) NOT NULL, 
 				status INT(1) NOT NULL, 
 				created DATETIME NOT NULL DEFAULT current_timestamp(), 
 				modified TIMESTAMP NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(), 
@@ -49,4 +52,8 @@
 	sale_price
 	supplier_price
 	stock_available
+	size
+	color
+	quality
+	status
 */

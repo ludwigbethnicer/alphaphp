@@ -63,18 +63,89 @@
 					<div class="input-group-prepend">
 						<span class="input-group-text">Unit</span>
 					</div>
-					<input id="unit" type="text" class="form-control" placeholder="Unit" name="unit" required autofocus>
+					<input id="unit" type="text" class="form-control" placeholder="Unit" name="unit" list="unitList" required autofocus>
 					<div class="valid-feedback">Valid.</div>
 					<div class="invalid-feedback">Please fill out this field.</div>
+					<datalist id="unitList">
+					<?php
+						$stmtunit = $cnn->prepare("SELECT * FROM tblitem GROUP BY unit ORDER BY unit ASC");
+						$stmtunit->execute();
+						$resultunit = $stmtunit->setFetchMode(PDO::FETCH_ASSOC);
+						foreach ($stmtunit as $rowunit) {
+							echo "<option value='".$rowunit['unit']."'>";
+						}
+					?>
+					</datalist>
 				</div>
 
 				<div class="input-group mb-3 input-group-sm">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Category</span>
 					</div>
-					<input id="category" type="text" class="form-control" placeholder="Category" name="category" required autofocus>
+					<input id="category" type="text" class="form-control" placeholder="Category" name="category" list="categoryList" required autofocus>
 					<div class="valid-feedback">Valid.</div>
 					<div class="invalid-feedback">Please fill out this field.</div>
+					<datalist id="categoryList">
+					<?php
+						$stmtcategory = $cnn->prepare("SELECT * FROM tblitem GROUP BY category ORDER BY category ASC");
+						$stmtcategory->execute();
+						$resultcategory = $stmtcategory->setFetchMode(PDO::FETCH_ASSOC);
+						foreach ($stmtcategory as $rowcategory) {
+							echo "<option value='".$rowcategory['category']."'>";
+						}
+					?>
+					</datalist>
+				</div>
+
+				<div class="input-group mb-3 input-group-sm">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Size</span>
+					</div>
+					<input id="size" type="text" class="form-control" placeholder="Size" name="size" list="sizeList" autofocus>
+					<datalist id="sizeList">
+					<?php
+						$stmtsize = $cnn->prepare("SELECT * FROM tblitem GROUP BY size ORDER BY size ASC");
+						$stmtsize->execute();
+						$resultsize = $stmtsize->setFetchMode(PDO::FETCH_ASSOC);
+						foreach ($stmtsize as $rowsize) {
+							echo "<option value='".$rowsize['size']."'>";
+						}
+					?>
+					</datalist>
+				</div>
+
+				<div class="input-group mb-3 input-group-sm">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Color</span>
+					</div>
+					<input id="color" type="text" class="form-control" placeholder="Color" name="color" list="colorList" autofocus>
+					<datalist id="colorList">
+					<?php
+						$stmtcolor = $cnn->prepare("SELECT * FROM tblitem GROUP BY color ORDER BY color ASC");
+						$stmtcolor->execute();
+						$resultcolor = $stmtcolor->setFetchMode(PDO::FETCH_ASSOC);
+						foreach ($stmtcolor as $rowcolor) {
+							echo "<option value='".$rowcolor['color']."'>";
+						}
+					?>
+					</datalist>
+				</div>
+
+				<div class="input-group mb-3 input-group-sm">
+					<div class="input-group-prepend">
+						<span class="input-group-text">Quality</span>
+					</div>
+					<input id="quality" type="text" class="form-control" placeholder="Quality" name="quality" list="qualityList" autofocus>
+					<datalist id="qualityList">
+					<?php
+						$stmtquality = $cnn->prepare("SELECT * FROM tblitem GROUP BY quality ORDER BY quality ASC");
+						$stmtquality->execute();
+						$resultquality = $stmtquality->setFetchMode(PDO::FETCH_ASSOC);
+						foreach ($stmtquality as $rowquality) {
+							echo "<option value='".$rowquality['quality']."'>";
+						}
+					?>
+					</datalist>
 				</div>
 
 				<div class="input-group mb-3 input-group-sm">

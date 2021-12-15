@@ -14,7 +14,7 @@
 				<form method="post" class="needs-validation" novalidate>
 					<div class="row">
 						<div class="col-sm-6 form-group">
-							<input class="form-control" id="fullname" name="fullname" placeholder="Name" type="text" required autofocus>
+							<input class="form-control" id="fullname" name="fullname" placeholder="Name" type="text" required>
 						</div>
 						<div class="col-sm-6 form-group">
 							<input class="form-control" id="mphone" name="mphone" placeholder="Phone" type="text">

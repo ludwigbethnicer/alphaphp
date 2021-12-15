@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 14, 2021 at 03:52 AM
+-- Generation Time: Dec 15, 2021 at 04:10 AM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -155,6 +155,9 @@ CREATE TABLE `tblitem` (
   `sale_price` double NOT NULL,
   `supplier_price` double NOT NULL,
   `stock_available` int(11) NOT NULL,
+  `size` varchar(50) NOT NULL,
+  `color` varchar(50) NOT NULL,
+  `quality` varchar(100) NOT NULL,
   `status` int(1) NOT NULL,
   `extnem` varchar(10) NOT NULL,
   `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -166,10 +169,13 @@ CREATE TABLE `tblitem` (
 -- Dumping data for table `tblitem`
 --
 
-INSERT INTO `tblitem` (`item_id`, `barcode`, `name`, `description`, `category`, `unit`, `sell_price`, `sale_price`, `supplier_price`, `stock_available`, `status`, `extnem`, `created`, `modified`, `deletedx`) VALUES
-(1, '', 'Nike Sock', '', 'Footware', 'pair', 55, 0, 0, 100, 0, 'jpg', '2021-12-14 08:31:30', '2021-12-14 00:31:30', 0),
-(2, '', 'Victoria Secret', '', 'Perfume', 'pc', 350, 0, 0, 30, 0, 'jpg', '2021-12-14 08:34:07', '2021-12-14 00:34:07', 0),
-(3, '', 'Pink Body Mist', '', 'Perfume', 'pc', 130, 0, 0, 20, 0, 'jpg', '2021-12-14 08:34:42', '2021-12-14 00:34:42', 0);
+INSERT INTO `tblitem` (`item_id`, `barcode`, `name`, `description`, `category`, `unit`, `sell_price`, `sale_price`, `supplier_price`, `stock_available`, `size`, `color`, `quality`, `status`, `extnem`, `created`, `modified`, `deletedx`) VALUES
+(1, '', 'Nike Sock', '', 'Footware', 'pair', 55, 0, 0, 100, 'Large', 'Red', 'Surplus', 0, 'jpg', '2021-12-14 08:31:30', '2021-12-15 02:10:10', 0),
+(2, '', 'Victoria Secret', '', 'Perfume', 'pc', 350, 0, 0, 30, 'XLarge', 'Blue', 'Brand New', 0, 'jpg', '2021-12-14 08:34:07', '2021-12-15 02:10:10', 0),
+(3, '', 'Pink Body Mist', '', 'Perfume', 'pc', 130, 0, 0, 20, 'Small', 'Pink', 'Ukay Ukay', 0, 'jpg', '2021-12-14 08:34:42', '2021-12-15 02:10:10', 0),
+(4, '', 'Pink Dress', '', 'Women', 'pc', 180, 0, 0, 20, 'Medium', 'Black', 'Made in China', 0, 'jpg', '2021-12-14 15:49:11', '2021-12-15 02:10:10', 0),
+(5, '', 'Black Shoes', '', 'Mens', 'pair', 250, 0, 0, 5, 'Small', 'Purple', 'None', 0, 'jpg', '2021-12-14 16:27:45', '2021-12-15 02:10:10', 0),
+(6, '', 'Huda Liquid Mate', '', 'Perfume', 'pc', 120, 0, 0, 20, '', '', '', 0, 'jpg', '2021-12-15 10:46:16', '2021-12-15 02:46:16', 0);
 
 -- --------------------------------------------------------
 
@@ -374,7 +380,7 @@ ALTER TABLE `tblcrud`
 -- AUTO_INCREMENT for table `tblitem`
 --
 ALTER TABLE `tblitem`
-  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `tblsysuser_autoid`

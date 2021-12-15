@@ -6,6 +6,12 @@
 	$num = $stmt->rowCount();
 	$xno = 0;
 ?>
+<script>
+	function getIdOnClick(id) {
+		var img = document.getElementById(id).getAttribute('data-value');
+		document.getElementById("itmvwimgfl3").src = img;
+	}
+</script>
 <div id="productitemz" class="container">
 	<div class="pt-5 pb-5">
 		<h2>Products</h2>
@@ -17,14 +23,20 @@
 				foreach ($stmt as $row) {
 					$xno++;
 					extract($row);
+					$id4img = 'xditem'.$item_id;
 		?>
 
 			<div class="card border-0">
-				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id.'.'.$extnem; ?>" alt="Card image">
+				<div class="card-header">
+					<img id="<?php echo $id4img; ?>" class="card-img-top img-front-product" style="background-image: url('<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id.'.'.$extnem; ?>');" data-toggle="modal" data-target="#ymModalItemPreviewFront" onclick="getIdOnClick(this.id);" data-value="<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id.'.'.$extnem; ?>">
+				</div>
 				<div class="card-body text-right">
-					<h4 class="card-title"><?php echo $name; ?></h4>
+					<h5 class="card-title"><?php echo $name; ?></h5>
 					<p class="card-text"><?php echo $dcurrencyx.' '.$sell_price; ?></p>
-					<a href="#" class="btn btn-danger">Add to Cart</a>
+					<div class="text-center"><a href="#" class="btn btn-link">See details</a></div>		
+				</div>
+				<div class="card-footer">
+					<a href="#" class="btn btn-danger w-100">Add to Cart</a>
 				</div>
 			</div>
 
@@ -34,39 +46,11 @@
 		?>
 
 			<div class="card border-0">
-				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
-				<div class="card-body text-right">
-					<h4 class="card-title">No Item Available</h4>
+				<div class="card-header">
+					<img class="card-img-top img-front-product" style="background-image: url('<?php echo $domainhome; ?>storage/img/no-image.jpg');" alt="No Item" data-toggle="modal" data-target="#ymModalItemPreviewFront">
 				</div>
-			</div>
-			<div class="card border-0">
-				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
 				<div class="card-body text-right">
-					<h4 class="card-title">No Item Available</h4>
-				</div>
-			</div>
-			<div class="card border-0">
-				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
-				<div class="card-body text-right">
-					<h4 class="card-title">No Item Available</h4>
-				</div>
-			</div>
-			<div class="card border-0">
-				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
-				<div class="card-body text-right">
-					<h4 class="card-title">No Item Available</h4>
-				</div>
-			</div>
-			<div class="card border-0">
-				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
-				<div class="card-body text-right">
-					<h4 class="card-title">No Item Available</h4>
-				</div>
-			</div>
-			<div class="card border-0">
-				<img class="card-img-top img-front-product" src="<?php echo $domainhome; ?>storage/img/no-image.jpg" alt="No Item">
-				<div class="card-body text-right">
-					<h4 class="card-title">No Item Available</h4>
+					<h4 class="card-title">No Item</h4>
 				</div>
 			</div>
 
@@ -74,6 +58,24 @@
 			}
 		?>
 
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="ymModalItemPreviewFront">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<button type="button" class="close text-right mr-1" data-dismiss="modal">&times;</button>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-md-8">
+						<img id="itmvwimgfl3" src="<?php echo $domainhome; ?>storage/img/no-image.jpg">
+					</div>
+					<div class="col-md-4">
+						<p>Sample</p>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

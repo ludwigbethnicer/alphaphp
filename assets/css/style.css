@@ -65,7 +65,13 @@ img#mlogo {
 	height: 82vh;
 }
 
-#ymModalItemPreview .modal-dialog {
+#itmvwimgfl3 {
+	height: 82vh;
+	width: inherit;
+}
+
+#ymModalItemPreview .modal-dialog, 
+#ymModalItemPreviewFront .modal-dialog {
 	max-width: max-content;
 }
 
