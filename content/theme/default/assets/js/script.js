@@ -1,12 +1,22 @@
 /** Theme Script **/
 
 $(document).ready(function(){
+	$('.slick-frontbanner').slick({
+		infinite: true,
+		slidesToShow: 1,
+		slidesToScroll: 1,
+		autoplay: true,
+		autoplaySpeed: 2000,
+		arrows: true,
+		dots: true
+	});
+
 	$('.slick-products').slick({
 		infinite: false,
 		slidesToShow: 5,
 		slidesToScroll: 1,
 		autoplay: true,
-		autoplaySpeed: 2000,
+		autoplaySpeed: 1000,
 		arrows: false,
 		responsive: [
 			{

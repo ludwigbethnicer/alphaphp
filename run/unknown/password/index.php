@@ -27,3 +27,13 @@
 	$permitted_chars3 = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
 	echo substr(str_shuffle($permitted_chars3), 0, 6);
 	echo "<br><br>";
+
+	$permitted_chars = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#@';
+	echo "Strong Password<br>";
+	echo substr(str_shuffle($permitted_chars), 0, 12);
+	echo "<br><br>";
+
+	$permitted_chars3 = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ!#@';
+	echo "WiFi Password<br>";
+	echo substr(str_shuffle($permitted_chars3), 0, 8);
+	echo "<br><br>";

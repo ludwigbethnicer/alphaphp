@@ -9,6 +9,42 @@
 	}
 ?>
 
+<!-- style type="text/css">
+	nav#sidebar {
+		background: blue;
+	}
+
+	nav#sidebar .sidebar-brand a {
+		color: #fff;
+	}
+
+	nav#sidebar .sidebar-header .user-info span {
+		color: red;
+	}
+
+	nav#sidebar .sidebar-header .user-pic-circle {
+		padding: unset;
+		border-radius: 30px;
+	}
+
+	nav#sidebar .header-menu span {
+		color: #fff000;
+	}
+
+	nav#sidebar .sidebar-menu ul li a i {
+		background: red;
+		color: pink;
+	}
+
+	nav#sidebar .sidebar-menu ul li a span {
+		color: pink;
+	}
+
+	nav#sidebar .sidebar-menu ul li a:after {
+		color: purple;
+	}
+</style -->
+
 <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
 	<i class="fas fa-bars"></i>
 </a>
@@ -24,7 +60,7 @@
 
 	<!-- Current User Profile -->
 	<div class="sidebar-header">
-		<div class="user-pic">
+		<div class="user-pic user-pic-circle">
 			<img class="img-responsive img-rounded" src="<?php echo $baklnk; ?>storage/img/avatar2.png" alt="User picture">
 		</div>
 		<div class="user-info">

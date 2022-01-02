@@ -1,5 +1,13 @@
 <?php
+
+	if(empty($_SESSION["usercode"])) {
+		
+	} else {
+		header('location:../../');
+	}
+
 	include_once "../../content/theme/".$themename."/auth-navbar.php";
+
 ?>
 
 <div class="container">
@@ -39,7 +47,7 @@
 					<?php
 						include_once "../../inc/login/index.php";
 					?>
-					
+
 					<div class="row">
 						<div class="col-sm-6 mb-2">
 							<a href="../signup" class="btn btn-block btn-primary">

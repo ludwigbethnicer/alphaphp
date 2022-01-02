@@ -494,12 +494,6 @@ font-size: 0.9rem;
 	background-color: #f8f9fa6b!important;
 }
 
-.dboardbg {
-	background-image: url("../../storage/img/dashboard-bg.png");
-	background-repeat: no-repeat;
-	background-size: cover;
-}
-
 #listRecView .btn-sm, 
 #listRecView2 .btn-sm {
 	padding: .25rem!important;

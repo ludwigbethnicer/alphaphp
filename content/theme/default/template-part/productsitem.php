@@ -1,4 +1,10 @@
 <?php
+	if(empty($_SESSION["usercode"])) {
+		$deuzerked = 0;
+	} else {
+		$deuzerked = $_SESSION['usercode'];
+	}
+	
 	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 	$qry = "SELECT * FROM tblitem WHERE deletedx=0 ORDER BY item_id DESC";
 	$stmt = $cnn->prepare($qry);
@@ -8,8 +14,25 @@
 ?>
 <script>
 	function getIdOnClick(id) {
+		var theitemiz = document.getElementById(id).getAttribute('data-item-id');
+		var curnzy = document.getElementById(id).getAttribute('data-currency');
 		var img = document.getElementById(id).getAttribute('data-value');
-		document.getElementById("itmvwimgfl3").src = img;
+		var prodtitle = document.getElementById(id).getAttribute('data-item-name');
+		var prodprice = document.getElementById(id).getAttribute('data-price');
+		var prodsize = document.getElementById(id).getAttribute('data-size');
+		var prodcolor = document.getElementById(id).getAttribute('data-color');
+		var prodquality = document.getElementById(id).getAttribute('data-quality');
+		var prodstock = document.getElementById(id).getAttribute('data-stock');
+		var produnit = document.getElementById(id).getAttribute('data-unit');
+		$("#itmvwimgfl3").attr("style","background-image: url('"+img+"');");
+		$("#temidon").attr("data-iditem",theitemiz);
+		$('#ghtitle').html(prodtitle);
+		$('#ghprice').html(curnzy+prodprice);
+		$('#ghsize').html(prodsize);
+		$('#ghcolor').html(prodcolor);
+		$('#ghquality').html(prodquality);
+		$('#ghunit').html(prodstock+produnit+" available");
+		$("#ghqty").attr("max",prodstock);
 	}
 </script>
 <div id="productitemz" class="container">
@@ -28,15 +51,15 @@
 
 			<div class="card border-0">
 				<div class="card-header">
-					<img id="<?php echo $id4img; ?>" class="card-img-top img-front-product" style="background-image: url('<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id.'.'.$extnem; ?>');" data-toggle="modal" data-target="#ymModalItemPreviewFront" onclick="getIdOnClick(this.id);" data-value="<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id.'.'.$extnem; ?>">
+					<img id="<?php echo $id4img; ?>" class="card-img-top img-front-product" style="background-image: url('<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id.'.'.$extnem; ?>');" data-item-id="<?php echo $item_id; ?>" data-unit="<?php echo $unit; ?>" data-currency="<?php echo $dcurrencyx; ?>" data-toggle="modal" data-target="#ymModalItemPreviewFront" data-item-name="<?php echo $name; ?>" data-price="<?php echo $sell_price; ?>" data-size="<?php echo $size; ?>" data-color="<?php echo $color; ?>" data-quality="<?php echo $quality; ?>" data-stock="<?php echo $stock_available; ?>" onclick="getIdOnClick(this.id);" data-value="<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id.'.'.$extnem; ?>">
 				</div>
 				<div class="card-body text-right">
 					<h5 class="card-title"><?php echo $name; ?></h5>
 					<p class="card-text"><?php echo $dcurrencyx.' '.$sell_price; ?></p>
-					<div class="text-center"><a href="#" class="btn btn-link">See details</a></div>		
+					<div class="text-center"><a href="#" class="btn btn-link" onclick="return">See details</a></div>		
 				</div>
 				<div class="card-footer">
-					<a href="#" class="btn btn-danger w-100">Add to Cart</a>
+					<a href="#" class="btn btn-danger w-100" onclick="fnAddToCartz(<?php echo $item_id; ?>); return false;">Add to Cart</a>
 				</div>
 			</div>
 
@@ -67,15 +90,59 @@
 		<div class="modal-content">
 			<button type="button" class="close text-right mr-1" data-dismiss="modal">&times;</button>
 			<div class="modal-body">
-				<div class="row">
-					<div class="col-md-8">
-						<img id="itmvwimgfl3" src="<?php echo $domainhome; ?>storage/img/no-image.jpg">
-					</div>
-					<div class="col-md-4">
-						<p>Sample</p>
+				<img id="itmvwimgfl3">
+				<div class="position-absolute">
+					<div class="card">
+						<div class="card-body text-right">
+							<h5 id="ghtitle" class="card-title"></h5>
+							<h4 id="ghprice" class="card-text"></h4>
+							<p class="mb-0" id="ghsize"></p>
+							<p class="mb-0" id="ghcolor"></p>
+							<p class="mb-0" id="ghquality"></p>
+							<div class="d-flex">
+								<div class="input-group">
+									<input type="button" value="-" class="button-minus" data-field="quantity">
+									<input id="ghqty" type="number" step="1" min="1" value="1" name="quantity" class="addminusentry text-center">
+									<input type="button" value="+" class="button-plus" data-field="quantity">
+								</div>
+								<p id="ghunit"></p>
+							</div>
+							<a id="temidon" href="#" class="btn btn-danger w-100" onclick="fnPopToCart(this.id);" data-iditem>Add to Cart</a>
+						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </div>
+
+<script>
+	function fnAddToCartz(itemid) {
+		var dir = "<?php echo $domainhome; ?>";
+		var userCode = "<?php echo $deuzerked; ?>";
+		if (userCode==0) {
+			console.log('No User');
+			window.open(dir+'routes/login', '_self');
+		} else {
+			console.log(userCode);
+			// Add to Cart
+			window.open(dir+'content/view/productsitems/tocart.php?itemid='+itemid+'&uid='+userCode+'&gqty=1', '_self');
+		}
+	}
+
+	function fnPopToCart(e) {
+		var h = document.getElementById(e).getAttribute('data-iditem');
+		var kuantity = document.getElementById("ghqty").value;
+		var dirg = "<?php echo $domainhome; ?>";
+		var userCodeg = "<?php echo $deuzerked; ?>";
+		console.log(h);
+		if (userCodeg==0) {
+			console.log('No User');
+			window.open(dirg+'routes/login', '_self');
+		} else {
+			console.log(userCodeg);
+			// Add to Cart
+			window.open(dirg+'content/view/productsitems/tocart.php?itemid='+h+'&uid='+userCodeg+'&gqty='+kuantity, '_self');
+		}
+	}
+</script>

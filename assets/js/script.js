@@ -1,8 +1,39 @@
+// When the user scrolls down 80px from the top of the document, resize the navbar's padding and the logo's font size
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+	if (document.body.scrollTop > 0 || document.documentElement.scrollTop > 0) {
+		document.getElementById("navbar").style.padding = ".5rem 1rem";
+		document.getElementById("mlogo").style.maxHeight = "48px";
+	} else {
+		document.getElementById("navbar").style.padding = ".8rem 1rem";
+		document.getElementById("mlogo").style.maxHeight = "58px";
+	}
+}
+
 /** No remove 1st 3 char **/
 $(document).ready(function() {
 	$(".notrem3char").on("keyup", function() {
 		var value = $(this).val();
 		$(this).val($(this).data("initial") + value.substring(3));
+	});
+
+	$('#signout').on('click', function(event) {
+		x = gapi.auth2.getAuthInstance().disconnect();
+		console.log(x);
+		location.reload();
+	});
+
+	$('#therefresh').on('click', function(event) {
+		x = gapi.auth2.getAuthInstance().disconnect();
+		console.log(x);
+		location.reload();
+	});
+
+	$('#ghqty').on('keyup', function(event) {
+		let v = parseInt(this.value);
+		if (v < this.min) this.value = this.min;
+		if (v > this.max) this.value = this.max;
 	});
 });
 
@@ -154,8 +185,6 @@ function onSignIn(googleUser) {
 
 	console.log(id_token);
 
-	// history.pushState('','_self','?gogid='+g_id+'&nameuse='+g_username+'&namel='+g_surname);
-
 	$('.g-signin2').hide();
 	$('#loggdas').html("Logged in as");
 	$('#therefresh').html("Cancel");
@@ -169,18 +198,14 @@ function onSignIn(googleUser) {
 	xhr.open('POST', 'https://oauth2.googleapis.com/tokeninfo?');
 	xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 	xhr.onload = function() {
-		console.log(xhr.responseText);
 		const myObj = JSON.parse(xhr.responseText);
-		x = myObj.aud;
-		console.log(x);
+		console.log(myObj.sub);
 	};
 	xhr.send('id_token=' + id_token);
-}
 
-$('#signout').on('click', function(event) {
-	gapi.auth2.getAuthInstance().disconnect();
-	location.reload();
-});
+	x = gapi.auth2.getAuthInstance().disconnect();
+	console.log(x);
+}
 
 /** Slide Top Animate **/
 $(document).ready(function(){
@@ -229,3 +254,47 @@ function VerifyUploadSizeIsOK() {
 	}
 	return true;
 }
+
+function incrementValue(e) {
+	e.preventDefault();
+	var fieldName = $(e.target).data('field');
+	var parent = $(e.target).closest('div');
+	var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+	let maxNumb = parseInt(document.getElementById("ghqty").max);
+
+	if (!isNaN(currentVal)) {
+		if (currentVal > (maxNumb-1)) {
+			parent.find('input[name=' + fieldName + ']').val(maxNumb);
+		} else {
+			parent.find('input[name=' + fieldName + ']').val(currentVal + 1);
+		}
+	} else {
+		parent.find('input[name=' + fieldName + ']').val(0);
+	}
+}
+
+function decrementValue(e) {
+	e.preventDefault();
+	var fieldName = $(e.target).data('field');
+	var parent = $(e.target).closest('div');
+	var currentVal = parseInt(parent.find('input[name=' + fieldName + ']').val(), 10);
+	let minNumb = parseInt(document.getElementById("ghqty").min);
+
+	if (!isNaN(currentVal) && currentVal > 0) {
+		if (currentVal < (minNumb+1)) {
+			parent.find('input[name=' + fieldName + ']').val(minNumb);
+		} else {
+			parent.find('input[name=' + fieldName + ']').val(currentVal - 1);
+		}
+	} else {
+		parent.find('input[name=' + fieldName + ']').val(0);
+	}
+}
+
+$('.input-group').on('click', '.button-plus', function(e) {
+	incrementValue(e);
+});
+
+$('.input-group').on('click', '.button-minus', function(e) {
+	decrementValue(e);
+});

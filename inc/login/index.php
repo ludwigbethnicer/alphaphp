@@ -39,6 +39,7 @@
 						$_SESSION["firstname"] = $firstname;
 						$_SESSION["middlename"] = $middlename;
 						$_SESSION["postitle"] = $uposition;
+						$_SESSION["imglnkurl"] = $row['img_url'];
 						
 						header('location:../../');
 					} else {

@@ -1,0 +1,18 @@
+<?php
+
+	$query = "eyJhbGciOiJSUzI1NiIsImtpZCI6ImMxODkyZWI0OWQ3ZWY5YWRmOGIyZTE0YzA1Y2EwZDAzMjcxNGEyMzciLCJ0eXAiOiJKV1QifQ.eyJpc3MiOiJhY2NvdW50cy5nb29nbGUuY29tIiwiYXpwIjoiOTE1MTA1NDUxNzA4LTA5c2x2Nzhib21kY25pajI5Mmt2Z21maWp2MjI5ZjNpLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwiYXVkIjoiOTE1MTA1NDUxNzA4LTA5c2x2Nzhib21kY25pajI5Mmt2Z21maWp2MjI5ZjNpLmFwcHMuZ29vZ2xldXNlcmNvbnRlbnQuY29tIiwic3ViIjoiMTE0NzkyNTE0NjIzOTMzOTQwNDM3IiwiZW1haWwiOiJuYXBpZ2tpdGx1ZHdpZ2JldGhuaWNlckBnbWFpbC5jb20iLCJlbWFpbF92ZXJpZmllZCI6dHJ1ZSwiYXRfaGFzaCI6InlVbm9URUhoTE9PVkdLd2FTWnNFM2ciLCJuYW1lIjoiTHVkd2lnIEJldGhuaWNlciBOYXBpZ2tpdCIsInBpY3R1cmUiOiJodHRwczovL2xoMy5nb29nbGV1c2VyY29udGVudC5jb20vYS0vQU9oMTRHaXV2NzVUdy1EZFR3MDM2clFLVmgxUUFaQnplR3JHeXdvdWNVenZ0QT1zOTYtYyIsImdpdmVuX25hbWUiOiJMdWR3aWcgQmV0aG5pY2VyIiwiZmFtaWx5X25hbWUiOiJOYXBpZ2tpdCIsImxvY2FsZSI6ImVuIiwiaWF0IjoxNjM5NTQ0NDc2LCJleHAiOjE2Mzk1NDgwNzYsImp0aSI6IjU4OGZmZmFmYmQ4NWU1MWU4ZjRmZmY5NDUxOGRiNDBmMDgyNDhkMTcifQ.TfcPRD-FY3A22MA0CGiaQqVU3qURCTBKd6TQ3cugVICJj56ry5hv1nxHMNyszyvwxWCNVAC6g-xdqv9xF6paYdYInYuWGoZuP9WUpVtRg0ntU5aYcJ6HBtZBHA812BwKpilmGArg6cut7fvPu6tV0_IGWSWw_Rqi4fPuwe3sF4w3b9JN-nkys1HouPw27j148kaB9UHTGNpjVQf2o_-lUomwdZfdJ5KWYsx1cgMI5FMuPdvfdaElNp8qsUhXMt8Dit8E1KxG-FbEu-vwuv1r1V1gQvc0_GlITb3w2oDTLGy3h50OiKGA4s8Qgsw6cX09RewJdKc8H2EiNMtZSyvGzg";
+
+	// create a new cURL resource
+	$ch = curl_init();
+
+	// set URL and other appropriate options
+	// https://oauth2.googleapis.com/tokeninfo?id_token=
+	// https://www.googleapis.com/oauth2/v2/tokeninfo?id_token=
+	curl_setopt($ch, CURLOPT_URL, "https://www.googleapis.com/oauth2/v2/tokeninfo?id_token=".$query);
+	curl_setopt($ch, CURLOPT_HEADER, false);
+
+	// grab URL and pass it to the browser
+	curl_exec($ch);
+
+	// close cURL resource, and free up system resources
+	curl_close($ch);

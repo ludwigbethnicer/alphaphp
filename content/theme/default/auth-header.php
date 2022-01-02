@@ -9,7 +9,7 @@
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
 	<meta name="google-signin-scope" content="profile email">
 	<meta name="google-signin-client_id" content="<?php echo $gauthlogin; ?>">
-	<link rel="icon" type="image/png">
+	<link rel="icon" type="image/png" href="../../storage/img/<?php echo $favicon ?>">
 	<link rel="stylesheet" href="../../assets/fontawesome/releases/v5.7.0/css/all.css">
 	<link rel="stylesheet" href="../../assets/bootstrap/4.5.2/css/bootstrap.min.css">
 	<link rel="stylesheet" href="../../assets/npm/slick-carousel@1.8.1/slick/slick.css">

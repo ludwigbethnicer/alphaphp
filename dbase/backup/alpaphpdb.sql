@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 15, 2021 at 04:10 AM
+-- Generation Time: Jan 01, 2022 at 04:35 PM
 -- Server version: 10.1.38-MariaDB
 -- PHP Version: 7.3.3
 
@@ -70,7 +70,7 @@ CREATE TABLE `conf` (
 --
 
 INSERT INTO `conf` (`id`, `cmpny_name`, `sys_name`, `sys_ver`, `sys_logo`, `navbar_logo`, `favicon`, `quote_title`, `ceo_pres`, `memail`, `telno`, `mobileno`, `maddress`, `idletime`, `themename`, `domainhome`, `fontglobal`, `datetoday`, `created`, `primary_color`, `second_color`, `third_color`, `forth_color`, `fifth_color`, `sixth_color`, `seventh_color`, `eight_color`, `ninght_color`, `tenth_color`, `geo_map`, `build_by`, `cwebzite`, `dcurrencyx`, `modified`) VALUES
-(1, 'KJJ\'s Closets', 'KJJ\'s Closets', '1.0.0', 'Logo.png', 'Logo.svg', 'Logo.png', 'Bring the customers closer to their dream fashion.', 'Baay Katherine', 'kjjscloset@gmail.com', '+32 333 2469', '+63 967 840 7618', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 5, 'default', '/alphaphp/', '', '20211211', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.6010913,122.4230158', 'Joseph Drillon', 'kjjsclosets.com', '&#8369;', '2021-12-13 23:21:02');
+(1, 'KJJ\'s Closets', 'KJJ\'s Closets', '1.0.0', 'logo.png', 'logo.svg', 'logo.png', 'Bring the customers closer to their dream fashion.', 'Baay Katherine', 'kjjscloset@gmail.com', '+32 333 2469', '+63 967 840 7618', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 5, 'default', '/alphaphp/', '', '20211225', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.6010913,122.4230158', 'Joseph Drillon', 'kjjsclosets.com', '&#8369;', '2021-12-26 13:14:30');
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,7 @@ CREATE TABLE `tblcrud` (
 INSERT INTO `tblcrud` (`id`, `fieldtxt`, `status`, `created`, `modified`, `deletedx`) VALUES
 (1, 'Sample Ludwig', 1, '2021-11-03 21:09:33', '2021-12-04 09:38:37', 1),
 (2, 'Sample2', 0, '2021-11-03 21:09:33', '2021-11-03 13:09:33', 0),
-(3, 'Sample', 0, '2021-11-04 13:27:31', '2021-11-04 05:27:56', 0),
+(3, 'Sample', 0, '2021-11-04 13:27:31', '2022-01-01 15:20:38', 1),
 (4, 'dijbl\'df\';bda', 0, '2021-11-04 13:31:24', '2021-11-04 05:31:24', 0),
 (5, ';lkdblknab', 0, '2021-11-04 13:31:26', '2021-11-04 05:31:26', 0),
 (6, 'jhbjhsdshvhjsd', 0, '2021-11-04 13:31:29', '2021-11-04 05:31:29', 0),
@@ -133,10 +133,10 @@ INSERT INTO `tblcrud` (`id`, `fieldtxt`, `status`, `created`, `modified`, `delet
 (39, 'dfbkdfmkbdf', 0, '2021-11-04 14:54:45', '2021-11-04 06:54:45', 0),
 (40, 'dfbkdfkbd', 0, '2021-11-04 14:54:48', '2021-11-04 06:54:48', 0),
 (41, 'sample55555', 0, '2021-11-04 22:13:30', '2021-11-04 15:12:19', 0),
-(44, 'ludwig', 0, '2021-11-04 23:53:07', '2021-11-04 15:53:07', 0),
+(44, 'ludwig', 0, '2021-11-04 23:53:07', '2022-01-01 15:20:24', 1),
 (46, 'ludwig bethnicer napigkit', 0, '2021-11-04 23:57:46', '2021-12-10 13:31:57', 1),
 (47, 'sdfbkldnbkl;ndlk;bnkldf', 0, '2021-12-13 08:42:05', '2021-12-13 00:42:05', 0),
-(48, 'Marnelie Ann', 0, '2021-12-13 08:42:33', '2021-12-13 00:42:33', 0);
+(48, 'Marnelie Ann', 0, '2021-12-13 08:42:33', '2022-01-01 15:20:18', 1);
 
 -- --------------------------------------------------------
 
@@ -171,7 +171,7 @@ CREATE TABLE `tblitem` (
 
 INSERT INTO `tblitem` (`item_id`, `barcode`, `name`, `description`, `category`, `unit`, `sell_price`, `sale_price`, `supplier_price`, `stock_available`, `size`, `color`, `quality`, `status`, `extnem`, `created`, `modified`, `deletedx`) VALUES
 (1, '', 'Nike Sock', '', 'Footware', 'pair', 55, 0, 0, 100, 'Large', 'Red', 'Surplus', 0, 'jpg', '2021-12-14 08:31:30', '2021-12-15 02:10:10', 0),
-(2, '', 'Victoria Secret', '', 'Perfume', 'pc', 350, 0, 0, 30, 'XLarge', 'Blue', 'Brand New', 0, 'jpg', '2021-12-14 08:34:07', '2021-12-15 02:10:10', 0),
+(2, '', 'Victoria Secret Victoria Secret Victoria Secret Victoria Secret Victoria Secret Victoria Secret Vict', '', 'Perfume', 'pc', 350, 0, 0, 30, 'XLarge', 'Blue', 'Brand New', 0, 'jpg', '2021-12-14 08:34:07', '2021-12-15 12:41:56', 0),
 (3, '', 'Pink Body Mist', '', 'Perfume', 'pc', 130, 0, 0, 20, 'Small', 'Pink', 'Ukay Ukay', 0, 'jpg', '2021-12-14 08:34:42', '2021-12-15 02:10:10', 0),
 (4, '', 'Pink Dress', '', 'Women', 'pc', 180, 0, 0, 20, 'Medium', 'Black', 'Made in China', 0, 'jpg', '2021-12-14 15:49:11', '2021-12-15 02:10:10', 0),
 (5, '', 'Black Shoes', '', 'Mens', 'pair', 250, 0, 0, 5, 'Small', 'Purple', 'None', 0, 'jpg', '2021-12-14 16:27:45', '2021-12-15 02:10:10', 0),
@@ -184,10 +184,11 @@ INSERT INTO `tblitem` (`item_id`, `barcode`, `name`, `description`, `category`, 
 --
 
 CREATE TABLE `tblsysuser` (
-  `usercode` varchar(14) NOT NULL,
+  `usercode` varchar(254) NOT NULL,
   `username` varchar(254) NOT NULL,
   `passcode` varchar(254) NOT NULL,
   `pin` varchar(6) NOT NULL,
+  `img_url` text NOT NULL,
   `fullname` text NOT NULL,
   `uemail` varchar(254) NOT NULL,
   `umobileno` varchar(254) NOT NULL,
@@ -210,11 +211,39 @@ CREATE TABLE `tblsysuser` (
 -- Dumping data for table `tblsysuser`
 --
 
-INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `fullname`, `uemail`, `umobileno`, `xposition`, `secquest`, `secans`, `ulevpos`, `uonline`, `ustatz`, `createdby`, `lname`, `fname`, `mname`, `deletedx`, `created`, `modified`) VALUES
-('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', 'Admin A. Minad', 'admin@info.com', '+639154826025', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Minad', 'Admin', 'Amind', 0, '2021-12-06 00:12:35', '2021-12-05 16:12:35'),
-('00000000001', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', '123456', 'User U. Resu', 'user@info.com', '+639123456789', 'User', 'What is your the name of your favorite dog?', 'me', 2, 0, 1, '00000000000', 'Resu', 'User', 'Uesr', 0, '2021-12-06 00:12:35', '2021-12-05 16:12:35'),
-('00000000002', 'guest', '084e0343a0486ff05530df6c705c8bb4', '123456', 'Guest G. Tseug', 'guest@info.com', '+639123456789', 'Guest', 'What is your the name of your favorite dog?', 'him', 3, 0, 0, '00000000000', 'Tseug', 'Guest', 'Geust', 0, '2021-12-06 00:12:35', '2021-12-05 16:12:35'),
-('202112110001', 'dollogz', '277ad4cc4f5144b9a18bd9ed36d7e56d', '', '', '', '', '', '', '', 0, 0, 0, '', '', '', '', 0, '2021-12-11 08:04:04', '2021-12-11 00:04:04');
+INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `img_url`, `fullname`, `uemail`, `umobileno`, `xposition`, `secquest`, `secans`, `ulevpos`, `uonline`, `ustatz`, `createdby`, `lname`, `fname`, `mname`, `deletedx`, `created`, `modified`) VALUES
+('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'Admin A. Minad', 'admin@info.com', '+639154826025', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Minad', 'Admin', 'Amind', 0, '2021-12-06 00:12:35', '2021-12-05 16:12:35'),
+('00000000001', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', '123456', '', 'User U. Resu', 'user@info.com', '+639123456789', 'User', 'What is your the name of your favorite dog?', 'me', 2, 0, 1, '00000000000', 'Resu', 'User', 'Uesr', 0, '2021-12-06 00:12:35', '2021-12-05 16:12:35'),
+('00000000002', 'guest', '084e0343a0486ff05530df6c705c8bb4', '123456', '', 'Guest G. Tseug', 'guest@info.com', '+639123456789', 'Guest', 'What is your the name of your favorite dog?', 'him', 3, 0, 0, '00000000000', 'Tseug', 'Guest', 'Geust', 0, '2021-12-06 00:12:35', '2021-12-05 16:12:35'),
+('114792514623933940437', 'napigkitludwigbethnicer', 'acac3558d0b8c44a47522a6402d60308', '802651', 'https://lh3.googleusercontent.com/a-/AOh14Giuv75Tw-DdTw036rQKVh1QAZBzeGrGywoucUzvtA=s96-c', 'Ludwig Bethnicer Napigkit', 'napigkitludwigbethnicer@gmail.com', '', 'Subscriber', '', '', 6, 0, 1, '', 'Napigkit', 'Ludwig Bethnicer', '', 0, '2021-12-31 17:36:04', '2021-12-31 09:36:04');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tblsysuser_address`
+--
+
+CREATE TABLE `tblsysuser_address` (
+  `id` int(11) NOT NULL,
+  `usercode` text,
+  `continent` text,
+  `country_name` text,
+  `country_accronym` text,
+  `country_code` text,
+  `zip_postal` text,
+  `state_province_region` text,
+  `city_town` text,
+  `brgy_village_district` text,
+  `address_1` text,
+  `address_2` text,
+  `tel_no` text,
+  `mobile_no` text,
+  `type_address` text,
+  `set_status` text,
+  `modified` date DEFAULT NULL,
+  `created` date DEFAULT NULL,
+  `deleted` int(1) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -233,7 +262,7 @@ CREATE TABLE `tblsysuser_autoid` (
 --
 
 INSERT INTO `tblsysuser_autoid` (`id`, `fieldtxt`, `created`) VALUES
-(1, 'a', '2021-12-11 00:04:03');
+(1, 'a', '2021-12-25 01:22:54');
 
 -- --------------------------------------------------------
 
@@ -307,6 +336,116 @@ INSERT INTO `tbl_contactform` (`id`, `fullname`, `email`, `phone`, `subject`, `m
 (2, 'sdvsdv', 'dfbfdgbfd@sdkvbdsjk.com', '345345', 'kjhkljnlk', 'knklnklnkl\r\nsdfvblksdfn\r\nsdvlknsdlk', '2021-12-04 15:29:35', 0),
 (3, 'sdvsdvsd', 'sdvsdv@dfbdfb.com', 'sdvsdvsd', 'sldmvl;', ';lml;', '2021-12-04 17:08:37', 0);
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_headbanner`
+--
+
+CREATE TABLE `tbl_headbanner` (
+  `id` int(11) NOT NULL,
+  `head_title` text,
+  `sub_text` text,
+  `img_loc` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_headbanner_btn`
+--
+
+CREATE TABLE `tbl_headbanner_btn` (
+  `id` int(11) NOT NULL,
+  `hb_id` int(11) DEFAULT NULL,
+  `caption` text,
+  `btn_class` text,
+  `link_url` text,
+  `alt` text,
+  `tool_tip` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_order_customer`
+--
+
+CREATE TABLE `tbl_order_customer` (
+  `order_id` int(11) NOT NULL,
+  `receipt_no` text,
+  `customer_id` varchar(254) DEFAULT NULL,
+  `customer_name` text,
+  `phone` text,
+  `address` text,
+  `sub_total_qty` double DEFAULT NULL,
+  `sub_total_item` int(11) DEFAULT NULL,
+  `sub_total` double DEFAULT NULL,
+  `shipping_fee` double DEFAULT NULL,
+  `total_all` double DEFAULT NULL,
+  `remarks` text,
+  `status` text,
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `deleted` int(1) DEFAULT NULL,
+  `process_by` text,
+  `review_by` text,
+  `approved_by` text
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_order_customer`
+--
+
+INSERT INTO `tbl_order_customer` (`order_id`, `receipt_no`, `customer_id`, `customer_name`, `phone`, `address`, `sub_total_qty`, `sub_total_item`, `sub_total`, `shipping_fee`, `total_all`, `remarks`, `status`, `created`, `modified`, `deleted`, `process_by`, `review_by`, `approved_by`) VALUES
+(16, NULL, '114792514623933940437', NULL, NULL, NULL, 6, 2, 1220, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 12:11:59', '2022-01-01 10:13:08', 0, NULL, NULL, NULL),
+(17, NULL, '114792514623933940437', NULL, NULL, NULL, 8, 6, 1, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 18:13:25', '2022-01-01 10:33:30', 0, NULL, NULL, NULL),
+(18, NULL, '114792514623933940437', NULL, NULL, NULL, 3, 2, 370, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 18:33:54', '2022-01-01 10:43:46', 0, NULL, NULL, NULL),
+(19, NULL, '114792514623933940437', NULL, NULL, NULL, 65, 5, 10, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 22:14:17', '2022-01-01 15:15:47', 0, NULL, NULL, NULL);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `tbl_order_item`
+--
+
+CREATE TABLE `tbl_order_item` (
+  `item_order_id` int(11) NOT NULL,
+  `order_id` int(11) DEFAULT NULL,
+  `item_id` int(11) DEFAULT NULL,
+  `barcode` varchar(254) DEFAULT NULL,
+  `item_name` text,
+  `qty` double DEFAULT NULL,
+  `unit` varchar(254) DEFAULT NULL,
+  `price` double DEFAULT NULL,
+  `total_amt` double DEFAULT NULL,
+  `extnem` varchar(10) DEFAULT NULL,
+  `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `deleted` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_order_item`
+--
+
+INSERT INTO `tbl_order_item` (`item_order_id`, `order_id`, `item_id`, `barcode`, `item_name`, `qty`, `unit`, `price`, `total_amt`, `extnem`, `modified`, `created`, `deleted`) VALUES
+(10, 16, 4, '', 'Pink Dress', 4, 'pc', 180, 720, 'jpg', '2022-01-01 18:04:30', '2022-01-01 12:11:59', 0),
+(11, 16, 5, '', 'Black Shoes', 2, 'pair', 250, 500, 'jpg', '2022-01-01 18:12:46', '2022-01-01 18:12:37', 0),
+(12, 17, 1, '', 'Nike Sock', 1, 'pair', 55, 55, 'jpg', '2022-01-01 18:13:25', '2022-01-01 18:13:25', 0),
+(13, 17, 4, '', 'Pink Dress', 1, 'pc', 180, 180, 'jpg', '2022-01-01 18:13:30', '2022-01-01 18:13:30', 0),
+(14, 17, 2, '', 'Victoria Secret Victoria Secret Victoria Secret Victoria Secret Victoria Secret Victoria Secret Vict', 2, 'pc', 350, 700, 'jpg', '2022-01-01 18:17:09', '2022-01-01 18:13:36', 0),
+(15, 17, 6, '', 'Huda Liquid Mate', 1, 'pc', 120, 120, 'jpg', '2022-01-01 18:15:33', '2022-01-01 18:15:33', 0),
+(16, 17, 5, '', 'Black Shoes', 2, 'pair', 250, 500, 'jpg', '2022-01-01 18:16:05', '2022-01-01 18:15:52', 0),
+(17, 17, 3, '', 'Pink Body Mist', 1, 'pc', 130, 130, 'jpg', '2022-01-01 18:33:18', '2022-01-01 18:33:18', 0),
+(18, 18, 3, '', 'Pink Body Mist', 1, 'pc', 130, 130, 'jpg', '2022-01-01 18:33:54', '2022-01-01 18:33:54', 0),
+(19, 18, 6, '', 'Huda Liquid Mate', 2, 'pc', 120, 240, 'jpg', '2022-01-01 18:35:38', '2022-01-01 18:34:49', 0),
+(20, 19, 2, '', 'Victoria Secret Victoria Secret Victoria Secret Victoria Secret Victoria Secret Victoria Secret Vict', 2, 'pc', 350, 700, 'jpg', '2022-01-01 22:14:38', '2022-01-01 22:14:17', 0),
+(21, 19, 5, '', 'Black Shoes', 1, 'pair', 250, 250, 'jpg', '2022-01-01 22:14:20', '2022-01-01 22:14:20', 0),
+(22, 19, 6, '', 'Huda Liquid Mate', 1, 'pc', 120, 120, 'jpg', '2022-01-01 22:14:25', '2022-01-01 22:14:25', 0),
+(23, 19, 3, '', 'Pink Body Mist', 41, 'pc', 130, 5330, 'jpg', '2022-01-01 23:08:04', '2022-01-01 22:53:55', 0),
+(24, 19, 4, '', 'Pink Dress', 20, 'pc', 180, 3600, 'jpg', '2022-01-01 22:58:42', '2022-01-01 22:58:42', 0);
+
 --
 -- Indexes for dumped tables
 --
@@ -336,6 +475,13 @@ ALTER TABLE `tblsysuser`
   ADD PRIMARY KEY (`usercode`);
 
 --
+-- Indexes for table `tblsysuser_address`
+--
+ALTER TABLE `tblsysuser_address`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- Indexes for table `tblsysuser_autoid`
 --
 ALTER TABLE `tblsysuser_autoid`
@@ -361,6 +507,34 @@ ALTER TABLE `tbl_contactform`
   ADD UNIQUE KEY `id` (`id`);
 
 --
+-- Indexes for table `tbl_headbanner`
+--
+ALTER TABLE `tbl_headbanner`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `tbl_headbanner_btn`
+--
+ALTER TABLE `tbl_headbanner_btn`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Indexes for table `tbl_order_customer`
+--
+ALTER TABLE `tbl_order_customer`
+  ADD PRIMARY KEY (`order_id`),
+  ADD UNIQUE KEY `order_id` (`order_id`);
+
+--
+-- Indexes for table `tbl_order_item`
+--
+ALTER TABLE `tbl_order_item`
+  ADD PRIMARY KEY (`item_order_id`),
+  ADD UNIQUE KEY `item_order_id` (`item_order_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -381,6 +555,12 @@ ALTER TABLE `tblcrud`
 --
 ALTER TABLE `tblitem`
   MODIFY `item_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `tblsysuser_address`
+--
+ALTER TABLE `tblsysuser_address`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tblsysuser_autoid`
@@ -405,6 +585,30 @@ ALTER TABLE `tbl_autoid`
 --
 ALTER TABLE `tbl_contactform`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT for table `tbl_headbanner`
+--
+ALTER TABLE `tbl_headbanner`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_headbanner_btn`
+--
+ALTER TABLE `tbl_headbanner_btn`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `tbl_order_customer`
+--
+ALTER TABLE `tbl_order_customer`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+
+--
+-- AUTO_INCREMENT for table `tbl_order_item`
+--
+ALTER TABLE `tbl_order_item`
+  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

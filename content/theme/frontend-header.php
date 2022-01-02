@@ -17,6 +17,8 @@
 	</title>
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
+	<meta name="google-signin-scope" content="profile email">
+	<meta name="google-signin-client_id" content="<?php echo $gauthlogin; ?>">
 	<link rel="icon" type="image/png" href="<?php echo $domainhome; ?>storage/img/<?php echo $favicon ?>">
 	<link rel="stylesheet" href="<?php echo $fontglobal; ?>">
 	<link rel="stylesheet" href="<?php echo $domainhome; ?>assets/fontawesome/releases/v5.7.0/css/all.css">
@@ -29,5 +31,6 @@
 	<script src="<?php echo $domainhome; ?>assets/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 	<script src="<?php echo $domainhome; ?>assets/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script src="<?php echo $domainhome; ?>assets/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+	<script src="//apis.google.com/js/platform.js" async defer></script>
 </head>
 <body id="myHome" data-spy="scroll" data-target=".navbar" data-offset="60" oncontextmenu="return false;" class="bg-default">

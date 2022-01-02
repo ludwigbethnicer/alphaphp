@@ -21,14 +21,18 @@
 					echo '</div>';
 				} else {
 					include_once "../../inc/signup/autogen.php";
-					$qry_insert = "INSERT INTO tblsysuser SET usercode=:idx, username=:younicknamex, passcode=:passcode1x";
+					$qry_insert = "INSERT INTO tblsysuser SET usercode=:idx, username=:younicknamex, passcode=:passcode1x, ulevpos=6, xposition=:xposition, ustatz=1, pin=:pin";
 					$stmt_insert = $cnn->prepare($qry_insert);
-					$the_lastid = $thelastid;
 					$younickname = $_POST['younickname'];
 					$passcode1 = md5($_POST['passcode1']);
+					$xposition = "Subscriber";
+					$permitted_chars2 = '0123456789';
+					$pin = substr(str_shuffle($permitted_chars2), 0, 6);
 					$stmt_insert->bindParam(':idx', $fromidted);
 					$stmt_insert->bindParam(':younicknamex', $younickname);
 					$stmt_insert->bindParam(':passcode1x', $passcode1);
+					$stmt_insert->bindParam(':xposition', $xposition);
+					$stmt_insert->bindParam(':pin', $pin);
 					$stmt_insert->execute();
 
 					$err_msg = "Save successfully. ".$thelastid;

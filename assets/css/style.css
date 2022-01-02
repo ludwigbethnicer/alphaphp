@@ -1,19 +1,55 @@
+* {box-sizing: border-box;}
+
+body { 
+	margin: 0;
+}
+
+#navbar {
+	padding: .8rem 1rem;
+	transition: 0.4s;
+}
+
 #show_hide_password .fa-eye-slash, 
 #show_hide_password1 .fa-eye-slash, 
 #show_hide_password2 .fa-eye-slash {
 	cursor: pointer;
 }
 
-img#mlogo {
-	max-height: 48px;
+#navbar img#mlogo {
+	max-height: 58px;
+	transition: 0.4s;
 }
 
 /** Default Style - Start **/
+.w-30px {
+	width: 30px;
+}
+
 .w360center {
 	width: 100%;
 	max-width: 468px;
 	margin: 0 auto;
 	margin-bottom: 4rem;
+}
+
+.acct-img {
+	width: 100%;
+	max-width: 20px;
+	height: auto;
+	border-radius: 50%;
+	margin-right: 6px;
+}
+
+.indiunem {
+	font-size: 12px;
+	margin-right: 12px;
+}
+
+span#nmbtemi {
+	background-color: red;
+	padding: 0 6px;
+	border-radius: 50%;
+	color: #fff;
 }
 
 #myAuth footer {
@@ -67,7 +103,15 @@ img#mlogo {
 
 #itmvwimgfl3 {
 	height: 82vh;
-	width: inherit;
+	width: 42vw;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: cover;
+}
+
+#ymModalItemPreviewFront .modal-body div.position-absolute {
+	top: 26px;
+	right: 26px;
 }
 
 #ymModalItemPreview .modal-dialog, 
@@ -75,7 +119,35 @@ img#mlogo {
 	max-width: max-content;
 }
 
+.button-minus, .button-plus, .addminusentry {
+	height: min-content;
+	border: 1px solid #fff;
+}
+
+.button-plus {
+	border-radius: 0 8px 8px 0;
+}
+
+.button-minus {
+	border-radius: 8px 0 0 8px;
+}
+
+.addminusentry {
+	width: 100%;
+	max-width: 56px;
+}
+
 /** Default Style - End **/
+
+@media only screen and (max-width: 575px) {
+	#ymModalItemPreviewFront .modal-dialog {
+		max-width: unset;
+	}
+
+	#itmvwimgfl3 {
+		width: 84vw;
+	}
+}
 
 @media only screen and (max-height: 690px) {
 	.page-wrapper {

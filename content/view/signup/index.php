@@ -1,6 +1,14 @@
 <?php
+
+	if(empty($_SESSION["usercode"])) {
+		
+	} else {
+		header('location:../../');
+	}
+
 	include_once "../../content/template-part/partner-navbar.php";
 	include_once "../../inc/cnndb.php";
+	
 ?>
 
 <div class="w360center">

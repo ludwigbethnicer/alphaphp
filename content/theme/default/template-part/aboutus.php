@@ -13,7 +13,7 @@
 						<button class="btn btn-danger btn-lg">Get in Touch</button>
 					</a>
 				</div>
-				<div class="col-sm-4 text-right">
+				<div class="col-sm-4 text-center">
 					<img class="frontpageimglogo" src="<?php echo $domainhome ?>storage/img/logo.png">
 				</div>
 			</div>

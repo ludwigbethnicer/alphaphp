@@ -1,3 +1,16 @@
+User Level
+
+	1	Admin
+	2	User
+	3	Guest
+	4	Contributor	(Supplier / Seller)
+	5	Author
+	6	Subscriber	(Customer / Member)
+
+-------
+
+https://lh3.googleusercontent.com/a-/AOh14Giuv75Tw-DdTw036rQKVh1QAZBzeGrGywoucUzvtA=s96-c
+
 mlitaudit
 bx5@AN4@5hzLBQU
 
@@ -60,3 +73,22 @@ https://mail.google.com/mail/u/1/#inbox?compose=new
 https://mail.google.com/mail/?view=cm&fs=1&to=someone@example.com&su=SUBJECT&body=BODY&bcc=someone.else@example.com
 
 -------
+
+Admin Dashboard: Set Color
+	Background Color
+		Sidebar
+			$dsidebarbgcolor
+				<nav id="sidebar" class="sidebar-wrapper">
+				stye="background: <?php echo $dsidebarbgcolor; ?>"
+
+				.chiller-theme .sidebar-wrapper {
+					background: #324b7c;
+				}
+
+			$dsidebariconbgcolor
+			$dsidebariconfontcolor
+				<i class="fas fa-server"></i>
+				stye="background: <?php echo $dsidebariconbgcolor; ?>; color: <?php echo $dsidebariconfontcolor; ?>;"
+				.chiller-theme .sidebar-wrapper .sidebar-menu ul li a i {
+					background: #324b7c;
+				}
