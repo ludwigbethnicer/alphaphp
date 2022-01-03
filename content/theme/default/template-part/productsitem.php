@@ -56,7 +56,7 @@
 				<div class="card-body text-right">
 					<h5 class="card-title"><?php echo $name; ?></h5>
 					<p class="card-text"><?php echo $dcurrencyx.' '.$sell_price; ?></p>
-					<div class="text-center"><a href="#" class="btn btn-link" onclick="return">See details</a></div>		
+					<div class="text-center"><a href="#" class="btn btn-link" onclick="document.getElementById('<?php echo $id4img; ?>').click();">See details</a></div>		
 				</div>
 				<div class="card-footer">
 					<a href="#" class="btn btn-danger w-100" onclick="fnAddToCartz(<?php echo $item_id; ?>); return false;">Add to Cart</a>

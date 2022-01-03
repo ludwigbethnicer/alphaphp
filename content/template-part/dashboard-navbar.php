@@ -84,7 +84,7 @@
 				<li class="header-menu">
 					<span>Main</span>
 				</li>
-				<li>
+				<li class="d-none">
 					<a href="<?php echo $baklnk; ?>routes/dashboard">
 						<i class="fas fa-server"></i>
 						<span>Dashboard</span>
@@ -121,21 +121,21 @@
 								<a href="<?php echo $baklnk; ?>routes/setgener" title="General Settings">General</a>
 							</li>
 							<li>
-								<a href="#">Writing</a>
+								<a href="#" class="d-none">Writing</a>
 							</li>
 							<li>
-								<a href="#">Reading</a>
+								<a href="#" class="d-none">Reading</a>
 							</li>
 							<li>
-								<a href="#">Discussion</a>
+								<a href="#" class="d-none">Discussion</a>
 							</li>
 							<li>
-								<a href="#">Privacy</a>
+								<a href="#" class="d-none">Privacy</a>
 							</li>
 						</ul>
 					</div>
 				</li>
-				<li class="sidebar-dropdown">
+				<li class="sidebar-dropdown d-none">
 					<a href="#">
 						<i class="fas fa-palette"></i>
 						<span>Apperance</span>
@@ -160,7 +160,7 @@
 						</ul>
 					</div>
 				</li>
-				<li class="sidebar-dropdown">
+				<li class="sidebar-dropdown d-none">
 					<a href="#">
 						<i class="fas fa-sticky-note"></i>
 						<span>Site</span>
@@ -224,10 +224,10 @@
 				<!-- Main Menu -->
 
 				<!-- Custom Menu -->
-				<li class="header-menu">
+				<li class="header-menu d-none">
 					<span>System</span>
 				</li>
-				<?php include_once "dashboard-navbar-menu.php"; ?>
+				<!-- ?php include_once "dashboard-navbar-menu.php"; ? -->
 				<!-- Custom Menu -->
 
 				<!-- Built-in App -->
@@ -238,17 +238,17 @@
 				<!-- Built-in App -->
 
 				<!-- Extra Menu -->
-				<li class="header-menu">
+				<li class="header-menu d-none">
 					<span>Extra</span>
 				</li>
-				<li>
+				<li class="d-none">
 					<a href="<?php echo $baklnk; ?>routes/crud" title="Create Read Update Delete Search">
 						<i class="fa fa-book"></i>
 						<span>CRUD</span>
 						<span class="badge badge-pill badge-secondary">Native PHP</span>
 					</a>
 				</li>
-				<li>
+				<li class="d-none">
 					<a href="<?php echo $baklnk; ?>routes/crud-datatable" title="Create Read Update Delete Search">
 						<i class="fa fa-book"></i>
 						<span>CRUD</span>
@@ -258,10 +258,10 @@
 				<!-- Extra Menu -->
 
 				<!-- Trash / Recycle Bin -->
-				<li class="header-menu">
+				<li class="header-menu d-none">
 					<span>Trash Data</span>
 				</li>
-				<li class="sidebar-dropdown"> <!-- Sample Menu 1 -->
+				<li class="sidebar-dropdown d-none"> <!-- Sample Menu 1 -->
 					<a href="#" title="Sample Menu">
 						<i class="far fa-file-alt"></i>
 						<span>Sample Menu 1</span>

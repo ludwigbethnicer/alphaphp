@@ -15,9 +15,13 @@ body {
 	cursor: pointer;
 }
 
-#navbar img#mlogo {
+#navbar #mlogo {
 	max-height: 58px;
 	transition: 0.4s;
+}
+
+#mlogo {
+	max-height: 48px;
 }
 
 /** Default Style - Start **/
@@ -43,6 +47,10 @@ body {
 .indiunem {
 	font-size: 12px;
 	margin-right: 12px;
+}
+
+.page-innerx button#adtestmsg {
+	display: block!important;
 }
 
 span#nmbtemi {
@@ -149,9 +157,14 @@ span#nmbtemi {
 	}
 }
 
+@media only screen and (max-width: 1023px) {
+	#myDashB main.page-content {
+		display: none;
+	}
+}
+
 @media only screen and (max-height: 690px) {
 	.page-wrapper {
 		height: 100%!important;
 	}
 }
-

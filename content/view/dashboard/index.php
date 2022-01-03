@@ -18,8 +18,8 @@
 					</div>
 				</div>
 				<div class="card-footer d-flex">
-					<small class="text-muted">Since last month</small>
-					<small class="text-success ml-auto">
+					<small class="text-muted d-none">Since last month</small>
+					<small class="text-success ml-auto d-none">
 						<i aria-hidden="true" class="fa fa-caret-up"></i> 5,35%
 					</small>
 				</div>
@@ -33,8 +33,8 @@
 					</div>
 				</div>
 				<div class="card-footer d-flex">
-					<small class="text-muted">Since last month</small>
-					<small class="text-danger ml-auto">
+					<small class="text-muted d-none">Since last month</small>
+					<small class="text-danger ml-auto d-none">
 						<i aria-hidden="true" class="fa fa-caret-down"></i> 2,81%
 					</small>
 				</div>
@@ -48,14 +48,14 @@
 					</div>
 				</div>
 				<div class="card-footer d-flex">
-					<small class="text-muted">Since last month</small>
-					<small class="text-success ml-auto">
+					<small class="text-muted d-none">Since last month</small>
+					<small class="text-success ml-auto d-none">
 						<i aria-hidden="true" class="fa fa-caret-up"></i> 5,35%
 					</small>
 				</div>
 			</div>
 
-			<div class="card bg-default">
+			<div class="card bg-default d-none">
 				<div class="card-body text-center">
 					<div class="card-innerBody d-flex align-items-center">
 						<div class="card-icon text-light"><i aria-hidden="true" class="fa fa-users"></i></div>
@@ -71,7 +71,7 @@
 			</div>
 		</div>
 
-		<div class="card-deck mb-3">
+		<div class="card-deck mb-3 d-none">
 			<div class="card bg-default">
 				<div class="card-body text-center">
 					<p class="card-text">Some text inside the first card</p>
@@ -89,7 +89,7 @@
 			</div>
 		</div>
 
-		<div class="card-deck mb-3">
+		<div class="card-deck mb-3 d-none">
 			<div class="card bg-default">
 				<div class="card-body text-center">
 					<p class="card-text">Some text inside the first card</p>
@@ -102,7 +102,7 @@
 			</div>
 		</div>
 
-		<div class="row card-deck mb-3">
+		<div class="row card-deck mb-3 d-none">
 			<div class="col-sm-8 card bg-default">
 				<div class="card-body text-center">
 					<p class="card-text">Some text inside the second card</p>

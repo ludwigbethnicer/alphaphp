@@ -2,7 +2,7 @@
 				<!-- https://www.w3schools.com/icons/fontawesome5_icons_files.asp -->
 				<!-- <?php //echo $baklnk; ?>routes/ -->
 
-				<li class="sidebar-dropdown"> <!-- Human Resource -->
+				<li class="sidebar-dropdown d-none"> <!-- Human Resource -->
 					<a href="#" title="Human Resource">
 						<i class="far fa-file-alt"></i>
 						<span>Human Resource</span>
@@ -48,7 +48,7 @@
 								<a href="#">Pay</a>
 							</li>
 							<li>
-								<a href="#">Inventory</a>
+								<a href="#" class="d-none">Inventory</a>
 							</li>
 						</ul>
 					</div>
@@ -66,16 +66,16 @@
 								<a href="#">User(s)</a>
 							</li>
 							<li>
-								<a href="#">User Log</a>
+								<a href="#" class="d-none">User Log</a>
 							</li>
 							<li>
-								<a href="#">System Log</a>
+								<a href="#" class="d-none">System Log</a>
 							</li>
 						</ul>
 					</div>
 				</li>
 
-				<li class="sidebar-dropdown"> <!-- Sample Menu 1 -->
+				<li class="sidebar-dropdown d-none"> <!-- Sample Menu 1 -->
 					<a href="#" title="Sample Menu">
 						<i class="far fa-file-alt"></i>
 						<span>Sample Menu 1</span>

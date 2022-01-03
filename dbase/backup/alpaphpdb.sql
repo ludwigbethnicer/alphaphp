@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.1.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2022 at 04:35 PM
--- Server version: 10.1.38-MariaDB
--- PHP Version: 7.3.3
+-- Generation Time: Jan 03, 2022 at 11:52 PM
+-- Server version: 10.4.22-MariaDB
+-- PHP Version: 7.4.27
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -62,7 +61,7 @@ CREATE TABLE `conf` (
   `build_by` varchar(254) NOT NULL,
   `cwebzite` varchar(254) NOT NULL,
   `dcurrencyx` varchar(15) NOT NULL,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -82,8 +81,8 @@ CREATE TABLE `tblcrud` (
   `id` int(11) NOT NULL,
   `fieldtxt` varchar(254) NOT NULL,
   `status` int(1) NOT NULL,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deletedx` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -160,8 +159,8 @@ CREATE TABLE `tblitem` (
   `quality` varchar(100) NOT NULL,
   `status` int(1) NOT NULL,
   `extnem` varchar(10) NOT NULL,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deletedx` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -203,19 +202,21 @@ CREATE TABLE `tblsysuser` (
   `fname` text NOT NULL,
   `mname` text NOT NULL,
   `deletedx` int(1) NOT NULL,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `testimony` text NOT NULL,
+  `cmpny` text NOT NULL,
+  `cmpny_position` text NOT NULL,
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblsysuser`
 --
 
-INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `img_url`, `fullname`, `uemail`, `umobileno`, `xposition`, `secquest`, `secans`, `ulevpos`, `uonline`, `ustatz`, `createdby`, `lname`, `fname`, `mname`, `deletedx`, `created`, `modified`) VALUES
-('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'Admin A. Minad', 'admin@info.com', '+639154826025', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Minad', 'Admin', 'Amind', 0, '2021-12-06 00:12:35', '2021-12-05 16:12:35'),
-('00000000001', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', '123456', '', 'User U. Resu', 'user@info.com', '+639123456789', 'User', 'What is your the name of your favorite dog?', 'me', 2, 0, 1, '00000000000', 'Resu', 'User', 'Uesr', 0, '2021-12-06 00:12:35', '2021-12-05 16:12:35'),
-('00000000002', 'guest', '084e0343a0486ff05530df6c705c8bb4', '123456', '', 'Guest G. Tseug', 'guest@info.com', '+639123456789', 'Guest', 'What is your the name of your favorite dog?', 'him', 3, 0, 0, '00000000000', 'Tseug', 'Guest', 'Geust', 0, '2021-12-06 00:12:35', '2021-12-05 16:12:35'),
-('114792514623933940437', 'napigkitludwigbethnicer', 'acac3558d0b8c44a47522a6402d60308', '802651', 'https://lh3.googleusercontent.com/a-/AOh14Giuv75Tw-DdTw036rQKVh1QAZBzeGrGywoucUzvtA=s96-c', 'Ludwig Bethnicer Napigkit', 'napigkitludwigbethnicer@gmail.com', '', 'Subscriber', '', '', 6, 0, 1, '', 'Napigkit', 'Ludwig Bethnicer', '', 0, '2021-12-31 17:36:04', '2021-12-31 09:36:04');
+INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `img_url`, `fullname`, `uemail`, `umobileno`, `xposition`, `secquest`, `secans`, `ulevpos`, `uonline`, `ustatz`, `createdby`, `lname`, `fname`, `mname`, `deletedx`, `testimony`, `cmpny`, `cmpny_position`, `created`, `modified`) VALUES
+('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'Admin A. Minad', 'admin@info.com', '+639154826025', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Minad', 'Admin', 'Amind', 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Ullamco', 'Minim Veniam', '2021-12-06 00:12:35', '2022-01-03 22:35:41'),
+('00000000001', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', '123456', '', 'User U. Resu', 'user@info.com', '+639123456789', 'User', 'What is your the name of your favorite dog?', 'me', 2, 0, 1, '00000000000', 'Resu', 'User', 'Uesr', 0, '', '', '', '2021-12-06 00:12:35', '2022-01-03 11:40:04'),
+('00000000002', 'guest', '084e0343a0486ff05530df6c705c8bb4', '123456', '', 'Guest G. Tseug', 'guest@info.com', '+639123456789', 'Guest', 'What is your the name of your favorite dog?', 'him', 3, 0, 0, '00000000000', 'Tseug', 'Guest', 'Geust', 0, '', '', '', '2021-12-06 00:12:35', '2021-12-05 16:12:35');
 
 -- --------------------------------------------------------
 
@@ -225,21 +226,21 @@ INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `img_url`, 
 
 CREATE TABLE `tblsysuser_address` (
   `id` int(11) NOT NULL,
-  `usercode` text,
-  `continent` text,
-  `country_name` text,
-  `country_accronym` text,
-  `country_code` text,
-  `zip_postal` text,
-  `state_province_region` text,
-  `city_town` text,
-  `brgy_village_district` text,
-  `address_1` text,
-  `address_2` text,
-  `tel_no` text,
-  `mobile_no` text,
-  `type_address` text,
-  `set_status` text,
+  `usercode` text DEFAULT NULL,
+  `continent` text DEFAULT NULL,
+  `country_name` text DEFAULT NULL,
+  `country_accronym` text DEFAULT NULL,
+  `country_code` text DEFAULT NULL,
+  `zip_postal` text DEFAULT NULL,
+  `state_province_region` text DEFAULT NULL,
+  `city_town` text DEFAULT NULL,
+  `brgy_village_district` text DEFAULT NULL,
+  `address_1` text DEFAULT NULL,
+  `address_2` text DEFAULT NULL,
+  `tel_no` text DEFAULT NULL,
+  `mobile_no` text DEFAULT NULL,
+  `type_address` text DEFAULT NULL,
+  `set_status` text DEFAULT NULL,
   `modified` date DEFAULT NULL,
   `created` date DEFAULT NULL,
   `deleted` int(1) DEFAULT NULL
@@ -254,7 +255,7 @@ CREATE TABLE `tblsysuser_address` (
 CREATE TABLE `tblsysuser_autoid` (
   `id` int(11) NOT NULL,
   `fieldtxt` text NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+  `created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -278,8 +279,8 @@ CREATE TABLE `tblthemename` (
   `description` text NOT NULL,
   `tagz` varchar(254) NOT NULL,
   `thumbnailt` varchar(254) NOT NULL,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deletedx` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -299,7 +300,7 @@ INSERT INTO `tblthemename` (`id`, `themename`, `version`, `authorby`, `descripti
 
 CREATE TABLE `tbl_autoid` (
   `id` int(3) UNSIGNED ZEROFILL NOT NULL,
-  `created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `created` timestamp NOT NULL DEFAULT current_timestamp(),
   `price` double NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -322,8 +323,8 @@ CREATE TABLE `tbl_contactform` (
   `email` varchar(100) DEFAULT NULL,
   `phone` varchar(30) DEFAULT NULL,
   `subject` varchar(100) DEFAULT NULL,
-  `message` text,
-  `created` datetime DEFAULT CURRENT_TIMESTAMP,
+  `message` text DEFAULT NULL,
+  `created` datetime DEFAULT current_timestamp(),
   `deleted` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -344,9 +345,9 @@ INSERT INTO `tbl_contactform` (`id`, `fullname`, `email`, `phone`, `subject`, `m
 
 CREATE TABLE `tbl_headbanner` (
   `id` int(11) NOT NULL,
-  `head_title` text,
-  `sub_text` text,
-  `img_loc` text
+  `head_title` text DEFAULT NULL,
+  `sub_text` text DEFAULT NULL,
+  `img_loc` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -358,11 +359,11 @@ CREATE TABLE `tbl_headbanner` (
 CREATE TABLE `tbl_headbanner_btn` (
   `id` int(11) NOT NULL,
   `hb_id` int(11) DEFAULT NULL,
-  `caption` text,
-  `btn_class` text,
-  `link_url` text,
-  `alt` text,
-  `tool_tip` text
+  `caption` text DEFAULT NULL,
+  `btn_class` text DEFAULT NULL,
+  `link_url` text DEFAULT NULL,
+  `alt` text DEFAULT NULL,
+  `tool_tip` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -373,24 +374,24 @@ CREATE TABLE `tbl_headbanner_btn` (
 
 CREATE TABLE `tbl_order_customer` (
   `order_id` int(11) NOT NULL,
-  `receipt_no` text,
+  `receipt_no` text DEFAULT NULL,
   `customer_id` varchar(254) DEFAULT NULL,
-  `customer_name` text,
-  `phone` text,
-  `address` text,
+  `customer_name` text DEFAULT NULL,
+  `phone` text DEFAULT NULL,
+  `address` text DEFAULT NULL,
   `sub_total_qty` double DEFAULT NULL,
   `sub_total_item` int(11) DEFAULT NULL,
   `sub_total` double DEFAULT NULL,
   `shipping_fee` double DEFAULT NULL,
   `total_all` double DEFAULT NULL,
-  `remarks` text,
-  `status` text,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `modified` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `remarks` text DEFAULT NULL,
+  `status` text DEFAULT NULL,
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
+  `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deleted` int(1) DEFAULT NULL,
-  `process_by` text,
-  `review_by` text,
-  `approved_by` text
+  `process_by` text DEFAULT NULL,
+  `review_by` text DEFAULT NULL,
+  `approved_by` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -401,7 +402,8 @@ INSERT INTO `tbl_order_customer` (`order_id`, `receipt_no`, `customer_id`, `cust
 (16, NULL, '114792514623933940437', NULL, NULL, NULL, 6, 2, 1220, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 12:11:59', '2022-01-01 10:13:08', 0, NULL, NULL, NULL),
 (17, NULL, '114792514623933940437', NULL, NULL, NULL, 8, 6, 1, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 18:13:25', '2022-01-01 10:33:30', 0, NULL, NULL, NULL),
 (18, NULL, '114792514623933940437', NULL, NULL, NULL, 3, 2, 370, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 18:33:54', '2022-01-01 10:43:46', 0, NULL, NULL, NULL),
-(19, NULL, '114792514623933940437', NULL, NULL, NULL, 65, 5, 10, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 22:14:17', '2022-01-01 15:15:47', 0, NULL, NULL, NULL);
+(19, NULL, '114792514623933940437', NULL, NULL, NULL, 65, 5, 10, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 22:14:17', '2022-01-01 15:15:47', 0, NULL, NULL, NULL),
+(20, NULL, '114792514623933940437', NULL, NULL, NULL, 1, 1, 130, NULL, NULL, 'Process', 'Unpaid', '2022-01-03 03:38:21', '2022-01-02 19:38:24', 0, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -414,14 +416,14 @@ CREATE TABLE `tbl_order_item` (
   `order_id` int(11) DEFAULT NULL,
   `item_id` int(11) DEFAULT NULL,
   `barcode` varchar(254) DEFAULT NULL,
-  `item_name` text,
+  `item_name` text DEFAULT NULL,
   `qty` double DEFAULT NULL,
   `unit` varchar(254) DEFAULT NULL,
   `price` double DEFAULT NULL,
   `total_amt` double DEFAULT NULL,
   `extnem` varchar(10) DEFAULT NULL,
-  `modified` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `created` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `modified` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `created` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
@@ -444,7 +446,8 @@ INSERT INTO `tbl_order_item` (`item_order_id`, `order_id`, `item_id`, `barcode`,
 (21, 19, 5, '', 'Black Shoes', 1, 'pair', 250, 250, 'jpg', '2022-01-01 22:14:20', '2022-01-01 22:14:20', 0),
 (22, 19, 6, '', 'Huda Liquid Mate', 1, 'pc', 120, 120, 'jpg', '2022-01-01 22:14:25', '2022-01-01 22:14:25', 0),
 (23, 19, 3, '', 'Pink Body Mist', 41, 'pc', 130, 5330, 'jpg', '2022-01-01 23:08:04', '2022-01-01 22:53:55', 0),
-(24, 19, 4, '', 'Pink Dress', 20, 'pc', 180, 3600, 'jpg', '2022-01-01 22:58:42', '2022-01-01 22:58:42', 0);
+(24, 19, 4, '', 'Pink Dress', 20, 'pc', 180, 3600, 'jpg', '2022-01-01 22:58:42', '2022-01-01 22:58:42', 0),
+(25, 20, 3, '', 'Pink Body Mist', 1, 'pc', 130, 130, 'jpg', '2022-01-03 03:38:21', '2022-01-03 03:38:21', 0);
 
 --
 -- Indexes for dumped tables
@@ -602,13 +605,13 @@ ALTER TABLE `tbl_headbanner_btn`
 -- AUTO_INCREMENT for table `tbl_order_customer`
 --
 ALTER TABLE `tbl_order_customer`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_item`
 --
 ALTER TABLE `tbl_order_item`
-  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

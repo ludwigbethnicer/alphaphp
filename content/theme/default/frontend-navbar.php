@@ -49,7 +49,7 @@
 						$stmt_getorid->bindParam(':processed2', $processed2);
 						$stmt_getorid->execute();
 						$row_order2 = $stmt_getorid->fetch(PDO::FETCH_ASSOC);
-						$curr_ordr_id2 = $row_order2['order_id'];
+						$curr_ordr_id2 = $row_order2['order_id'] ?? '0';
 
 						$cnn_getqty = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 						$qry_getqty = "SELECT SUM(qty) AS total_qty FROM tbl_order_item WHERE order_id=:order_id2";
