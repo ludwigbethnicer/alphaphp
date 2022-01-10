@@ -75,8 +75,9 @@
 				<div class="row">
 					<div class="col-sm-6 mb-2"></div>
 					<div class="col-sm-6 mb-2 text-right">
+						<a href="javascript: history.back()" class="text-dark text-decoration-none"><i>&#8592;</i> Back</a> | 
 						<a href="../../" class="text-dark text-decoration-none">
-							<i>&#8592;</i> Back to Homepage
+							to Homepage
 						</a>
 					</div>
 				</div>

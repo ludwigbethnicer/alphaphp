@@ -10,10 +10,13 @@
 	$stmt_order->bindParam(':customeer_id', $customeer_id);
 	$stmt_order->bindParam(':processed', $processed);
 	$stmt_order->execute();
-	$row_order = $stmt_order->fetch(PDO::FETCH_ASSOC);
-	$curr_ordr_id = $row_order['order_id'];
+	$numorder = $stmt_order->rowCount();
 
-	if (empty($curr_ordr_id)) {
+	if ($numorder>0) {
+		foreach ($stmt_order as $roworder) {
+			$curr_ordr_id = $roworder['order_id'];
+		}
+	} else {
 		echo "<script>window.location = '../../';</script>";
 	}
 ?>
@@ -25,14 +28,14 @@
 	<div class="container">
 		<div class="card">
 			<div class="card-header">
-				<label>Cart</label>
+				<label>Cart [Order#: <?php echo $curr_ordr_id; ?>]</label>
 				<div class="float-right">
 					<a href="">Refresh</a>
 				</div>
 			</div>
 			<div class="card-body">
-				<div class="table-responsive-sm">
-					<table id="listRecView9" class="table table-striped table-hover table-sm">
+				<div class="table-responsive">
+					<table id="listRecView9" class="table table-striped table-hover">
 						<thead>
 							<tr>
 								<th>No.</th>
@@ -74,7 +77,7 @@
 									$item_id=$row['item_id'];
 									$barcode=$row['barcode'];
 									$extnem=$row['extnem'];
-									$img_item='../../storage/img/items/ITEM'.$item_id.'.'.$extnem;									
+									$img_item='../../storage/img/items/ITEM'.$item_id.'.'.$extnem;
 									$item_name=$row['item_name'];
 
 									$qty=$row['qty'];
@@ -188,9 +191,6 @@
 	} else {
 		echo '<iframe class="responsive-iframe" src="https://maps.google.com/maps?q='.$geomap.'&t=&z=15&ie=UTF8&iwloc=&output=embed" width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>';
 	}
-
-	// Remarks: Process | Checkout | Reviewed | Approved | Declined | Shipped | Received
-	// Status: Unpaid | Cancel | Paid
 ?>
 
 <script type="text/javascript">

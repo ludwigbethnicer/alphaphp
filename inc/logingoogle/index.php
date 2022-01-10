@@ -18,22 +18,36 @@
 				$statement->bindParam(':username2', $username2);
 				$statement->bindParam(':email2', $email2);
 				$statement->execute();
-				$row_uzr = $statement->fetch(PDO::FETCH_ASSOC);
 				$count = $statement->rowCount();
+
 				if ($count > 0) {
-					$_SESSION["usercode"] = $gogid;
-					$_SESSION["username"] = $username2;
-					$_SESSION["fullname"] = $_POST["fullname2"];
-					$_SESSION["ulevpos"] =  $row_uzr['ulevpos'];
-					$_SESSION["surname"] = $_POST["lastname2"];
-					$_SESSION["firstname"] = $_POST["firstname2"];
-					$_SESSION["middlename"] = $row_uzr['mname'];
-					$_SESSION["postitle"] = $row_uzr['xposition'];
-					$_SESSION["imglnkurl"] = $row_uzr['img_url'];
-					
-					$err_msg = "Already registered. ".$gogid;
-					echo "<script>window.open('../../', '_self');</script>";
-					header('location:../../');
+					foreach ($statement as $row_uzr) {
+						$dletd = $row_uzr['deletedx'];
+						$sttzus = $row_uzr['ustatz'];
+					}
+
+					if($dletd==1){
+						echo "<script>alert('Access denied! Please contact the support @ ".$mobileno."');</script>";
+					}elseif($sttzus==0){
+						echo "<script>alert('Your account has been disabled! Please contact the support @ ".$mobileno."');</script>";
+					}else{
+						$_SESSION["usercode"] = $gogid;
+						$_SESSION["username"] = $username2;
+						$_SESSION["fullname"] = $_POST["fullname2"];
+						$_SESSION["ulevpos"] =  $row_uzr['ulevpos'];
+						$_SESSION["surname"] = $_POST["lastname2"];
+						$_SESSION["firstname"] = $_POST["firstname2"];
+						$_SESSION["middlename"] = $row_uzr['mname'];
+						$_SESSION["postitle"] = $row_uzr['xposition'];
+						$_SESSION["imglnkurl"] = $row_uzr['img_url'];
+
+						$_SESSION["email"] = $row_uzr['uemail'];
+						$_SESSION["phone"] = $row_uzr['umobileno'];
+						
+						$err_msg = "Already registered. ".$gogid;
+						echo "<script>window.open('../../', '_self');</script>";
+						header('location:../../');
+					}
 				} else {
 					$qry_insert = "INSERT INTO tblsysuser SET usercode=:idx, username=:younicknamex, passcode=:passcode1x, ulevpos=6, xposition=:xposition, ustatz=1, pin=:pin, uemail=:email9, fullname=:fullname, lname=:lname, fname=:fname, img_url=:imgurl";
 					$stmt_insert = $cnn->prepare($qry_insert);
@@ -60,6 +74,8 @@
 					$stmt_insert->bindParam(':passcode1x', $passcode1);
 					$stmt_insert->execute();
 
+					$email = $_POST['email2'];
+
 					$_SESSION["imglnkurl"] = $imgurl;
 					$_SESSION["usercode"] = $gogid9;
 					$_SESSION["username"] = $younickname;
@@ -68,6 +84,9 @@
 					$_SESSION["surname"] = $lname;
 					$_SESSION["firstname"] = $fname;
 					$_SESSION["postitle"] = $xposition;
+
+					$_SESSION["email"] = $email;
+					$_SESSION["imglnkurl"] = $imgurl;
 
 					$err_msg = "Successfully registered. ".$gogid9;
 					echo "<script>window.open('../../', '_self');</script>";

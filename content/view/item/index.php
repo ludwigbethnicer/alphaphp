@@ -21,13 +21,13 @@
 						<th>Category</th>
 						<th>Unit</th>
 						<th>Selling Price</th>
-						<th>Sale Price</th>
-						<th>Supplier Price</th>
+						<th class="d-none">Sale Price</th>
+						<th class="d-none">Supplier Price</th>
 						<th>Available Stock</th>
-						<th>Modified</th>
-						<th>Created</th>
-						<th>Item Code</th>
-						<th>Ctrl#</th>
+						<th>Date</th>
+						<th class="d-none">Created</th>
+						<th class="d-none">Item Code</th>
+						<th class="d-none">Ctrl#</th>
 						<th class="text-right">Action</th>
 					</tr>
 				</thead>
@@ -66,13 +66,13 @@
 								<td data-filter="<?php echo $category; ?>"><?php echo $category; ?></td>
 								<td data-filter="<?php echo $unit; ?>"><?php echo $unit; ?></td>
 								<td data-filter="<?php echo $sell_price; ?>"><?php echo $sell_price; ?></td>
-								<td data-filter="<?php echo $sale_price; ?>"><?php echo $sale_price; ?></td>
-								<td data-filter="<?php echo $supplier_price; ?>"><?php echo $supplier_price; ?></td>
+								<td class="d-none"><?php echo $sale_price; ?></td>
+								<td class="d-none"><?php echo $supplier_price; ?></td>
 								<td data-filter="<?php echo $stock_available; ?>"><?php echo $stock_available; ?></td>
-								<td ><?php echo $modified; ?></td>
-								<td ><?php echo $created; ?></td>
-								<td><?php echo $barcode; ?></td>
-								<td><?php echo $id; ?></td>
+								<td><?php echo $modified; ?></td>
+								<td class="d-none"><?php echo $created; ?></td>
+								<td class="d-none"><?php echo $barcode; ?></td>
+								<td class="d-none"><?php echo $id; ?></td>
 								<td class="text-right tbl-action">
 									<a href="../../routes/item/editupdate?id=<?php echo $id; ?>" class="btn-sm btn-success btn-inline" title="Edit">
 										<span class="far fa-edit"></span>
@@ -93,13 +93,13 @@
 						<td>Category</td>
 						<td>Unit</td>
 						<td class="remove-dropdown"></td>
-						<td class="remove-dropdown"></td>
-						<td class="remove-dropdown"></td>
+						<td class="remove-dropdown d-none"></td>
+						<td class="remove-dropdown d-none"></td>
 						<td>Stock</td>
 						<td class="remove-dropdown"></td>
-						<td class="remove-dropdown"></td>
-						<td class="remove-dropdown"></td>
-						<td class="remove-dropdown"></td>
+						<td class="remove-dropdown d-none"></td>
+						<td class="remove-dropdown d-none"></td>
+						<td class="remove-dropdown d-none"></td>
 						<td class="remove-dropdown"></td>
 					</tr>
 				</tfoot>

@@ -7,15 +7,15 @@
 	$idedit = $_GET['id'];
 
 	// search for duplicate
-	$etblname = "tblcrud";
-	$edispid = "id";
+	$etblname = "tblsysuser";
+	$edispid = "usercode";
 	$qry_edit = "SELECT * FROM {$etblname} WHERE {$edispid}=:idedit LIMIT 1";
 	$stmt_edit = $cnn->prepare($qry_edit);
 	$stmt_edit->bindParam(':idedit', $idedit);
 	$stmt_edit->execute();
 	$row_curr = $stmt_edit->fetch(PDO::FETCH_ASSOC);
 
-	$efield1 = $row_curr['fieldtxt'];
+	$efield1 = $row_curr['lname'];
 ?>
 
 <main class="page-content">

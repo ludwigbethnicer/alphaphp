@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 03, 2022 at 11:52 PM
+-- Generation Time: Jan 10, 2022 at 12:13 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -214,7 +214,7 @@ CREATE TABLE `tblsysuser` (
 --
 
 INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `img_url`, `fullname`, `uemail`, `umobileno`, `xposition`, `secquest`, `secans`, `ulevpos`, `uonline`, `ustatz`, `createdby`, `lname`, `fname`, `mname`, `deletedx`, `testimony`, `cmpny`, `cmpny_position`, `created`, `modified`) VALUES
-('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'Admin A. Minad', 'admin@info.com', '+639154826025', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Minad', 'Admin', 'Amind', 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', 'Ullamco', 'Minim Veniam', '2021-12-06 00:12:35', '2022-01-03 22:35:41'),
+('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'Admin A. Minad', 'admin@info.com', '+639154826025', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Surname', 'Admin', 'Amind', 0, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.', 'Manuver', 'Administrator', '2021-12-06 00:12:35', '2022-01-08 15:09:41'),
 ('00000000001', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', '123456', '', 'User U. Resu', 'user@info.com', '+639123456789', 'User', 'What is your the name of your favorite dog?', 'me', 2, 0, 1, '00000000000', 'Resu', 'User', 'Uesr', 0, '', '', '', '2021-12-06 00:12:35', '2022-01-03 11:40:04'),
 ('00000000002', 'guest', '084e0343a0486ff05530df6c705c8bb4', '123456', '', 'Guest G. Tseug', 'guest@info.com', '+639123456789', 'Guest', 'What is your the name of your favorite dog?', 'him', 3, 0, 0, '00000000000', 'Tseug', 'Guest', 'Geust', 0, '', '', '', '2021-12-06 00:12:35', '2021-12-05 16:12:35');
 
@@ -328,15 +328,6 @@ CREATE TABLE `tbl_contactform` (
   `deleted` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_contactform`
---
-
-INSERT INTO `tbl_contactform` (`id`, `fullname`, `email`, `phone`, `subject`, `message`, `created`, `deleted`) VALUES
-(1, 'sdvsd', 'sdgvsdv@dsvsd.com', '342523', 'sdfvgfsd', 'sdvsd', '2021-12-04 15:28:41', NULL),
-(2, 'sdvsdv', 'dfbfdgbfd@sdkvbdsjk.com', '345345', 'kjhkljnlk', 'knklnklnkl\r\nsdfvblksdfn\r\nsdvlknsdlk', '2021-12-04 15:29:35', 0),
-(3, 'sdvsdvsd', 'sdvsdv@dfbdfb.com', 'sdvsdvsd', 'sldmvl;', ';lml;', '2021-12-04 17:08:37', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -394,17 +385,6 @@ CREATE TABLE `tbl_order_customer` (
   `approved_by` text DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_order_customer`
---
-
-INSERT INTO `tbl_order_customer` (`order_id`, `receipt_no`, `customer_id`, `customer_name`, `phone`, `address`, `sub_total_qty`, `sub_total_item`, `sub_total`, `shipping_fee`, `total_all`, `remarks`, `status`, `created`, `modified`, `deleted`, `process_by`, `review_by`, `approved_by`) VALUES
-(16, NULL, '114792514623933940437', NULL, NULL, NULL, 6, 2, 1220, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 12:11:59', '2022-01-01 10:13:08', 0, NULL, NULL, NULL),
-(17, NULL, '114792514623933940437', NULL, NULL, NULL, 8, 6, 1, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 18:13:25', '2022-01-01 10:33:30', 0, NULL, NULL, NULL),
-(18, NULL, '114792514623933940437', NULL, NULL, NULL, 3, 2, 370, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 18:33:54', '2022-01-01 10:43:46', 0, NULL, NULL, NULL),
-(19, NULL, '114792514623933940437', NULL, NULL, NULL, 65, 5, 10, NULL, NULL, 'Checkout', 'Unpaid', '2022-01-01 22:14:17', '2022-01-01 15:15:47', 0, NULL, NULL, NULL),
-(20, NULL, '114792514623933940437', NULL, NULL, NULL, 1, 1, 130, NULL, NULL, 'Process', 'Unpaid', '2022-01-03 03:38:21', '2022-01-02 19:38:24', 0, NULL, NULL, NULL);
-
 -- --------------------------------------------------------
 
 --
@@ -426,28 +406,6 @@ CREATE TABLE `tbl_order_item` (
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_order_item`
---
-
-INSERT INTO `tbl_order_item` (`item_order_id`, `order_id`, `item_id`, `barcode`, `item_name`, `qty`, `unit`, `price`, `total_amt`, `extnem`, `modified`, `created`, `deleted`) VALUES
-(10, 16, 4, '', 'Pink Dress', 4, 'pc', 180, 720, 'jpg', '2022-01-01 18:04:30', '2022-01-01 12:11:59', 0),
-(11, 16, 5, '', 'Black Shoes', 2, 'pair', 250, 500, 'jpg', '2022-01-01 18:12:46', '2022-01-01 18:12:37', 0),
-(12, 17, 1, '', 'Nike Sock', 1, 'pair', 55, 55, 'jpg', '2022-01-01 18:13:25', '2022-01-01 18:13:25', 0),
-(13, 17, 4, '', 'Pink Dress', 1, 'pc', 180, 180, 'jpg', '2022-01-01 18:13:30', '2022-01-01 18:13:30', 0),
-(14, 17, 2, '', 'Victoria Secret Victoria Secret Victoria Secret Victoria Secret Victoria Secret Victoria Secret Vict', 2, 'pc', 350, 700, 'jpg', '2022-01-01 18:17:09', '2022-01-01 18:13:36', 0),
-(15, 17, 6, '', 'Huda Liquid Mate', 1, 'pc', 120, 120, 'jpg', '2022-01-01 18:15:33', '2022-01-01 18:15:33', 0),
-(16, 17, 5, '', 'Black Shoes', 2, 'pair', 250, 500, 'jpg', '2022-01-01 18:16:05', '2022-01-01 18:15:52', 0),
-(17, 17, 3, '', 'Pink Body Mist', 1, 'pc', 130, 130, 'jpg', '2022-01-01 18:33:18', '2022-01-01 18:33:18', 0),
-(18, 18, 3, '', 'Pink Body Mist', 1, 'pc', 130, 130, 'jpg', '2022-01-01 18:33:54', '2022-01-01 18:33:54', 0),
-(19, 18, 6, '', 'Huda Liquid Mate', 2, 'pc', 120, 240, 'jpg', '2022-01-01 18:35:38', '2022-01-01 18:34:49', 0),
-(20, 19, 2, '', 'Victoria Secret Victoria Secret Victoria Secret Victoria Secret Victoria Secret Victoria Secret Vict', 2, 'pc', 350, 700, 'jpg', '2022-01-01 22:14:38', '2022-01-01 22:14:17', 0),
-(21, 19, 5, '', 'Black Shoes', 1, 'pair', 250, 250, 'jpg', '2022-01-01 22:14:20', '2022-01-01 22:14:20', 0),
-(22, 19, 6, '', 'Huda Liquid Mate', 1, 'pc', 120, 120, 'jpg', '2022-01-01 22:14:25', '2022-01-01 22:14:25', 0),
-(23, 19, 3, '', 'Pink Body Mist', 41, 'pc', 130, 5330, 'jpg', '2022-01-01 23:08:04', '2022-01-01 22:53:55', 0),
-(24, 19, 4, '', 'Pink Dress', 20, 'pc', 180, 3600, 'jpg', '2022-01-01 22:58:42', '2022-01-01 22:58:42', 0),
-(25, 20, 3, '', 'Pink Body Mist', 1, 'pc', 130, 130, 'jpg', '2022-01-03 03:38:21', '2022-01-03 03:38:21', 0);
 
 --
 -- Indexes for dumped tables
@@ -605,13 +563,13 @@ ALTER TABLE `tbl_headbanner_btn`
 -- AUTO_INCREMENT for table `tbl_order_customer`
 --
 ALTER TABLE `tbl_order_customer`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_item`
 --
 ALTER TABLE `tbl_order_item`
-  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
+  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

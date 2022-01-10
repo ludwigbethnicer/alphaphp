@@ -22,9 +22,9 @@
 			<div class="card-body">
 				<form id="loginpost" method="post" class="needs-validation" novalidate>
 					<div class="form-group">
-						<label for="username">Username | e-mail | Mobile:</label>
+						<label for="username">Username | e-mail:</label>
 						<div class="input-group mb-3">
-							<input type="text" class="form-control" id="username" placeholder="Username | e-mail | +639154826025" name="username" autofocus required>
+							<input type="text" class="form-control" id="username" placeholder="Username | e-mail" name="username" autofocus required>
 							<div class="valid-feedback">Valid.</div>
 							<div class="invalid-feedback">Please fill out this field.</div>
 						</div>

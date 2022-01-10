@@ -10,44 +10,67 @@
 					echo '</div>';
 				} else {
 					$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-					$query = "SELECT * FROM tblsysuser WHERE username=:username OR uemail=:uemail OR umobileno=:uemail AND passcode=:passcode AND ustatz=1 LIMIT 1";
+					$query = "SELECT * FROM tblsysuser WHERE username=:username OR uemail=:uemail AND passcode=:passcode LIMIT 1";
 					$statement = $cnn->prepare($query);
 					$statement->execute(array(
 						'username'	=>	$_POST["username"],
 						'uemail'	=>	$_POST["username"],
-						'umobileno'	=>	$_POST["username"],
 						'passcode'	=>	md5($_POST["passcode"])));
-
-					$row = $statement->fetch(PDO::FETCH_ASSOC);
-
 					$count = $statement->rowCount();
-					if ($count > 0) {
-						$usercode = $row['usercode'];
-						$fullname = $row['fullname'];
-						$ulevpos = $row['ulevpos'];
-						$surname = $row['lname'];
-						$firstname = $row['fname'];
-						$middlename = $row['mname'];
-						$uposition = $row['xposition'];
-						
-						$_SESSION["usercode"] = $usercode;
-						$_SESSION["username"] = $_POST["username"];
-						$_SESSION["fullname"] = $fullname;
-						$_SESSION["ulevpos"] = $ulevpos;
 
-						$_SESSION["surname"] = $surname;
-						$_SESSION["firstname"] = $firstname;
-						$_SESSION["middlename"] = $middlename;
-						$_SESSION["postitle"] = $uposition;
-						$_SESSION["imglnkurl"] = $row['img_url'];
-						
-						header('location:../../');
+					if ($count > 0) {
+						foreach ($statement as $row) {
+							$dletd = $row['deletedx'];
+							$sttzus = $row['ustatz'];
+						}
+
+						if($dletd==1){
+							echo '<div class="alert alert-danger alert-dismissible fade show">';
+								echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+								echo 'Access denied! Please contact the support @ <a href="tel:'.$mobileno.'">'.$mobileno.'</a>';
+							echo '</div>';
+						}elseif($sttzus==0){
+							echo '<div class="alert alert-danger alert-dismissible fade show">';
+								echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+								echo 'Your account has been disabled! Please contact the support @ <a href="tel:'.$mobileno.'">'.$mobileno.'</a>';
+							echo '</div>';
+						}else{
+							$usercode = $row['usercode'];
+							$fullname = $row['fullname'];
+							$ulevpos = $row['ulevpos'];
+							$surname = $row['lname'];
+							$firstname = $row['fname'];
+							$middlename = $row['mname'];
+							$uposition = $row['xposition'];
+							$email = $row['uemail'];
+							$phone = $row['umobileno'];
+							
+							$_SESSION["usercode"] = $usercode;
+							$_SESSION["username"] = $_POST["username"];
+							$_SESSION["fullname"] = $fullname;
+							$_SESSION["ulevpos"] = $ulevpos;
+
+							$_SESSION["surname"] = $surname;
+							$_SESSION["firstname"] = $firstname;
+							$_SESSION["middlename"] = $middlename;
+							$_SESSION["postitle"] = $uposition;
+							$_SESSION["imglnkurl"] = $row['img_url'];
+
+							$_SESSION["email"] = $email;
+							$_SESSION["phone"] = $phone;
+							
+							header('location:../../');
+						}
+
 					} else {
 						echo '<div class="alert alert-danger alert-dismissible fade show">';
 							echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-							echo 'Either your account is disbabled, inactive, not verified or wrong username and password.';
+							echo 'You are not register.';
 						echo '</div>';
 					}
+					
+
+					
 				}
 			}
 		} catch (PDOException $error) {

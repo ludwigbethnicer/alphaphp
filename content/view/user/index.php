@@ -52,7 +52,7 @@
 		var answer = confirm('Delete record User ID: '+id+' ?');
 		if (answer) {
 			window.location = '../../content/view/user/deteled.php?upidid=' + id;
-		} 
+		}
 	}
 </script>
 

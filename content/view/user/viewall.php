@@ -62,7 +62,7 @@
 						echo "<td>{$usercode}</td>";
 						echo "<td class='text-right tbl-action'>";
 							echo "<a href='../../routes/user/editupdate?id={$usercode}' class='btn-sm btn-success btn-inline' title='Edit'><span class='far fa-edit'></span></a>";
-							echo "<a class='btn-sm btn-dark btn-inline ml-1' href='#' onclick='trash({$usercode})' title='Delete'><span class='fas fa-trash-alt'></span></a>";
+							echo "<a href='../../content/view/user/deteled.php?upidid={$usercode}' class='btn-sm btn-dark btn-inline ml-1' title='Delete'><span class='fas fa-trash-alt'></span></a>";
 						echo '</td>';
 					echo '</tr>';
 				}

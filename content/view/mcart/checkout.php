@@ -14,7 +14,7 @@
 		$stmt_remx->bindParam(':order_remzx', $order_remzx);
 		if ($stmt_remx->execute()) {
 			echo "<script>alert('Successfully checkout. OrderID:[".$chidx."]');</script>";
-			header('Location:../../../routes/mcart');
+			header('Location:../../../routes/mpurchase');
 		} else {
 			echo "<script>alert('Unable to checkout record. OrderID:[".$chidx."]');</script>";
 			die('Unable to checkout record.');
