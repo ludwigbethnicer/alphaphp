@@ -42,10 +42,13 @@
 								<a href="<?php echo $baklnk; ?>routes/item">Item(s)</a>
 							</li>
 							<li>
-								<a href="#">All Sale</a>
+								<a href="<?php echo $baklnk; ?>routes/item">Order(s)</a>
 							</li>
 							<li>
-								<a href="#">Pay</a>
+								<a href="<?php echo $baklnk; ?>routes/item">Paid</a>
+							</li>
+							<li>
+								<a href="#" data-toggle="modal" data-target="#mPayMode">Pay</a>
 							</li>
 							<li>
 								<a href="#" class="d-none">Inventory</a>

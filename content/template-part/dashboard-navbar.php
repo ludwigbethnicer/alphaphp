@@ -213,7 +213,7 @@
 					<div class="sidebar-submenu">
 						<ul>
 							<li>
-								<a href="#">Message(s)</a>
+								<a href="<?php echo $baklnk; ?>routes/contact-messages">Message(s)</a>
 							</li>
 							<li>
 								<a href="#">Contact List</a>

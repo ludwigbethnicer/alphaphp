@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 10, 2022 at 12:13 AM
+-- Generation Time: Jan 13, 2022 at 08:57 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -69,7 +69,7 @@ CREATE TABLE `conf` (
 --
 
 INSERT INTO `conf` (`id`, `cmpny_name`, `sys_name`, `sys_ver`, `sys_logo`, `navbar_logo`, `favicon`, `quote_title`, `ceo_pres`, `memail`, `telno`, `mobileno`, `maddress`, `idletime`, `themename`, `domainhome`, `fontglobal`, `datetoday`, `created`, `primary_color`, `second_color`, `third_color`, `forth_color`, `fifth_color`, `sixth_color`, `seventh_color`, `eight_color`, `ninght_color`, `tenth_color`, `geo_map`, `build_by`, `cwebzite`, `dcurrencyx`, `modified`) VALUES
-(1, 'KJJ\'s Closets', 'KJJ\'s Closets', '1.0.0', 'logo.png', 'logo.svg', 'logo.png', 'Bring the customers closer to their dream fashion.', 'Baay Katherine', 'kjjscloset@gmail.com', '+32 333 2469', '+63 967 840 7618', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 5, 'default', '/alphaphp/', '', '20211225', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.6010913,122.4230158', 'Joseph Drillon', 'kjjsclosets.com', '&#8369;', '2021-12-26 13:14:30');
+(1, 'KJJ\'s Closets', 'KJJ\'s Closets', '1.0.0', 'logo.png', 'logo.svg', 'logo.png', 'Bring the customers closer to their dream fashion.', 'Baay Katherine', 'kjjscloset@gmail.com', '+32 333 2469', '+639678407618', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 5, 'default', '/alphaphp/', '', '20211225', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.6010913,122.4230158', 'Joseph Drillon', 'kjjsclosets.com', '&#8369;', '2022-01-13 01:40:57');
 
 -- --------------------------------------------------------
 
@@ -85,57 +85,6 @@ CREATE TABLE `tblcrud` (
   `modified` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deletedx` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tblcrud`
---
-
-INSERT INTO `tblcrud` (`id`, `fieldtxt`, `status`, `created`, `modified`, `deletedx`) VALUES
-(1, 'Sample Ludwig', 1, '2021-11-03 21:09:33', '2021-12-04 09:38:37', 1),
-(2, 'Sample2', 0, '2021-11-03 21:09:33', '2021-11-03 13:09:33', 0),
-(3, 'Sample', 0, '2021-11-04 13:27:31', '2022-01-01 15:20:38', 1),
-(4, 'dijbl\'df\';bda', 0, '2021-11-04 13:31:24', '2021-11-04 05:31:24', 0),
-(5, ';lkdblknab', 0, '2021-11-04 13:31:26', '2021-11-04 05:31:26', 0),
-(6, 'jhbjhsdshvhjsd', 0, '2021-11-04 13:31:29', '2021-11-04 05:31:29', 0),
-(7, 'jhasvchjaschjvasj', 0, '2021-11-04 13:31:32', '2021-11-04 05:31:32', 0),
-(8, 'vibsdivusdbis', 0, '2021-11-04 13:32:28', '2021-11-04 05:32:28', 0),
-(9, 'jknvskdhvisdnvsd', 0, '2021-11-04 13:32:30', '2021-11-04 05:32:30', 0),
-(10, 'kdvnsdnvosdvnsdoiv', 0, '2021-11-04 13:32:34', '2021-11-04 05:32:34', 0),
-(11, 'nsdvnsdovsdinvoisdvs', 0, '2021-11-04 13:32:36', '2021-11-04 05:32:36', 0),
-(12, 'kldvnsdknvdsnvklnsdkv', 0, '2021-11-04 13:32:39', '2021-11-04 05:32:39', 0),
-(13, 'jbnkjdf', 0, '2021-11-04 14:53:28', '2021-11-04 06:53:28', 0),
-(14, 'kjvjadsfiuvgbdsaf', 0, '2021-11-04 14:53:30', '2021-11-04 06:53:30', 0),
-(15, 'kldnfbvlkndskl', 0, '2021-11-04 14:53:33', '2021-11-04 06:53:33', 0),
-(16, 'dkbnlkdfnblksdf', 0, '2021-11-04 14:53:37', '2021-11-04 06:53:37', 0),
-(17, 'jkdbvjdnfbdf', 0, '2021-11-04 14:53:40', '2021-11-04 14:10:06', 1),
-(18, 'fdbhjbvuisdak', 0, '2021-11-04 14:54:07', '2021-11-04 06:54:07', 0),
-(19, 'kjdchvjkadsfngvusdfk', 0, '2021-11-04 14:54:09', '2021-11-04 06:54:09', 0),
-(20, 'nvkdsna skd lkklmgvkl;msd', 0, '2021-11-04 14:54:14', '2021-11-04 06:54:14', 0),
-(21, 'kjsdvkjsduifsd djsfd opi', 0, '2021-11-04 14:54:16', '2021-11-04 06:54:16', 0),
-(22, 'oidjgfvldsi', 0, '2021-11-04 14:54:19', '2021-11-04 06:54:19', 0),
-(23, ']\\lojl;kvmsdfpoigsw', 0, '2021-11-04 14:54:21', '2021-11-04 06:54:21', 0),
-(24, ';omb;ldfmpob ', 0, '2021-11-04 14:54:23', '2021-11-04 06:54:23', 0),
-(25, 'l;kjbvopsdfgv;sdfpo', 0, '2021-11-04 14:54:26', '2021-11-04 06:54:26', 0),
-(26, 'povkjsd;mvposdj', 0, '2021-11-04 14:54:28', '2021-11-04 06:54:28', 0),
-(27, 'lidfjhdfklnkl;', 0, '2021-11-04 14:54:30', '2021-11-04 06:54:30', 0),
-(28, 'posdfjghldfglibndfaio', 0, '2021-11-04 14:54:32', '2021-11-04 06:54:32', 0),
-(29, 'diojfboidfnbiojdfbnsdf', 0, '2021-11-04 14:54:34', '2021-11-04 06:54:34', 0),
-(30, 'dfpojbodfmgbodfjoigbd', 0, '2021-11-04 14:54:36', '2021-11-04 06:54:36', 0),
-(31, 'ldkfjb;ldfkmbpodf', 0, '2021-11-04 14:54:37', '2021-11-04 06:54:37', 0),
-(32, 'dfbmpldfml;b', 0, '2021-11-04 14:54:39', '2021-11-04 06:54:39', 0),
-(33, 'fdl;blk;dfmb', 0, '2021-11-04 14:54:40', '2021-11-04 06:54:40', 0),
-(34, 'skdflbdf', 0, '2021-11-04 14:54:41', '2021-11-04 06:54:41', 0),
-(35, 'dfmkbdfmb', 0, '2021-11-04 14:54:42', '2021-11-04 06:54:42', 0),
-(36, 'dfgbmdfopmbdf', 0, '2021-11-04 14:54:43', '2021-11-04 20:10:47', 1),
-(37, 'dfgbkdfbmdf', 0, '2021-11-04 14:54:43', '2021-11-04 06:54:43', 0),
-(38, 'dfbkdfkbdf', 0, '2021-11-04 14:54:44', '2021-11-04 06:54:44', 0),
-(39, 'dfbkdfmkbdf', 0, '2021-11-04 14:54:45', '2021-11-04 06:54:45', 0),
-(40, 'dfbkdfkbd', 0, '2021-11-04 14:54:48', '2021-11-04 06:54:48', 0),
-(41, 'sample55555', 0, '2021-11-04 22:13:30', '2021-11-04 15:12:19', 0),
-(44, 'ludwig', 0, '2021-11-04 23:53:07', '2022-01-01 15:20:24', 1),
-(46, 'ludwig bethnicer napigkit', 0, '2021-11-04 23:57:46', '2021-12-10 13:31:57', 1),
-(47, 'sdfbkldnbkl;ndlk;bnkldf', 0, '2021-12-13 08:42:05', '2021-12-13 00:42:05', 0),
-(48, 'Marnelie Ann', 0, '2021-12-13 08:42:33', '2022-01-01 15:20:18', 1);
 
 -- --------------------------------------------------------
 
@@ -402,6 +351,7 @@ CREATE TABLE `tbl_order_item` (
   `price` double DEFAULT NULL,
   `total_amt` double DEFAULT NULL,
   `extnem` varchar(10) DEFAULT NULL,
+  `cstock` double NOT NULL,
   `modified` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` int(1) NOT NULL
@@ -509,7 +459,7 @@ ALTER TABLE `conf`
 -- AUTO_INCREMENT for table `tblcrud`
 --
 ALTER TABLE `tblcrud`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tblitem`
@@ -545,7 +495,7 @@ ALTER TABLE `tbl_autoid`
 -- AUTO_INCREMENT for table `tbl_contactform`
 --
 ALTER TABLE `tbl_contactform`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_headbanner`
@@ -563,13 +513,13 @@ ALTER TABLE `tbl_headbanner_btn`
 -- AUTO_INCREMENT for table `tbl_order_customer`
 --
 ALTER TABLE `tbl_order_customer`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_item`
 --
 ALTER TABLE `tbl_order_item`
-  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
+  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=67;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

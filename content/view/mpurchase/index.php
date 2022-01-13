@@ -101,6 +101,7 @@
 										$statusy = $row_purchase['status'];
 										if($statusy=='Unpaid'){
 											$sbsTxtColor = ' text-danger';
+											$titled = 'Wait for the personnel to contact you for the payment or you may reach to this number '.$mobileno.'.';
 										}elseif($statusy=='Cancel'){
 											$sbsTxtColor = ' text-warning';
 										}elseif($statusy=='Paid'){
@@ -128,7 +129,7 @@
 													<div class="border p-1 text-center bg-light<?php echo $rbsTxtColor; ?>"><?php echo $remarksy; ?></div>													
 												</td>
 												<td data-filter="<?php echo $statusy; ?>">
-													<div class="border p-1 text-center bg-light<?php echo $sbsTxtColor; ?>"><?php echo $statusy; ?></div>
+													<div title="<?php echo $titled; ?>" class="border p-1 text-center bg-light<?php echo $sbsTxtColor; ?>"><?php echo $statusy; ?></div>
 												</td>
 												<td data-filter="<?php echo $datey; ?>"><?php echo $datey; ?></td>
 												<td class="d-none"><?php echo $ctrly; ?></td>

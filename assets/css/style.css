@@ -79,6 +79,11 @@ span#nmbtemi {
 	padding-right: 5px!important;
 }
 
+.qty_edit {
+	max-width: 60px;
+	text-align: end;
+}
+
 #myAuth .g-signin2 {
 	top: 9px;
 	left: 18px;

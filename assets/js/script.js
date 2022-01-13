@@ -30,8 +30,10 @@ $(document).ready(function() {
 		location.reload();
 	});
 
-	$('#ghqty').on('keyup', function(event) {
+	// avoid zero value
+	$('#ghqty, .none-zero-input').on('keyup', function(event) {
 		let v = parseInt(this.value);
+		if (isNaN(v)) this.value = this.min;
 		if (v < this.min) this.value = this.min;
 		if (v > this.max) this.value = this.max;
 	});
@@ -152,7 +154,7 @@ function fnforgotpw() {
 /** disable/remove only first space on input field **/
 $(function() {
 	$('body').on('keydown', 'input', function(e) {
-		console.log(this.value);
+		// console.log(this.value);
 		if (e.which === 32 &&  e.target.selectionStart === 0) {
 			return false;
 		}  

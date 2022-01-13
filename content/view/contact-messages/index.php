@@ -8,8 +8,7 @@
 <main class="page-content">
 	<div class="container-fluid bg-light-opacity">
 		<div class="d-flex">
-			<h4 class="mr-2 mb-2">CRUD DataTable</h4>
-			<a href="../../routes/crud-datatable/addnew" class="btn btn-outline-info btn-sm mr-2 mb-2">Add New</a>
+			<h4 class="mr-2 mb-2">Message(s) | Inquiry | Comment(s) | Suggestion</h4>
 		</div>
 
 		<div id="" class="table-responsive">
@@ -17,48 +16,53 @@
 				<thead>
 					<tr>
 						<th>No.</th>
-						<th>Fieldtext</th>
-						<th>Status</th>
-						<th>Modified</th>
-						<th>Created</th>
-						<th>Ctrl#</th>
+						<th>Subject</th>
+						<th>Message</th>
+						<th>Name</th>
+						<th>E-mail</th>
+						<th>Phone</th>
+						<th>Date</th>
+						<th class="d-none">Ctrl#</th>
 						<th class="text-right">Action</th>
 					</tr>
 				</thead>
 
 				<tbody>
 					<?php
-						$tblname = "tblcrud";
+						$tblname = "tbl_contactform";
 						$prim_id = "id";
 						$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-						$qry = "SELECT * FROM {$tblname} WHERE deletedx=0 ORDER BY {$prim_id} DESC";
+						$qry = "SELECT * FROM {$tblname} WHERE deleted=0 ORDER BY {$prim_id} DESC";
 						$stmt = $cnn->prepare($qry);
 						$stmt->execute();
 						$xno = 0;
 
 						for($i=0; $row = $stmt->fetch(); $i++) {
 							$xno++;
-							$id2=$row['id'];
-							$id=sprintf('%04d',$id2);
-							$fieldtxt=$row['fieldtxt'];
-							$status=$row['status'];
-							$modified2=$row['modified'];
-							$modified=date_format(new DateTime($modified2),'Y/m/d');
-							$created2=$row['created'];
-							$created=date_format(new DateTime($created2),'Y/m/d');
+							$id=$row['id'];
+							$subject=$row['subject'];
+							$message=$row['message'];
+							$fullname=$row['fullname'];
+							$email=$row['email'];
+							$phone=$row['phone'];
+							$date=$row['created'];
+							$date2=date_format(new DateTime($date),'Y/m/d');
 					?>
 
 							<tr>
 								<td><?php echo $xno; ?></td>
-								<td data-filter="<?php echo $fieldtxt; ?>"><?php echo $fieldtxt; ?></td>
-								<td data-filter="<?php echo $status; ?>"><?php echo $status; ?></td>
-								<td data-filter="<?php echo $modified; ?>"><?php echo $modified; ?></td>
-								<td data-filter="<?php echo $created; ?>"><?php echo $created; ?></td>
-								<td><?php echo $id; ?></td>
+								<td data-filter="<?php echo $subject; ?>"><?php echo $subject; ?></td>
+								<td data-filter="<?php echo $message; ?>"><?php echo $message; ?></td>
+								<td data-filter="<?php echo $fullname; ?>"><?php echo $fullname; ?></td>
+								<td data-filter="<?php echo $email; ?>">
+									<a href="mailto:<?php echo $email; ?>" target="_blank"><?php echo $email; ?></a>
+								</td>
+								<td data-filter="<?php echo $phone; ?>">
+									<a href="tel:<?php echo $phone; ?>" target="_blank"><?php echo $phone; ?></a>
+								</td>
+								<td data-filter="<?php echo $date2; ?>"><?php echo $date2; ?></td>
+								<td class="d-none"><?php echo $id; ?></td>
 								<td class="text-right tbl-action">
-									<a href="../../routes/crud-datatable/editupdate?id=<?php echo $id; ?>" class="btn-sm btn-success btn-inline" title="Edit">
-										<span class="far fa-edit"></span>
-									</a>
 									<a class="btn-sm btn-dark btn-inline ml-1" href="#" onclick="trash(<?php echo $id2; ?>)" title="Delete">
 										<span class="fas fa-trash-alt"></span>
 									</a>
@@ -70,13 +74,15 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<td class="remove-dropdown"></td>
-						<td>Fieldtext</td>
-						<td>Status</td>
-						<td>Modified</td>
-						<td>Created</td>
-						<td class="remove-dropdown">Ctrl#</td>
-						<td class="remove-dropdown"></td>
+						<td class="remove-dropdown">No.</td>
+						<td>Subject</td>
+						<td>Message</td>
+						<td>Name</td>
+						<td>E-mail</td>
+						<td>Phone</td>
+						<td>Date</td>
+						<td class="d-none remove-dropdown">Ctrl#</td>
+						<td class="remove-dropdown">Action</td>
 					</tr>
 				</tfoot>
 			</table>
@@ -110,17 +116,17 @@
 					/** Filter Group for each column End **/
 
 					/** Search for each column Start **/
-					// var that = this;
-					// var input = $('<input type="text" placeholder="Search" />')
-					// .appendTo($(this.footer()).empty())
+					var that = this;
+					var input = $('<input type="text" placeholder="Search" />')
+					.appendTo($(this.footer()).empty())
 
-					// .on('keyup change', function() {
-					// 	if (that.search() !== this.value) {
-					// 		that
-					// 		.search(this.value)
-					// 		.draw();
-					// 	}
-					// });
+					.on('keyup change', function() {
+						if (that.search() !== this.value) {
+							that
+							.search(this.value)
+							.draw();
+						}
+					});
 					/** Search for each column End **/
 
 				});
@@ -131,7 +137,7 @@
 	function trash(id) {
 		var answer = confirm('Delete record Ctrl#'+id+' ?');
 		if (answer) {
-			window.location = '../../content/view/crud-datatable/deteled.php?upidid=' + id;
+			window.location = '../../content/view/contact-messages/deteled.php?upidid=' + id;
 		} 
 	}
 </script>

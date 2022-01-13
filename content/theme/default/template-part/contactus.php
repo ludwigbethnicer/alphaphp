@@ -29,7 +29,7 @@
 					<textarea class="form-control" id="messages" name="messages" placeholder="Message" rows="5" required></textarea><br>
 					<div class="row">
 						<div class="col-sm-12 form-group">
-							<input type="submit" name="btnSend" value="Send" class="btn btn-warning pull-right">
+							<input type="submit" name="btnSend" value="Send" class="btn btn-warning pull-right w-100">
 						</div>
 					</div>
 				</form>

@@ -84,6 +84,7 @@
 									$unit=$row['unit'];
 									$price=$row['price'];
 									$total_amt=$row['total_amt'];
+									$cstock=$row['cstock'];
 
 									$modified2=$row['modified'];
 									$modified=date_format(new DateTime($modified2),'Y/m/d');
@@ -98,18 +99,17 @@
 										<td class="d-none" data-filter="<?php echo $barcode; ?>"><?php echo $barcode; ?></td>
 										<td data-filter="<?php echo $img_item; ?>"><img class="w-30px" src="<?php echo $img_item; ?>"></td>
 										<td data-filter="<?php echo $item_name; ?>"><?php echo $item_name; ?></td>
-										<td data-filter="<?php echo $qty; ?>"><?php echo $qty; ?></td>
+										<td data-filter="<?php echo $qty; ?>">
+											<input type="number" id="qtyedit<?php echo $id2; ?>" name="qty_edit" class="qty_edit none-zero-input" value="<?php echo $qty; ?>" onchange="fnChangeQty(<?php echo $id2; ?>,this.value)" step="1" min="1" max="<?php echo $cstock; ?>">
+										</td>
 										<td data-filter="<?php echo $unit; ?>"><?php echo $unit; ?></td>
 										<td data-filter="<?php echo $price; ?>"><?php echo $dcurrencyx.$price; ?></td>
-										<td data-filter="<?php echo $total_amt; ?>"><?php echo $dcurrencyx.$total_amt; ?></td>
+										<td data-filter="<?php echo $total_amt; ?>"><?php echo $dcurrencyx; ?><span data-value="<?php echo $total_amt; ?>" id="ttamt<?php echo $id2; ?>"><?php echo $total_amt; ?></span></td>
 										<td class="d-none" data-filter="<?php echo $modified; ?>"><?php echo $modified; ?></td>
 										<td class="d-none" data-filter="<?php echo $created; ?>"><?php echo $created; ?></td>
 										<td class="d-none"><?php echo $id2; ?></td>
 										<td class="text-right tbl-action">
-											<a href="../../routes/mcart/editupdate?id=<?php echo $id2; ?>" class="btn-sm btn-success btn-inline" title="Edit">
-												<span class="far fa-edit"></span>
-											</a>
-											<a class="btn-sm btn-dark btn-inline ml-1" href="#" onclick="trash(<?php echo $id2; ?>)" title="Delete">
+											<a class="btn-sm btn-dark btn-inline ml-1" href="#" onclick="trash(<?php echo $id2.','.$xno; ?>)" title="Delete">
 												<span class="fas fa-trash-alt"></span>
 											</a>
 										</td>
@@ -137,9 +137,8 @@
 								<td class="d-none"></td>
 								<td colspan="2"></td>
 								<td><?php echo $sbtotalqty; ?></td>
-								<td></td>
-								<td>Sub-Total:</td>
-								<td><?php echo $dcurrencyx.$sbtotztal; ?></td>
+								<td colspan="2">Sub-Total:</td>
+								<td><?php echo $dcurrencyx; ?><span id="allsubtotal" data-value="<?php echo $sbtotztal; ?>"><?php echo $sbtotztal; ?></span></td>
 								<td></td>
 							</tr>
 						<?php
@@ -162,7 +161,16 @@
 			</div>
 			<div class="card-footer">
 				<div class="row">
-					<div class="col-sm-6 mb-2"></div>
+					<div class="col-sm-6 mb-2">
+						<?php
+							$action = isset($_GET['action']) ? $_GET['action'] : "";
+							$xno = isset($_GET['xno']) ? $_GET['xno'] : "";
+							$itemname = isset($_GET['itemname']) ? $_GET['itemname'] : "";
+							if ($action=='deleted') {
+								echo "<div class='alert alert-danger alert-dismissible mb-0 fade show'><button type='button' class='close' data-dismiss='alert'>&times;</button>You have deleted a record. No.:[{$xno}] Product: {$itemname}</div>";
+							}
+						?>
+					</div>
 					<div class="col-sm-6 mb-2 text-right">
 						<a href="../../" class="text-dark text-decoration-none">
 							<i>&#8592;</i> Back to Homepage
@@ -219,13 +227,17 @@
 				});
 			}
 		} );
-	});	
+	});
 
-	function trash(id) {
-		var answer = confirm('Delete record Ctrl#'+id+' ?');
+	function fnChangeQty(id,qty) {
+		window.location = "../../content/view/mcart/update.php?itmordid="+id+"&zqty="+qty;
+	}
+
+	function trash(id,no) {
+		var answer = confirm('Delete record No.:'+no+' ?');
 		if (answer) {
-			window.location = '../../content/view/mcart/deteled.php?upidid=' + id;
-		} 
+			window.location = '../../content/view/mcart/deleted.php?itoid='+id+'&xno='+no;
+		}
 	}
 
 	function fnCheckOut(chid) {
