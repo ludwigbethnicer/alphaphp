@@ -131,7 +131,7 @@
 						$sellprice6 = $row6['sell_price'];
 						$extnem6 = $row6['extnem'];
 						$totalamt6 = $sellprice6*$fqty6;
-						$cstock6 = $row6['cstock'];
+						$cstock6 = $row6['stock_available'];
 					}
 
 					$qry5 = "INSERT INTO tbl_order_item SET 
@@ -147,6 +147,7 @@
 						cstock		= '$cstock6'
 						";
 					$cnn->exec($qry5);
+					echo '<script>window.open("../../../routes/productsitems/","_self");</script>';
 				} else {
 					echo '<script>window.open("../../../routes/productsitems/","_self");</script>';
 				}

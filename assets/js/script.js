@@ -33,7 +33,6 @@ $(document).ready(function() {
 	// avoid zero value
 	$('#ghqty, .none-zero-input').on('keyup', function(event) {
 		let v = parseInt(this.value);
-		if (isNaN(v)) this.value = this.min;
 		if (v < this.min) this.value = this.min;
 		if (v > this.max) this.value = this.max;
 	});

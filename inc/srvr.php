@@ -2,8 +2,8 @@
 
 	$host		= "localhost"; // Server Host
 	$db			= "alpaphpdb"; // Database Name
-	$unameroot	= "root"; // Database Username
-	$pw			= ""; // Database Password
+	$unameroot	= "root"; // Database Username [kjjsroot]
+	$pw			= ""; // Database Password [RC83Ag^6MINb]
 	$err		= ""; // Database Error Connection
 	$cnn		= null;
 	$dir		= "/alphaphp/"; // Domain Directory
