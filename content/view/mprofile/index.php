@@ -21,6 +21,10 @@
 	$pmiddlename = $row_profilez["mname"];
 	$pemail = $row_profilez["uemail"];
 	$pimglnkurl = $row_profilez["img_url"];
+
+	$pmobilephone = $row_profilez["umobileno"];
+	$pemployer = $row_profilez["cmpny"];
+	$pjobposition = $row_profilez["cmpny_position"];
 ?>
 
 <div class="pt-5 pb-5">
@@ -41,7 +45,7 @@
 							</div>
 						</div>
 						<div class="col-md-9">
-							<div class="form-group">
+							<div class="form-group d-none">
 								<label for="profpic">Profile Picture:</label>
 								<div class="input-group mb-3">
 									<input type="text" class="form-control" id="profpic" placeholder="Profile Picture" name="profpic" autofocus required readonly value="<?php echo $pimglnkurl; ?>">
@@ -112,7 +116,7 @@
 							<div class="form-group">
 								<label for="pmobilephone">Phone / Mobile:</label>
 								<div class="input-group mb-3">
-									<input type="text" class="form-control" id="pmobilephone" placeholder="Phone / Mobile" name="pmobilephone" autofocus required>
+									<input type="text" class="form-control" id="pmobilephone" placeholder="Phone / Mobile" name="pmobilephone" value="<?php echo $pmobilephone; ?>" autofocus required>
 									<div class="valid-feedback">Valid.</div>
 									<div class="invalid-feedback">Please fill out this field.</div>
 								</div>
@@ -121,7 +125,7 @@
 							<div class="form-group">
 								<label for="pemployer">Company / Employer:</label>
 								<div class="input-group mb-3">
-									<input type="text" class="form-control" id="pemployer" placeholder="Company / Employer" name="pemployer" autofocus>
+									<input type="text" class="form-control" id="pemployer" placeholder="Company / Employer" name="pemployer" value="<?php echo $pemployer; ?>" autofocus>
 									<div class="valid-feedback">Valid.</div>
 									<div class="invalid-feedback">Please fill out this field.</div>
 								</div>
@@ -130,7 +134,7 @@
 							<div class="form-group">
 								<label for="pjobposition">Job Title / Position:</label>
 								<div class="input-group mb-3">
-									<input type="text" class="form-control" id="pjobposition" placeholder="Job Title / Position" name="pjobposition" autofocus>
+									<input type="text" class="form-control" id="pjobposition" placeholder="Job Title / Position" name="pjobposition" value="<?php echo $pjobposition; ?>" autofocus>
 									<div class="valid-feedback">Valid.</div>
 									<div class="invalid-feedback">Please fill out this field.</div>
 								</div>

@@ -18,6 +18,26 @@
 	$efield1 = $row_curr['fieldtxt'];
 ?>
 
+<script>
+	window.addEventListener('load', function() {
+		document.querySelector('#itemfilenem').addEventListener('change', function() {
+			if (this.files && this.files[0]) {
+				var img = document.querySelector('#itmvwimgfl');
+				img.onload = () => {
+					URL.revokeObjectURL(img.src);  // no longer needed, free memory
+				}
+				img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+
+				var img2 = document.querySelector('#itmvwimgfl2');
+				img2.onload = () => {
+					URL.revokeObjectURL(img2.src);  // no longer needed, free memory
+				}
+				img2.src = URL.createObjectURL(this.files[0]); // set src to blob url
+			}
+		});
+	});
+</script>
+
 <main class="page-content">
 	<div class="container-fluid bg-light-opacity">
 		<form method="post" class="needs-validation" novalidate>

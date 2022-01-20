@@ -59,14 +59,25 @@
 						$cstock9 = $cstock8;
 					}
 
-					$qry10 = "UPDATE tbl_order_item SET 
-						qty			= '$fqty9plus', 
-						total_amt	= '$totalamt9', 
-						cstock		= '$cstock9'
-						WHERE 
-						item_order_id	= '$itemorderid9'
-						";
-					$cnn->exec($qry10);
+					if ($fqty9plus>$cstock9) {
+						$qry10 = "UPDATE tbl_order_item SET 
+							qty			= '$cstock9', 
+							total_amt	= '$totalamt9', 
+							cstock		= '$cstock9'
+							WHERE 
+							item_order_id	= '$itemorderid9'
+							";
+						$cnn->exec($qry10);
+					} else {
+						$qry10 = "UPDATE tbl_order_item SET 
+							qty			= '$fqty9plus', 
+							total_amt	= '$totalamt9', 
+							cstock		= '$cstock9'
+							WHERE 
+							item_order_id	= '$itemorderid9'
+							";
+						$cnn->exec($qry10);
+					}
 					echo '<script>window.open("../../../routes/productsitems/","_self");</script>';
 				} else {
 					$qry11 = "INSERT INTO tbl_order_item SET 
@@ -88,7 +99,35 @@
 				echo '<script>window.open("../../../routes/productsitems/","_self");</script>';
 			}
 		} else {
-			$qry3 = "INSERT INTO tbl_order_customer SET customer_id=:idcustomer3, remarks=:remarkx3, status=:statuz3, deleted=0";
+			$qryGetCUser = "SELECT * FROM tblsysuser WHERE usercode=:nowuid LIMIT 1";
+			$stmtGetCUser = $cnn->prepare($qryGetCUser);
+			$stmtGetCUser->bindParam(':nowuid', $nowuid);
+			$stmtGetCUser->execute();
+			$cntGetCUser = $stmtGetCUser->rowCount();
+
+			if ($cntGetCUser > 0) {
+				foreach ($stmtGetCUser as $rowGetCUser) {
+					$clientname3 = $rowGetCUser["fullname"];
+					$clientphone3 = $rowGetCUser["umobileno"];
+					$clientemail3 = $rowGetCUser["uemail"];
+					$receivername3 = $rowGetCUser["fullname"];
+					$receiverphone3 = $rowGetCUser["umobileno"];
+					$receiveremail3 = $rowGetCUser["uemail"];
+				}
+			}
+
+			$qry3 = "INSERT INTO tbl_order_customer SET 
+				customer_id=:idcustomer3, 
+				customer_name=:clientname, 
+				phone=:clientphone, 
+				cemail=:clientemail, 
+				receiver=:receivername, 
+				receiver_phone=:receiverphone, 
+				remail=:receiveremail, 
+				remarks=:remarkx3, 
+				status=:statuz3, 
+				deleted=0
+			";
 			$stmt3 = $cnn->prepare($qry3);
 			$idcustomer3 = $nowuid;
 			$remarkx3 = 'Process';
@@ -96,6 +135,12 @@
 			$stmt3->bindParam(':idcustomer3', $idcustomer3);
 			$stmt3->bindParam(':remarkx3', $remarkx3);
 			$stmt3->bindParam(':statuz3', $statuz3);
+			$stmt3->bindParam(':clientname', $clientname3);
+			$stmt3->bindParam(':clientphone', $clientphone3);
+			$stmt3->bindParam(':clientemail', $clientemail3);
+			$stmt3->bindParam(':receivername', $receivername3);
+			$stmt3->bindParam(':receiverphone', $receiverphone3);
+			$stmt3->bindParam(':receiveremail', $receiveremail3);
 			$stmt3->execute();
 
 			$qry7 = "SELECT * FROM tbl_order_customer WHERE customer_id=:idcustomer7 AND remarks=:remarkx7 AND status=:statuz7 AND deleted=0 ORDER BY order_id DESC LIMIT 1";

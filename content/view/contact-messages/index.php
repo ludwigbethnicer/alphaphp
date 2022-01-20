@@ -115,20 +115,6 @@
 					});
 					/** Filter Group for each column End **/
 
-					/** Search for each column Start **/
-					var that = this;
-					var input = $('<input type="text" placeholder="Search" />')
-					.appendTo($(this.footer()).empty())
-
-					.on('keyup change', function() {
-						if (that.search() !== this.value) {
-							that
-							.search(this.value)
-							.draw();
-						}
-					});
-					/** Search for each column End **/
-
 				});
 			}
 		} );

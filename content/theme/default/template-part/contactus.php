@@ -27,6 +27,68 @@
 						<input class="form-control" id="subjects" name="subjects" placeholder="Subject" type="text">
 					</div>
 					<textarea class="form-control" id="messages" name="messages" placeholder="Message" rows="5" required></textarea><br>
+					<?php
+						$chckfle = file_exists("inc/notrobot/math/plus/index.php");
+						if ($chckfle) {
+							include_once "inc/notrobot/math/plus/index.php";
+						} else {
+							include_once "../../inc/notrobot/math/plus/index.php";
+						}
+					?>
+					<div class="form-group mb-0">
+						<label>Not a robot. Required to answer this option.</label>
+					</div>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text"><?php echo $var1.' + '.$var2; ?> = </span>
+						</div>
+						<input class="form-control" id="myanswer" name="myanswer" placeholder="Your Answer" type="number" required>
+					</div>
+					<div class="form-group">
+						<?php
+							$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+
+							try {
+								if (isset($_POST['btnSend'])) {
+									if (empty($_POST['fullname']) || empty($_POST['emailx']) || empty($_POST['messages']) || empty($_POST['myanswer'])) {
+										$err_msg = "Please fill-up the form properly.";
+									} else {
+										$myanswer = $_POST['myanswer'];
+										if ($equealx==$myanswer) {
+											$stblname = "tbl_contactform";
+											$qry_insert = "INSERT INTO {$stblname} SET fullname=:fullname, email=:emailx, phone=:mphone, subject=:subjects, message=:messages, deleted=0";
+											$stmt_insert = $cnn->prepare($qry_insert);
+											$fullname = $_POST['fullname'];
+											$emailx = $_POST['emailx'];
+											$mphone = $_POST['mphone'];
+											$subjects = $_POST['subjects'];
+											$messages = $_POST['messages'];
+											$stmt_insert->bindParam(':fullname', $fullname);
+											$stmt_insert->bindParam(':emailx', $emailx);
+											$stmt_insert->bindParam(':mphone', $mphone);
+											$stmt_insert->bindParam(':subjects', $subjects);
+											$stmt_insert->bindParam(':messages', $messages);
+											$stmt_insert->execute();
+
+											$err_msg = "Message successfully sent.";
+										} else {
+											echo '<div class="alert alert-danger alert-dismissible fade show">';
+												echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+												echo 'Your answer is wrong. Please try again.';
+											echo '</div>';
+										}
+									}
+								}
+							} catch (PDOException $error) {
+								$err_msg = $error->getMessage();								
+								echo '<div class="alert alert-danger alert-dismissible fade show">';
+									echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+									echo "<p>Error: {$err_msg}</p>";
+								echo '</div>';
+								die;
+							}
+						?>
+					</div>
 					<div class="row">
 						<div class="col-sm-12 form-group">
 							<input type="submit" name="btnSend" value="Send" class="btn btn-warning pull-right w-100">
@@ -37,39 +99,3 @@
 		</div>
 	</div>
 </div>
-
-<?php
-
-	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-
-	try {
-		if (isset($_POST['btnSend'])) {
-			if (empty($_POST['fullname']) || empty($_POST['emailx']) || empty($_POST['messages'])) {
-				$err_msg = "Please fill-up the form properly.";
-			} else {
-				$stblname = "tbl_contactform";
-				$qry_insert = "INSERT INTO {$stblname} SET fullname=:fullname, email=:emailx, phone=:mphone, subject=:subjects, message=:messages, deleted=0";
-				$stmt_insert = $cnn->prepare($qry_insert);
-				$fullname = $_POST['fullname'];
-				$emailx = $_POST['emailx'];
-				$mphone = $_POST['mphone'];
-				$subjects = $_POST['subjects'];
-				$messages = $_POST['messages'];
-				$stmt_insert->bindParam(':fullname', $fullname);
-				$stmt_insert->bindParam(':emailx', $emailx);
-				$stmt_insert->bindParam(':mphone', $mphone);
-				$stmt_insert->bindParam(':subjects', $subjects);
-				$stmt_insert->bindParam(':messages', $messages);
-				$stmt_insert->execute();
-
-				$err_msg = "Message successfully sent.";
-				echo "<script>alert('".$err_msg."');</script>";
-			}
-		}
-	} catch (PDOException $error) {
-		$err_msg = $error->getMessage();
-		echo "<p>Error: {$err_msg}</p>";
-		die;
-	}
-
-?>

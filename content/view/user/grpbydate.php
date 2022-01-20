@@ -25,7 +25,7 @@
 
 ?>
 
-<table id="listRecView2" class="table table-hover table-sm">
+<table id="listRecView2" class="table table-hover">
 	<thead>
 		<tr>
 			<th>No.</th>

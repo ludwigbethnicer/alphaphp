@@ -542,7 +542,9 @@ font-size: 0.9rem;
 	width: 100%;
 }
 #listRecView tfoot tr td.remove-dropdown select, 
-#listRecView tfoot tr td.remove-dropdown input {
+#listRecView tfoot tr td.remove-dropdown input, 
+#listRecView thead tr th.remove-dropdown select, 
+#listRecView thead tr th.remove-dropdown input {
 	display: none;
 }
 

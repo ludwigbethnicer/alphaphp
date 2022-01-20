@@ -112,7 +112,7 @@
 			</div>
 		</div>
 
-		<div id="viewRecordz" class="table-responsive-sm">
+		<div id="viewRecordz" class="table-responsive">
 			<?php
 				include_once "viewall.php";
 			?>

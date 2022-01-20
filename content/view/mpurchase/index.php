@@ -208,11 +208,10 @@
 		$('#listRecView91').DataTable( {
 			initComplete: function () {
 				this.api().columns().every( function () {
-
 					/** Filter Group for each column Start **/
 					var column = this;
 					var select = $('<select><option value=""></option></select>')
-					.appendTo( $(column.footer()).empty() )
+					.appendTo( $(column.header()).empty() )
 					.on( 'change', function () {
 						var val = $.fn.dataTable.util.escapeRegex(
 						$(this).val()
@@ -226,6 +225,7 @@
 					column.data().unique().sort().each( function ( d, j ) {
 						select.append( '<option value="'+d+'">'+d+'</option>' )
 					});
+					/** Filter Group for each column End **/
 				});
 			}
 		} );

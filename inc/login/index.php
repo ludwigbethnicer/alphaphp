@@ -68,9 +68,6 @@
 							echo 'You are not register.';
 						echo '</div>';
 					}
-					
-
-					
 				}
 			}
 		} catch (PDOException $error) {
