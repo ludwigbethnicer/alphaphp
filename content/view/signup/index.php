@@ -56,7 +56,9 @@
 				</div>
 				
 				<div class="row">
-					<div class="col-sm-6 mb-2"></div>
+					<div class="col-sm-6 mb-2">
+						<a href="../../routes/login?glogin=1" class="btn btn-block btn-primary">Signup using GMail</a>
+					</div>
 					<div class="col-sm-6 mb-2">
 						<button type="submit" class="btn btn-block btn-info" name="btnSubmit">Submit</button>
 					</div>

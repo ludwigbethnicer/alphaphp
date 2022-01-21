@@ -10,6 +10,28 @@
 
 ?>
 
+<script type="text/javascript">
+	$(document).ready(function(){
+		const $_GET = {};
+		const args = location.search.substr(1).split(/&/);
+		for (let i=0; i<args.length; ++i) {
+			const tmp = args[i].split(/=/);
+			if (tmp[0] != "") {
+				$_GET[decodeURIComponent(tmp[0])] = decodeURIComponent(tmp.slice(1).join("").replace("+", " "));
+				console.log(`${$_GET['glogin']}`);
+				xtruegmail = $_GET[decodeURIComponent(tmp[0])];
+				if (xtruegmail=1) {
+					$('#loginpost').addClass('d-none');
+					$('#ifregnorm').removeClass('d-none');
+					$("#glogin").detach().appendTo('#cardLogin');
+					$('#glogin').addClass('border border-warning rounded-lg m-auto');
+					$('#glogin').removeClass('position-absolute');
+				}
+			}//::END if
+		}//::END for
+	});
+</script>
+
 <div class="container">
 	<div class="w360center">
 		<div class="card mt-4">
@@ -18,8 +40,8 @@
 				<a id="therefresh" href="" class="position-absolute mr-3" style="right: 0;">Refresh</a>
 			</div>
 			<!-- //console.cloud.google.com/projectselector2/apis/dashboard -->
-			<div class="g-signin2 position-absolute" data-onsuccess="onSignIn" data-theme="dark"></div>
-			<div class="card-body">
+			<div id="glogin" class="g-signin2 position-absolute m-auto" data-onsuccess="onSignIn" data-theme="dark" style="width: max-content;"></div>
+			<div id="cardLogin" class="card-body">
 				<form id="loginpost" method="post" class="needs-validation" novalidate>
 					<div class="form-group">
 						<label for="username">Username | e-mail:</label>
@@ -128,9 +150,12 @@
 			<div class="card-footer">
 				<div class="row">
 					<div class="col-sm-6 mb-2"></div>
-					<div class="col-sm-6 mb-2 text-right">
-						<a id="loginbkhome" href="../../" class="text-dark text-decoration-none">
-							<i>&#8592;</i> Back to Homepage
+					<div class="col-sm-6 mb-2 text-center d-flex">
+						<a id="loginbkhome" href="../../" class="btn btn-light">
+							<i>&#8592;</i> Homepage
+						</a>
+						<a href="../signup" id="ifregnorm" class="btn btn-light d-none">
+							<i>&#8594;</i> Signup
 						</a>
 					</div>
 				</div>

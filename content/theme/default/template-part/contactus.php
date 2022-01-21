@@ -34,9 +34,11 @@
 						} else {
 							include_once "../../inc/notrobot/math/plus/index.php";
 						}
+
+						$equealz = $equealx;
 					?>
 					<div class="form-group mb-0">
-						<label>Not a robot. Required to answer this option.</label>
+						<label>Not a robot? Required to answer this option.</label>
 					</div>
 					<div class="input-group mb-3">
 						<div class="input-group-prepend">
@@ -44,17 +46,29 @@
 						</div>
 						<input class="form-control" id="myanswer" name="myanswer" placeholder="Your Answer" type="number" required>
 					</div>
+					<div class="row">
+						<div class="col-sm-12 form-group">
+							<input type="submit" name="btnSend" value="Send" class="btn btn-warning pull-right w-100">
+						</div>
+					</div>
 					<div class="form-group">
+						<input type="number" name="equalz" id="equalz" value="<?php echo $equealz; ?>" class="d-none" readonly required>
 						<?php
+
 							$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 
 							try {
 								if (isset($_POST['btnSend'])) {
-									if (empty($_POST['fullname']) || empty($_POST['emailx']) || empty($_POST['messages']) || empty($_POST['myanswer'])) {
-										$err_msg = "Please fill-up the form properly.";
+									if (empty($_POST['fullname']) || empty($_POST['emailx']) || empty($_POST['messages'])) {
+										echo '<div class="alert alert-danger alert-dismissible fade show">';
+											echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+											echo 'Please fill-up the form properly.';
+										echo '</div>';
 									} else {
 										$myanswer = $_POST['myanswer'];
-										if ($equealx==$myanswer) {
+										$equalzy = $_POST['equalz'];
+
+										if ($equalzy==$myanswer) {
 											$stblname = "tbl_contactform";
 											$qry_insert = "INSERT INTO {$stblname} SET fullname=:fullname, email=:emailx, phone=:mphone, subject=:subjects, message=:messages, deleted=0";
 											$stmt_insert = $cnn->prepare($qry_insert);
@@ -70,11 +84,14 @@
 											$stmt_insert->bindParam(':messages', $messages);
 											$stmt_insert->execute();
 
-											$err_msg = "Message successfully sent.";
-										} else {
-											echo '<div class="alert alert-danger alert-dismissible fade show">';
+											echo '<div class="alert alert-info alert-dismissible fade show">';
 												echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
-												echo 'Your answer is wrong. Please try again.';
+												echo 'Message successfully sent.';
+											echo '</div>';
+										} else {
+											echo '<div class="alert alert-warning alert-dismissible fade show">';
+												echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+												echo 'Wrong answer.';
 											echo '</div>';
 										}
 									}
@@ -88,11 +105,6 @@
 								die;
 							}
 						?>
-					</div>
-					<div class="row">
-						<div class="col-sm-12 form-group">
-							<input type="submit" name="btnSend" value="Send" class="btn btn-warning pull-right w-100">
-						</div>
 					</div>
 				</form>
 			</div>
