@@ -19,6 +19,7 @@
 					mname=:pmname, 
 					umobileno=:pmobilephone, 
 					cmpny=:pemployer, 
+					address=:paddress, 
 					cmpny_position=:pjobposition 
 					WHERE {$setstr_id}=:idnow
 				";
@@ -31,7 +32,7 @@
 				$pmobilephone = $_POST['pmobilephone'];
 				$pemployer = $_POST['pemployer'];
 				$pjobposition = $_POST['pjobposition'];
-
+				$paddress = $_POST['zaddress'];
 
 				$stmt_insert->bindParam(':idnow', $idnow);
 				$stmt_insert->bindParam(':plname', $plname);
@@ -40,6 +41,7 @@
 				$stmt_insert->bindParam(':pmobilephone', $pmobilephone);
 				$stmt_insert->bindParam(':pemployer', $pemployer);
 				$stmt_insert->bindParam(':pjobposition', $pjobposition);
+				$stmt_insert->bindParam(':paddress', $paddress);
 
 				$stmt_insert->execute();
 

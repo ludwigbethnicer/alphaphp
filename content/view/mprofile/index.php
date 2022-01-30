@@ -2,7 +2,9 @@
 	include_once "../../content/theme/".$themename."/frontend-navbar.php";
 	include_once "../../content/theme/".$themename."/carousel-header.php";
 
+	include_once "../../inc/core.php";
 	include_once "../../inc/srvr.php";
+	$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 	$cnn_profilez = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 
 	$qry_profilez = "SELECT * FROM tblsysuser WHERE usercode=:profileidz LIMIT 1";
@@ -21,6 +23,7 @@
 	$pmiddlename = $row_profilez["mname"];
 	$pemail = $row_profilez["uemail"];
 	$pimglnkurl = $row_profilez["img_url"];
+	$paddress = $row_profilez["address"];
 
 	$pmobilephone = $row_profilez["umobileno"];
 	$pemployer = $row_profilez["cmpny"];
@@ -144,10 +147,22 @@
 								<label for="pfullname">Fullname:</label>
 								<div class="input-group mb-3">
 									<input type="text" class="form-control" id="pfullname" placeholder="Fullname" name="pfullname" autofocus required readonly disabled value="<?php echo $pfullname; ?>">
+									
 									<div class="valid-feedback">Valid.</div>
 									<div class="invalid-feedback">Please fill out this field.</div>
 								</div>
 							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<label for="zaddress">Address:</label>
+						<div class="input-group mb-3">
+							<textarea class="form-control" id="zaddress" placeholder="Address" name="zaddress" autofocus required readonly><?php echo $paddress; ?></textarea>
+							<div class="input-group-append">
+								<button class="btn btn-success" type="button" data-toggle="modal" data-target="#ymModalAddress">Update Address</button>
+							</div>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please fill out this field.</div>
 						</div>
 					</div>
 					<div class="row">
@@ -188,6 +203,8 @@
 </div>
 
 <?php
+	include_once "../../inc/address/index.php";
+
 	if ( empty($geomap) ) {
 		echo "<p align='center'>Can't Load Map.</p>";
 	} else {

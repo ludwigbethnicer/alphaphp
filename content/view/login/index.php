@@ -26,6 +26,8 @@
 					$("#glogin").detach().appendTo('#cardLogin');
 					$('#glogin').addClass('border border-warning rounded-lg m-auto');
 					$('#glogin').removeClass('position-absolute');
+					$('.card-footer .col-sm-6.mb-2.text-right').addClass('d-flex');
+
 				}
 			}//::END if
 		}//::END for
@@ -36,7 +38,7 @@
 	<div class="w360center">
 		<div class="card mt-4">
 			<div class="card-header text-center">
-				<label id="loggdas">Login</label>
+				<label id="loggdas"><a href="../login" class="btn">Login</a></label>
 				<a id="therefresh" href="" class="position-absolute mr-3" style="right: 0;">Refresh</a>
 			</div>
 			<!-- //console.cloud.google.com/projectselector2/apis/dashboard -->
@@ -149,13 +151,12 @@
 			</div>
 			<div class="card-footer">
 				<div class="row">
-					<div class="col-sm-6 mb-2"></div>
-					<div class="col-sm-6 mb-2 text-center d-flex">
-						<a id="loginbkhome" href="../../" class="btn btn-light">
-							<i>&#8592;</i> Homepage
-						</a>
-						<a href="../signup" id="ifregnorm" class="btn btn-light d-none">
+					<div class="col-sm-12 mb-2 text-right">
+						<a href="../signup" id="ifregnorm" class="btn d-none">
 							<i>&#8594;</i> Signup
+						</a>
+						<a id="loginbkhome" href="../../" class="btn">
+							<i>&#8592;</i> Homepage
 						</a>
 					</div>
 				</div>

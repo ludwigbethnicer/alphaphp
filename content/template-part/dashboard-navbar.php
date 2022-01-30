@@ -82,7 +82,7 @@
 			<ul>
 				<!-- Main Menu -->
 				<li class="header-menu">
-					<span>Main</span>
+					<span style="cursor: pointer;" onclick="window.open('<?php echo $baklnk; ?>routes/dashboard','_self');">Main</span>
 				</li>
 				<li class="d-none">
 					<a href="<?php echo $baklnk; ?>routes/dashboard">
@@ -92,7 +92,7 @@
 					</a>
 				</li>
 				<li class="sidebar-dropdown">
-					<a href="<?php echo $baklnk; ?>routes/user/#" title="User">
+					<a href="#" title="User">
 						<i class="fas fa-users"></i>
 						<span>User</span>
 					</a>
@@ -131,6 +131,9 @@
 							</li>
 							<li>
 								<a href="#" class="d-none">Privacy</a>
+							</li>
+							<li>
+								<a href="<?php echo $baklnk; ?>routes/address" title="Address List">Address</a>
 							</li>
 						</ul>
 					</div>

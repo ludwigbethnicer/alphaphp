@@ -10,18 +10,24 @@
 					echo '</div>';
 				} else {
 					$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-					$query = "SELECT * FROM tblsysuser WHERE username=:username OR uemail=:uemail AND passcode=:passcode LIMIT 1";
+					$query = "SELECT * FROM tblsysuser WHERE username=:username OR uemail=:uemail OR umobileno=:umobileno LIMIT 1";
 					$statement = $cnn->prepare($query);
-					$statement->execute(array(
-						'username'	=>	$_POST["username"],
-						'uemail'	=>	$_POST["username"],
-						'passcode'	=>	md5($_POST["passcode"])));
+					$username = htmlspecialchars($_POST['username']);
+					$uemail = htmlspecialchars($_POST['username']);
+					$umobileno = htmlspecialchars($_POST['username']);
+					$passcode = htmlspecialchars(md5($_POST["passcode"]));
+					$statement->bindParam(':username', $username);
+					$statement->bindParam(':uemail', $uemail);
+					$statement->bindParam(':umobileno', $umobileno);
+					// $statement->bindParam(':passcode', $passcode);
+					$statement->execute();
 					$count = $statement->rowCount();
 
 					if ($count > 0) {
 						foreach ($statement as $row) {
 							$dletd = $row['deletedx'];
 							$sttzus = $row['ustatz'];
+							$passcode_f = $row['passcode'];
 						}
 
 						if($dletd==1){
@@ -33,6 +39,11 @@
 							echo '<div class="alert alert-danger alert-dismissible fade show">';
 								echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
 								echo 'Your account has been disabled! Please contact the support @ <a href="tel:'.$mobileno.'">'.$mobileno.'</a>';
+							echo '</div>';
+						}elseif($passcode_f!=$passcode){
+							echo '<div class="alert alert-danger alert-dismissible fade show">';
+								echo '<button type="button" class="close" data-dismiss="alert">&times;</button>';
+								echo 'Incorrect Password.';
 							echo '</div>';
 						}else{
 							$usercode = $row['usercode'];
@@ -59,7 +70,8 @@
 							$_SESSION["email"] = $email;
 							$_SESSION["phone"] = $phone;
 							
-							header('location:../../');
+							echo "<script>window.open('../../', '_self');</script>";
+							// header('location:../../');
 						}
 
 					} else {

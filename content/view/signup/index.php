@@ -8,6 +8,7 @@
 
 	include_once "../../content/template-part/partner-navbar.php";
 	include_once "../../inc/cnndb.php";
+	include_once "../../inc/random-code/index.php";
 	
 ?>
 
@@ -23,7 +24,23 @@
 			<form method="post" class="needs-validation" novalidate>
 				<div class="form-group">
 					<div class="input-group mb-3">
-						<input type="text" class="form-control" id="younickname" placeholder="Username" name="younickname" required>
+						<input type="text" class="form-control" id="younickname" placeholder="Username (required)" name="younickname" required>
+						<div class="valid-feedback">Valid.</div>
+						<div class="invalid-feedback">Please fill out this field.</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="xemail" placeholder="E-mail" name="xemail" required>
+						<div class="valid-feedback">Valid.</div>
+						<div class="invalid-feedback">Please fill out this field.</div>
+					</div>
+				</div>
+
+				<div class="form-group">
+					<div class="input-group mb-3">
+						<input type="text" class="form-control" id="xphone" placeholder="Phone" name="xphone" required>
 						<div class="valid-feedback">Valid.</div>
 						<div class="invalid-feedback">Please fill out this field.</div>
 					</div>
@@ -31,18 +48,22 @@
 
 				<div class="form-group">
 					<div class="input-group mb-3" id="show_hide_password1">
-						<input type="password" class="form-control" id="passcode1" placeholder="New Password" name="passcode1" maxlength="254" minlength="6" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,254}" oninvalid="this.setCustomValidity('Note: Password must contain letters and numbers. Minimum of 6 and Maximum of 254 character.')" oninput="this.setCustomValidity('')" required>
+						<input type="password" class="form-control" id="passcode1" value="<?php echo $randSSPass; ?>" placeholder="New Password" name="passcode1" required>
+
+						<!-- maxlength="254" minlength="5" pattern="(?=.*\d)(?=.*[A-Za-z]).{6,254}" oninvalid="this.setCustomValidity('Note: Password must contain letters and numbers. Minimum of 6 and Maximum of 254 character.')" oninput="this.setCustomValidity('')" -->
+
 						<div class="input-group-prepend">
 							<span class="input-group-text">
 								<i class="fa fa-eye-slash" aria-hidden="true" onclick="PwHideShow1()"></i>
 							</span>
 						</div>
 						<div class="valid-feedback">Valid.</div>
-						<div class="invalid-feedback">Note: Password must contain letters and numbers. Minimum of 6 and Maximum of 12 character.</div>
+						<div class="invalid-feedback">Please fill out this field.</div>
+						<!-- div class="invalid-feedback">Note: Password must contain letters and numbers. Minimum of 6 and Maximum of 12 character.</div -->
 					</div>
 				</div>
 
-				<div class="form-group">
+				<!-- div class="form-group">
 					<div class="input-group mb-3" id="show_hide_password2">
 						<input type="password" class="form-control" id="passcode2" placeholder="Re-type Password" name="passcode2" required>
 						<div class="input-group-prepend">
@@ -53,7 +74,7 @@
 						<div class="valid-feedback">Valid.</div>
 						<div class="invalid-feedback">Please fill out this field.</div>
 					</div>
-				</div>
+				</div -->
 				
 				<div class="row">
 					<div class="col-sm-6 mb-2">
