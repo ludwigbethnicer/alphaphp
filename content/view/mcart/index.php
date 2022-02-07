@@ -15,6 +15,11 @@
 	if ($numorder>0) {
 		foreach ($stmt_order as $roworder) {
 			$curr_ordr_id = $roworder['order_id'];
+
+			$egreceiver = $roworder['receiver'];
+			$egreceiverphone = $roworder['receiver_phone'];
+			$egremail = $roworder['remail'];
+			$egdlocation = $roworder['d_location'];
 		}
 	} else {
 		echo "<script>window.location = '../../';</script>";
@@ -180,7 +185,7 @@
 						
 							} else {
 						?>
-							<a href="#" class="btn btn-danger" onclick="fnCheckOut(<?php echo $curr_ordr_id; ?>);return false;">
+							<a href="#" class="btn btn-danger" data-toggle="modal" data-target="#ymModalChekAwt">
 								<i class='fas fa-cart-plus'></i> Checkout
 							</a>
 						<?php
@@ -188,6 +193,119 @@
 						?>
 					</div>
 				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="ymModalChekAwt">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<button type="button" class="close text-right mr-1" data-dismiss="modal">&times;</button>
+			<div class="modal-body">
+				<form class="needs-validation" novalidate>
+					<p class="note"><em>* = required field</em></p>
+
+					<div class="form-group">
+						<label for="receiver">Receiver *</label>
+						<input id="receiver" type="text" class="form-control" placeholder="Receiver" name="receiver" value="<?php echo $egreceiver; ?>" list="receiverList" required autofocus>
+						<div class="valid-feedback">Valid.</div>
+						<div class="invalid-feedback">Please fill out this field.</div>
+						<datalist id="receiverList">
+						<?php
+							$stmtReceiver = $cnn->prepare("SELECT * FROM tbl_order_customer WHERE customer_id=:cstmrid GROUP BY receiver ORDER BY receiver ASC");
+							$cstmrid = $_SESSION["usercode"];
+							$stmtReceiver->bindParam(':cstmrid', $cstmrid);
+							$stmtReceiver->execute();
+							$resultReceiver = $stmtReceiver->setFetchMode(PDO::FETCH_ASSOC);
+							foreach ($stmtReceiver as $rowReceiver) {
+								$receiver = $rowReceiver['receiver'];
+								echo "<option value='".$receiver."'>";
+							}
+						?>
+						</datalist>
+					</div>
+
+					<div class="form-group">
+						<label for="rphone">Phone *</label>
+						<input id="rphone" type="tel" class="form-control" placeholder="Phone" name="rphone" value="<?php echo $egreceiverphone; ?>" list="rphoneList" required autofocus>
+						<div class="valid-feedback">Valid.</div>
+						<div class="invalid-feedback">Please fill out this field.</div>
+						<datalist id="rphoneList">
+						<?php
+							$stmtRPhone = $cnn->prepare("SELECT * FROM tbl_order_customer WHERE customer_id=:cstmridr GROUP BY receiver_phone ORDER BY receiver_phone ASC");
+							$cstmridr = $_SESSION["usercode"];
+							$stmtRPhone->bindParam(':cstmridr', $cstmridr);
+							$stmtRPhone->execute();
+							$resultRPhone = $stmtRPhone->setFetchMode(PDO::FETCH_ASSOC);
+							foreach ($stmtRPhone as $rowRPhone) {
+								$receiverphone = $rowRPhone['receiver_phone'];
+								echo "<option value='".$receiverphone."'>";
+							}
+						?>
+						</datalist>
+					</div>
+
+					<div class="form-group">
+						<label for="remail">E-mail</label>
+						<input id="remail" type="email" class="form-control" placeholder="E-mail" name="remail" value="<?php echo $egremail; ?>" list="remailList">
+						<datalist id="remailList">
+						<?php
+							$stmtREmail = $cnn->prepare("SELECT * FROM tbl_order_customer WHERE customer_id=:cstmride GROUP BY remail ORDER BY remail ASC");
+							$cstmride = $_SESSION["usercode"];
+							$stmtREmail->bindParam(':cstmride', $cstmride);
+							$stmtREmail->execute();
+							$resultREmail = $stmtREmail->setFetchMode(PDO::FETCH_ASSOC);
+							foreach ($stmtREmail as $rowREmail) {
+								$remail = $rowREmail['remail'];
+								echo "<option value='".$remail."'>";
+							}
+						?>
+						</datalist>
+					</div>
+
+					<div class="form-group">
+						<label for="ship-address">Search location *</label>
+						<input id="ship-address" type="text" class="form-control" placeholder="Search location" name="ship-address" list="locationList" required autofocus>
+						<div class="valid-feedback">Valid.</div>
+						<div class="invalid-feedback">Please fill out this field.</div>
+						<datalist id="locationList">
+						<?php
+							$stmtLocAddrs = $cnn->prepare("SELECT * FROM vw_address ORDER BY purok, barangay, municipality_town, zipostal_code, districtno, province, abrv, island_archipelago, country, continent ASC");
+							$stmtLocAddrs->execute();
+							$resultLocAddrs = $stmtLocAddrs->setFetchMode(PDO::FETCH_ASSOC);
+							foreach ($stmtLocAddrs as $rowLocAddrs) {
+								$purok = $rowLocAddrs['purok'];
+								$brgy = $rowLocAddrs['barangay'];
+								$town = $rowLocAddrs['municipality_town'];
+								$zcode = $rowLocAddrs['zipostal_code'];
+								$districtno = $rowLocAddrs['districtno'];
+								$province = $rowLocAddrs['province'];
+								$region = $rowLocAddrs['abrv'];
+								$island = $rowLocAddrs['island_archipelago'];
+								$country = $rowLocAddrs['country'];
+								$continent = $rowLocAddrs['continent'];
+								$clocationz = $purok.', '.$brgy.', '.$town.' '.$zcode.', District-'.$districtno.', '.$province.', '.$region.', '.$island.', '.$country.', '.$continent;
+								echo "<option value='".$clocationz."'>";
+							}
+						?>
+						</datalist>
+					</div>
+
+					<div class="form-group">
+						<label for="address2">Street, apartment, unit, suite, landmark or floor# *</label>
+						<input id="address2" type="text" class="form-control" placeholder="Street, apartment, unit, suite, landmark or floor#" name="address2" required>
+						<div class="valid-feedback">Valid.</div>
+						<div class="invalid-feedback">Please fill out this field.</div>
+					</div>
+					
+					<div class="form-group text-right">
+						<button type="reset" class="btn btn-info btn-sm m-2">Clear Form</button>
+						<button type="button" id="btnSaveChekAwt" onclick="fnGetReceiver(<?php echo $curr_ordr_id; ?>);return false;" class="btn btn-secondary btn-sm m-2">Update Receiver</button>
+						<button type="button" id="btnSameReceiver" onclick="fnCheckOut(<?php echo $curr_ordr_id; ?>);return false;" class="btn btn-primary btn-sm m-2">Proceed</button>
+						<button type="button" id="clzedanger" name="btnClozex" class="btn btn-danger btn-sm m-2" data-dismiss="modal">Close</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</div>
@@ -202,6 +320,29 @@
 ?>
 
 <script type="text/javascript">
+	function fnGetReceiver(chid) {
+		let rcvrer = document.getElementById("receiver").value;
+		let rcvrerphn = document.getElementById("rphone").value;
+		let rcremail = document.getElementById("remail").value;
+		let adrex4 = document.getElementById("ship-address").value;
+		let adrex3 = document.getElementById("address2").value;
+		let adrex2 = adrex3 + ', ' + adrex4;
+
+		if (rcvrer==='' || rcvrerphn==='' || adrex4==='' || adrex3==='') {
+			alert('Please fillup the form properly.');
+		} else {
+			var xconfrm;
+			if (confirm("Proceed to checkout?")) {
+				xconfrm = "Successfully checkout.";
+				window.location = '../../content/view/mcart/checkout.php?chid='+chid+'&rcvrer='+rcvrer+'&rcvrerphn='+rcvrerphn+'&adrex2='+adrex2+'&rcremail'+rcremail;
+			} else {
+				xconfrm = "Cancel checkout.";
+			}
+			alert(xconfrm);
+			document.getElementById("clzedanger").click();
+		}
+	}
+
 	$(document).ready( function () {
 		$('#listRecView9').DataTable( {
 			initComplete: function () {

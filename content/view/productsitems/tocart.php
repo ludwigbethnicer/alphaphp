@@ -110,9 +110,11 @@
 					$clientname3 = $rowGetCUser["fullname"];
 					$clientphone3 = $rowGetCUser["umobileno"];
 					$clientemail3 = $rowGetCUser["uemail"];
+					$clientaddress3 = $rowGetCUser["address"];
 					$receivername3 = $rowGetCUser["fullname"];
 					$receiverphone3 = $rowGetCUser["umobileno"];
 					$receiveremail3 = $rowGetCUser["uemail"];
+					$receiveraddress3 = $rowGetCUser["address"];
 				}
 			}
 
@@ -121,9 +123,11 @@
 				customer_name=:clientname, 
 				phone=:clientphone, 
 				cemail=:clientemail, 
+				address=:clientaddress3, 
 				receiver=:receivername, 
 				receiver_phone=:receiverphone, 
 				remail=:receiveremail, 
+				d_location=:receiveraddress3, 
 				remarks=:remarkx3, 
 				status=:statuz3, 
 				deleted=0
@@ -138,9 +142,11 @@
 			$stmt3->bindParam(':clientname', $clientname3);
 			$stmt3->bindParam(':clientphone', $clientphone3);
 			$stmt3->bindParam(':clientemail', $clientemail3);
+			$stmt3->bindParam(':clientaddress3', $clientaddress3);
 			$stmt3->bindParam(':receivername', $receivername3);
 			$stmt3->bindParam(':receiverphone', $receiverphone3);
 			$stmt3->bindParam(':receiveremail', $receiveremail3);
+			$stmt3->bindParam(':receiveraddress3', $receiveraddress3);
 			$stmt3->execute();
 
 			$qry7 = "SELECT * FROM tbl_order_customer WHERE customer_id=:idcustomer7 AND remarks=:remarkx7 AND status=:statuz7 AND deleted=0 ORDER BY order_id DESC LIMIT 1";

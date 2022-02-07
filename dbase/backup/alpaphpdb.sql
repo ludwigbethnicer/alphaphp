@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 30, 2022 at 08:21 AM
+-- Generation Time: Feb 07, 2022 at 03:15 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -595,14 +595,7 @@ CREATE TABLE `tbl_order_customer` (
 --
 
 INSERT INTO `tbl_order_customer` (`order_id`, `receipt_no`, `customer_id`, `customer_name`, `phone`, `cemail`, `address`, `sub_total_qty`, `sub_total_item`, `sub_total`, `shipping_fee`, `total_all`, `remarks`, `status`, `process_by`, `review_by`, `approved_by`, `receiver`, `receiver_phone`, `remail`, `d_location`, `long_lat`, `courier`, `otherinfo`, `created`, `modified`, `deleted`) VALUES
-(30, NULL, '114792514623933940437', NULL, NULL, '', NULL, 20, 1, 3, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, '', '', '', '', '', '', '', '2022-01-13 20:04:21', '2022-01-13 14:57:04', 0),
-(31, NULL, '114792514623933940437', NULL, NULL, '', NULL, 1, 1, 180, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, '', '', '', '', '', '', '', '2022-01-14 22:34:51', '2022-01-14 15:07:15', 0),
-(32, NULL, '114792514623933940437', NULL, NULL, '', NULL, 6, 1, 330, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, '', '', '', '', '', '', '', '2022-01-16 12:23:53', '2022-01-16 04:47:48', 0),
-(33, NULL, '114792514623933940437', 'Ludwig Bethnicer Napigkit', '+09154826025', 'napigkitludwigbethnicer@gmail.com', NULL, 1, 1, 180, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, 'Ludwig Bethnicer Napigkit', '+09154826025', 'napigkitludwigbethnicer@gmail.com', '', '', '', '', '2022-01-16 13:08:17', '2022-01-16 05:09:26', 0),
-(34, NULL, '114792514623933940437', 'Ludwig Bethnicer Napigkit', '+09154826025', 'napigkitludwigbethnicer@gmail.com', NULL, 62, 4, 10, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, 'Ludwig Bethnicer Napigkit', '+09154826025', 'napigkitludwigbethnicer@gmail.com', '', '', '', '', '2022-01-16 15:48:24', '2022-01-16 07:58:22', 0),
-(35, NULL, '114792514623933940437', 'Ludwig Bethnicer Napigkit', '+09154826025', 'napigkitludwigbethnicer@gmail.com', NULL, 5, 1, 2, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, 'Ludwig Bethnicer Napigkit', '+09154826025', 'napigkitludwigbethnicer@gmail.com', '', '', '', '', '2022-01-16 16:01:08', '2022-01-16 08:10:52', 0),
-(36, NULL, '114792514623933940437', 'Ludwig Bethnicer Napigkit', '+09154826025', 'napigkitludwigbethnicer@gmail.com', NULL, 1001, 2, 600, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, 'Ludwig Bethnicer Napigkit', '+09154826025', 'napigkitludwigbethnicer@gmail.com', '', '', '', '', '2022-01-16 17:09:47', '2022-01-16 09:14:59', 0),
-(37, NULL, '114792514623933940437', 'Ludwig Bethnicer Napigkit', '09154826025', 'napigkitludwigbethnicer@gmail.com', NULL, 1, 1, 180, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, 'Ludwig Bethnicer Napigkit', '09154826025', 'napigkitludwigbethnicer@gmail.com', '', '', '', '', '2022-01-26 23:36:26', '2022-01-27 12:52:05', 0);
+(1, NULL, '114792514623933940437', 'Ludwig Bethnicer Napigkit', '09154826025', 'napigkitludwigbethnicer@gmail.com', 'African St., Mahogany, Tirso Babiera, Ipil 7001, District-2, Zamboanga Sibugay, Region IX, Mindanao, Philippines, Asia', 1, 1, 600, NULL, NULL, 'Process', 'Unpaid', NULL, NULL, NULL, 'Ludwig Bethnicer Napigkit', '09154826025', 'napigkitludwigbethnicer@gmail.com', 'African St., Mahogany, Tirso Babiera, Ipil 7001, District-2, Zamboanga Sibugay, Region IX, Mindanao, Philippines, Asia', '', '', '', '2022-02-06 23:07:05', '2022-02-06 15:07:11', 0);
 
 -- --------------------------------------------------------
 
@@ -622,6 +615,7 @@ CREATE TABLE `tbl_order_item` (
   `total_amt` double DEFAULT NULL,
   `extnem` varchar(10) DEFAULT NULL,
   `cstock` double NOT NULL,
+  `status` text DEFAULT NULL,
   `modified` datetime NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` int(1) NOT NULL
@@ -631,19 +625,8 @@ CREATE TABLE `tbl_order_item` (
 -- Dumping data for table `tbl_order_item`
 --
 
-INSERT INTO `tbl_order_item` (`item_order_id`, `order_id`, `item_id`, `barcode`, `item_name`, `qty`, `unit`, `price`, `total_amt`, `extnem`, `cstock`, `modified`, `created`, `deleted`) VALUES
-(74, 30, 4, '', 'Pink Dress', 20, 'pc', 180, 3600, 'jpg', 20, '2022-01-13 22:55:58', '2022-01-13 20:04:21', 0),
-(75, 31, 4, '', 'Pink Dress', 1, 'pc', 180, 180, 'jpg', 20, '2022-01-14 22:34:51', '2022-01-14 22:34:51', 0),
-(76, 32, 1, '', 'Nike Sock', 6, 'pair', 55, 330, 'jpg', 100, '2022-01-16 12:23:53', '2022-01-16 12:23:53', 0),
-(77, 33, 4, '', 'Pink Dress', 1, 'pc', 180, 180, 'jpg', 20, '2022-01-16 13:08:17', '2022-01-16 13:08:17', 0),
-(78, 34, 3, '', 'Pink Body Mist', 20, 'pc', 130, 2600, 'jpg', 20, '2022-01-16 15:51:01', '2022-01-16 15:48:25', 0),
-(79, 34, 1, '', 'Nike Sock', 1, 'pair', 55, 55, 'jpg', 100, '2022-01-16 15:49:15', '2022-01-16 15:49:15', 0),
-(80, 34, 5, '', 'Black Shoes', 1, 'pair', 250, 250, 'jpg', 5, '2022-01-16 15:50:25', '2022-01-16 15:49:28', 0),
-(81, 34, 4, '', 'Pink Dress', 40, 'pc', 180, 7200, 'jpg', 20, '2022-01-16 15:52:08', '2022-01-16 15:51:47', 0),
-(86, 35, 5, '', 'Black Shoes', 5, 'pair', 250, 2250, 'jpg', 5, '2022-01-16 16:10:11', '2022-01-16 16:09:32', 0),
-(87, 36, 6, '', 'Huda Liquid Mate', 1, 'pc', 120, 120, 'jpg', 20, '2022-01-16 17:09:48', '2022-01-16 17:09:48', 0),
-(88, 36, 7, '', 'Golden Pear', 1000, 'pc', 600, 600600, 'jpg', 1000, '2022-01-16 17:14:19', '2022-01-16 17:13:24', 0),
-(89, 37, 4, '', 'Pink Dress', 1, 'pc', 180, 180, 'jpg', 20, '2022-01-26 23:36:27', '2022-01-26 23:36:27', 0);
+INSERT INTO `tbl_order_item` (`item_order_id`, `order_id`, `item_id`, `barcode`, `item_name`, `qty`, `unit`, `price`, `total_amt`, `extnem`, `cstock`, `status`, `modified`, `created`, `deleted`) VALUES
+(1, 1, 7, '', 'Golden Pear', 1, 'pc', 600, 600, 'jpg', 1000, NULL, '2022-02-06 23:07:05', '2022-02-06 23:07:05', 0);
 
 -- --------------------------------------------------------
 
@@ -929,13 +912,13 @@ ALTER TABLE `tbl_headbanner_btn`
 -- AUTO_INCREMENT for table `tbl_order_customer`
 --
 ALTER TABLE `tbl_order_customer`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_item`
 --
 ALTER TABLE `tbl_order_item`
-  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=90;
+  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Constraints for dumped tables

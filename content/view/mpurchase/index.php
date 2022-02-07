@@ -59,7 +59,7 @@
 								<th>Remarks</th>
 								<th>Status</th>
 								<th>Date/Time</th>
-								<th class="d-none">Ctrl#</th>
+								<th>Ctrl#</th>
 								<th class="text-right">Action</th>
 							</tr>
 						</thead>
@@ -132,7 +132,7 @@
 													<div title="<?php echo $titled; ?>" class="border p-1 text-center bg-light<?php echo $sbsTxtColor; ?>"><?php echo $statusy; ?></div>
 												</td>
 												<td data-filter="<?php echo $datey; ?>"><?php echo $datey; ?></td>
-												<td class="d-none"><?php echo $ctrly; ?></td>
+												<td data-filter="<?php echo $ctrly; ?>"><?php echo $ctrly; ?></td>
 												<td class="text-right tbl-action">
 													<a href="#" class="btn-sm btn-success btn-inline" title="View">
 														<span class="far fa-edit"></span>
