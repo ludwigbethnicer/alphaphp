@@ -2,6 +2,7 @@
 	// Top Container
 	// Sidebar - Menu
 	include_once "../../content/template-part/dashboard-navbar.php";
+	include_once "../../inc/dashboard/analysis-front.php";
 ?>
 
 <main class="page-content">
@@ -14,7 +15,7 @@
 				<div class="card-body text-center">
 					<div class="card-innerBody d-flex align-items-center">
 						<div class="card-icon text-light"><i aria-hidden="true" class="fa fa-user"></i></div>
-						<div class="ml-auto"><p class="card-label text-right text-muted">Users</p><h4  class="card-text text-right ">199,099</h4></div>
+						<div class="ml-auto"><p class="card-label text-right text-muted">Users</p><h4  class="card-text text-right "><?php echo $total_user; ?></h4></div>
 					</div>
 				</div>
 				<div class="card-footer d-flex">
@@ -29,7 +30,7 @@
 				<div class="card-body text-center">
 					<div class="card-innerBody d-flex align-items-center">
 						<div class="card-icon text-light"><i aria-hidden="true" class="fa fa-shopping-cart"></i></div>
-						<div class="ml-auto"><p class="card-label text-right text-muted">Orders</p><h4  class="card-text text-right ">199,099</h4></div>
+						<div class="ml-auto"><p class="card-label text-right text-muted">Orders</p><h4  class="card-text text-right "><?php echo $total_order; ?></h4></div>
 					</div>
 				</div>
 				<div class="card-footer d-flex">
@@ -44,7 +45,7 @@
 				<div class="card-body text-center">
 					<div class="card-innerBody d-flex align-items-center">
 						<div class="card-icon text-light"><i aria-hidden="true" class="far fa-money-bill-alt"></i></div>
-						<div class="ml-auto"><p class="card-label text-right text-muted">Sales</p><h4  class="card-text text-right "><?php echo $dcurrencyx; ?> 199,099</h4></div>
+						<div class="ml-auto"><p class="card-label text-right text-muted">Sales</p><h4  class="card-text text-right "><?php echo $dcurrencyx; ?> <?php echo $total_sales; ?></h4></div>
 					</div>
 				</div>
 				<div class="card-footer d-flex">

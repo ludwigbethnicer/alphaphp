@@ -107,7 +107,38 @@
 							$created2=$row['created'];
 							$created=date_format(new DateTime($created2),'Y/m/d');
 							$remarks=$row['remarks'];
+
+								if($remarks=='Process'){
+									$rbsTxtColor = 'text-muted';
+								}elseif($remarks=='Checkout'){
+									$rbsTxtColor = 'text-danger';
+								}elseif($remarks=='Reviewed'){
+									$rbsTxtColor = 'text-info';
+								}elseif($remarks=='Approved'){
+									$rbsTxtColor = 'text-primary';
+								}elseif($remarks=='Declined'){
+									$rbsTxtColor = 'text-warning';
+								}elseif($remarks=='Shipped'){
+									$rbsTxtColor = 'text-secondary';
+								}elseif($remarks=='Complete'){
+									$rbsTxtColor = 'text-success';
+								}else{
+									$rbsTxtColor = '';
+								}
+
 							$status=$row['status'];
+
+								if($status=='Unpaid'){
+									$sbsTxtColor = ' text-danger';
+									$titled = 'Call this number '.$mobileno.' to confirm.';
+								}elseif($status=='Cancel'){
+									$sbsTxtColor = ' text-warning';
+								}elseif($status=='Paid'){
+									$sbsTxtColor = ' text-success';
+								}else{
+									$sbsTxtColor = '';
+								}
+
 							$customername=$row['customer_name'];
 							$phone=$row['phone'];
 							$customerid=$row['customer_id'];
@@ -136,8 +167,8 @@
 									</a>
 								</td>
 								<td data-filter="<?php echo $created; ?>"><?php echo $created; ?></td>
-								<td data-filter="<?php echo $remarks; ?>"><?php echo $remarks; ?></td>
-								<td data-filter="<?php echo $status; ?>"><?php echo $status; ?></td>
+								<td data-filter="<?php echo $remarks; ?>" class="<?php echo $rbsTxtColor; ?>"><?php echo $remarks; ?></td>
+								<td data-filter="<?php echo $status; ?>" class="<?php echo $sbsTxtColor; ?>" title="<?php echo $titled; ?>"><?php echo $status; ?></td>
 								<td data-filter="<?php echo $orderid; ?>"><?php echo $orderid; ?></td>
 								<td data-filter="<?php echo $receiptno; ?>"><?php echo $receiptno; ?></td>
 								<td data-filter="<?php echo $totalall; ?>"><?php echo $totalall; ?></td>
@@ -149,11 +180,11 @@
 								<td data-filter="<?php echo $phone; ?>"><?php echo $phone; ?></td>
 								<td data-filter="<?php echo $customerid; ?>"><?php echo $customerid; ?></td>
 								<td data-filter="<?php echo $cemail; ?>"><?php echo $cemail; ?></td>
-								<td data-filter="<?php echo $address; ?>"><?php echo $address; ?></td>
+								<td class="tbl-td-min-width" data-filter="<?php echo $address; ?>"><?php echo $address; ?></td>
 								<td data-filter="<?php echo $receiver; ?>"><?php echo $receiver; ?></td>
 								<td data-filter="<?php echo $receiverphone; ?>"><?php echo $receiverphone; ?></td>
 								<td data-filter="<?php echo $remail; ?>"><?php echo $remail; ?></td>
-								<td data-filter="<?php echo $dlocation; ?>"><?php echo $dlocation; ?></td>
+								<td class="tbl-td-min-width" data-filter="<?php echo $dlocation; ?>"><?php echo $dlocation; ?></td>
 								<td><?php echo $longlat; ?></td>
 								<td data-filter="<?php echo $courier; ?>"><?php echo $courier; ?></td>
 								<td><?php echo $otherinfo; ?></td>

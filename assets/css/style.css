@@ -17,7 +17,8 @@ body {
 
 #show_hide_password .fa-eye-slash, 
 #show_hide_password1 .fa-eye-slash, 
-#show_hide_password2 .fa-eye-slash {
+#show_hide_password2 .fa-eye-slash,
+.default-address span {
 	cursor: pointer;
 }
 
@@ -110,6 +111,12 @@ span#nmbtemi {
 	max-height: 182px;
 	margin: 0 auto;
 	cursor: pointer;
+}
+
+#user-add .img-thumbnail {
+	width: 100%;
+	height: auto;
+	max-height: 320px;
 }
 
 #itemfilenem {

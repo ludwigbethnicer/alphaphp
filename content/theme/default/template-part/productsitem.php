@@ -102,7 +102,7 @@
 							<div class="d-flex">
 								<div class="input-group">
 									<input type="button" value="-" class="button-minus" data-field="quantity">
-									<input id="ghqty" type="number" step="1" min="1" value="1" name="quantity" class="addminusentry text-center">
+									<input id="ghqty" type="number" step="1" min="1" value="1" name="quantity" class="addminusentry text-center" onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
 									<input type="button" value="+" class="button-plus" data-field="quantity">
 								</div>
 								<p id="ghunit"></p>

@@ -105,7 +105,7 @@
 										<td data-filter="<?php echo $img_item; ?>"><img class="w-30px" src="<?php echo $img_item; ?>"></td>
 										<td data-filter="<?php echo $item_name; ?>"><?php echo $item_name; ?></td>
 										<td data-filter="<?php echo $qty; ?>">
-											<input type="number" id="qtyedit<?php echo $id2; ?>" name="qty_edit" class="qty_edit none-zero-input" value="<?php echo $qty; ?>" onchange="fnChangeQty(<?php echo $id2; ?>,this.value)" step="1" min="1" max="<?php echo $cstock; ?>">
+											<input type="number" id="qtyedit<?php echo $id2; ?>" name="qty_edit" class="qty_edit none-zero-input" value="<?php echo $qty; ?>" onchange="fnChangeQty(<?php echo $id2; ?>,this.value)" step="1" min="1" max="<?php echo $cstock; ?>"  onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
 										</td>
 										<td data-filter="<?php echo $unit; ?>"><?php echo $unit; ?></td>
 										<td data-filter="<?php echo $price; ?>"><?php echo $dcurrencyx.$price; ?></td>
@@ -201,13 +201,17 @@
 <div class="modal" id="ymModalChekAwt">
 	<div class="modal-dialog">
 		<div class="modal-content">
-			<button type="button" class="close text-right mr-1" data-dismiss="modal">&times;</button>
+			<div class="modal-header">
+				<h4 class="modal-title">Receiver/Recepient Details</h4>
+				<button type="button" class="close text-right mr-1" data-dismiss="modal">&times;</button>
+			</div>
+
 			<div class="modal-body">
 				<form class="needs-validation" novalidate>
-					<p class="note"><em>* = required field</em></p>
-
-					<div class="form-group">
-						<label for="receiver">Receiver *</label>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Receiver *</span>
+						</div>
 						<input id="receiver" type="text" class="form-control" placeholder="Receiver" name="receiver" value="<?php echo $egreceiver; ?>" list="receiverList" required autofocus>
 						<div class="valid-feedback">Valid.</div>
 						<div class="invalid-feedback">Please fill out this field.</div>
@@ -226,8 +230,10 @@
 						</datalist>
 					</div>
 
-					<div class="form-group">
-						<label for="rphone">Phone *</label>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">Phone *</span>
+						</div>
 						<input id="rphone" type="tel" class="form-control" placeholder="Phone" name="rphone" value="<?php echo $egreceiverphone; ?>" list="rphoneList" required autofocus>
 						<div class="valid-feedback">Valid.</div>
 						<div class="invalid-feedback">Please fill out this field.</div>
@@ -246,8 +252,10 @@
 						</datalist>
 					</div>
 
-					<div class="form-group">
-						<label for="remail">E-mail</label>
+					<div class="input-group mb-3">
+						<div class="input-group-prepend">
+							<span class="input-group-text">E-mail</span>
+						</div>
 						<input id="remail" type="email" class="form-control" placeholder="E-mail" name="remail" value="<?php echo $egremail; ?>" list="remailList">
 						<datalist id="remailList">
 						<?php
@@ -265,8 +273,8 @@
 					</div>
 
 					<div class="form-group">
-						<label for="ship-address">Search location *</label>
-						<input id="ship-address" type="text" class="form-control" placeholder="Search location" name="ship-address" list="locationList" required autofocus>
+						<label for="ship-address">Receiver/Recepient Address *</label>
+						<input id="ship-address" type="text" class="form-control" placeholder="Search address" name="ship-address" list="locationList" required autofocus>
 						<div class="valid-feedback">Valid.</div>
 						<div class="invalid-feedback">Please fill out this field.</div>
 						<datalist id="locationList">
@@ -294,15 +302,20 @@
 
 					<div class="form-group">
 						<label for="address2">Street, apartment, unit, suite, landmark or floor# *</label>
-						<input id="address2" type="text" class="form-control" placeholder="Street, apartment, unit, suite, landmark or floor#" name="address2" required>
+						<input id="address2" type="text" class="form-control" placeholder="Street, apartment, unit, suite, landmark or floor#" name="address2" required autofocus>
 						<div class="valid-feedback">Valid.</div>
 						<div class="invalid-feedback">Please fill out this field.</div>
 					</div>
+
+					<div class="form-group">
+						<label class="default-address">Default Address: <span class="text-primary">(Change Default Address)</span></label>
+						<p><?php echo $egdlocation; ?></p>
+					</div>
 					
 					<div class="form-group text-right">
-						<button type="reset" class="btn btn-info btn-sm m-2">Clear Form</button>
+						<input type="reset" value="Default" class="btn btn-info btn-sm m-2">
 						<button type="button" id="btnSaveChekAwt" onclick="fnGetReceiver(<?php echo $curr_ordr_id; ?>);return false;" class="btn btn-secondary btn-sm m-2">Update Receiver</button>
-						<button type="button" id="btnSameReceiver" onclick="fnCheckOut(<?php echo $curr_ordr_id; ?>);return false;" class="btn btn-primary btn-sm m-2">Proceed</button>
+						<button type="button" id="btnSameReceiver" onclick="fnCheckOut(<?php echo $curr_ordr_id; ?>);return false;" class="btn btn-primary btn-sm m-2">Proceed to checkout</button>
 						<button type="button" id="clzedanger" name="btnClozex" class="btn btn-danger btn-sm m-2" data-dismiss="modal">Close</button>
 					</div>
 				</form>
@@ -329,12 +342,12 @@
 		let adrex2 = adrex3 + ', ' + adrex4;
 
 		if (rcvrer==='' || rcvrerphn==='' || adrex4==='' || adrex3==='') {
-			alert('Please fillup the form properly.');
+			alert('Please fill-up the receiver/recepient form properly.');
 		} else {
 			var xconfrm;
 			if (confirm("Proceed to checkout?")) {
 				xconfrm = "Successfully checkout.";
-				window.location = '../../content/view/mcart/checkout.php?chid='+chid+'&rcvrer='+rcvrer+'&rcvrerphn='+rcvrerphn+'&adrex2='+adrex2+'&rcremail'+rcremail;
+				window.location = '../../content/view/mcart/checkoutr.php?chid='+chid+'&rcvrer='+rcvrer+'&rcvrerphn='+rcvrerphn+'&adrex2='+adrex2+'&rcremail='+rcremail;
 			} else {
 				xconfrm = "Cancel checkout.";
 			}

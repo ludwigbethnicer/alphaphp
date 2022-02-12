@@ -30,7 +30,7 @@
 
 <main class="page-content">
 	<div class="container-fluid bg-light-opacity">
-		<form method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
+		<form id="user-add" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
 			<div class="row">
 				<div class="col-md-3">
 					<div class="form-group">
@@ -57,6 +57,7 @@
 					<option value="" selected>- Select User Type -</option>
 					<option value="Subscriber">Subscriber</option>
 					<option value="Guest">Guest</option>
+					<option value="Cashier">Cashier</option>
 					<option value="User">User (Staff)</option>
 					<option value="Administrator">Administrator</option>
 				</select>
@@ -93,7 +94,7 @@
 
 			<div class="input-group mb-3 input-group-sm">
 				<div class="input-group-prepend">
-					<span class="input-group-text">Temporary Password *</span>
+					<span class="input-group-text">Password *</span>
 				</div>
 				<input id="idxfieldtxt" type="text" class="form-control" placeholder="Temporary Password" value="<?php echo $randWPass; ?>" name="idxfieldtxt" required autofocus>
 				<div class="valid-feedback">Valid.</div>
