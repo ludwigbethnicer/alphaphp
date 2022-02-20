@@ -45,6 +45,11 @@
 
 				$stmt_insert->execute();
 
+				$ptarget_dir = "../../../storage/img/items/".$imgitemnem.".".$ext;
+				$ptarget_file = $target_dir . basename($_FILES["itemfilenem"]["name"]);
+				$puploadOk = 1;
+				$imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
 				echo "<script>window.open('../../routes/mprofile', '_self');</script>";
 			}
 		}

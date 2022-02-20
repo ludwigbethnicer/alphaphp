@@ -71,7 +71,7 @@
 							<div class="form-group">
 								<label for="profpic">Profile Picture: <?php echo $pimglnkurl; ?></label>
 								<div class="input-group mb-3">
-									<input type="text" class="form-control d-none" id="profpic" placeholder="Profile Picture" name="profpic" autofocus readonly value="<?php echo $pimglnkurl; ?>">
+									<input type="text" class="form-control d-none" id="profpic" placeholder="Profile Picture" name="profpic" readonly value="<?php echo $pimglnkurl; ?>">
 									<input type="file" id="itemfilenem" name="itemfilenem" class="form-control" placeholder="Upload File" accept="image/*">
 									<div class="valid-feedback">Valid.</div>
 									<div class="invalid-feedback">Please fill out this field.</div>

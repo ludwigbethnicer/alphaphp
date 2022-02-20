@@ -279,7 +279,10 @@
 						<div class="invalid-feedback">Please fill out this field.</div>
 						<datalist id="locationList">
 						<?php
-							$stmtLocAddrs = $cnn->prepare("SELECT * FROM vw_address ORDER BY purok, barangay, municipality_town, zipostal_code, districtno, province, abrv, island_archipelago, country, continent ASC");
+							// $stmtLocAddrs = $cnn->prepare("SELECT * FROM vw_address ORDER BY purok, barangay, municipality_town, zipostal_code, districtno, province, abrv, island_archipelago, country, continent ASC");
+
+							$stmtLocAddrs = $cnn->prepare("SELECT `tbl_address_prk`.`prk_id` AS `prk_id`,`tbl_address_prk`.`purok` AS `purok`,`tbl_address_brgy`.`barangay` AS `barangay`,`tbl_address_city_town`.`municipality_town` AS `municipality_town`,`tbl_address_city_town`.`zipostal_code` AS `zipostal_code`,`tbl_address_city_town`.`districtno` AS `districtno`,`tbl_address_province`.`province` AS `province`,`tbl_address_region`.`abrv` AS `abrv`,`tbl_address_island`.`island_archipelago` AS `island_archipelago`,`tbl_address_country`.`country` AS `country`,`tbl_address_continent`.`continent` AS `continent` FROM (((((((`tbl_address_prk` JOIN `tbl_address_brgy` ON(`tbl_address_prk`.`brgy_id` = `tbl_address_brgy`.`brgy_id`)) JOIN `tbl_address_city_town` ON(`tbl_address_brgy`.`town_id` = `tbl_address_city_town`.`town_id`)) JOIN `tbl_address_province` ON(`tbl_address_city_town`.`province_id` = `tbl_address_province`.`province_id`)) JOIN `tbl_address_region` ON(`tbl_address_province`.`region_id` = `tbl_address_region`.`region_id`)) JOIN `tbl_address_island` ON(`tbl_address_region`.`island_code` = `tbl_address_island`.`island_code`)) JOIN `tbl_address_country` ON(`tbl_address_island`.`country_id` = `tbl_address_country`.`country_id`)) JOIN `tbl_address_continent` ON(`tbl_address_country`.`continent_code` = `tbl_address_continent`.`continent_code`)) ORDER BY purok, barangay, municipality_town, zipostal_code, districtno, province, abrv, island_archipelago, country, continent ASC");
+
 							$stmtLocAddrs->execute();
 							$resultLocAddrs = $stmtLocAddrs->setFetchMode(PDO::FETCH_ASSOC);
 							foreach ($stmtLocAddrs as $rowLocAddrs) {
