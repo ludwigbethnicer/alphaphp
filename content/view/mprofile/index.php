@@ -30,6 +30,26 @@
 	$pjobposition = $row_profilez["cmpny_position"];
 ?>
 
+<script>
+	window.addEventListener('load', function() {
+		document.querySelector('#itemfilenem').addEventListener('change', function() {
+			if (this.files && this.files[0]) {
+				var img = document.querySelector('#itmvwimgfl');
+				img.onload = () => {
+					URL.revokeObjectURL(img.src);  // no longer needed, free memory
+				}
+				img.src = URL.createObjectURL(this.files[0]); // set src to blob url
+
+				var img2 = document.querySelector('#itmvwimgfl2');
+				img2.onload = () => {
+					URL.revokeObjectURL(img2.src);  // no longer needed, free memory
+				}
+				img2.src = URL.createObjectURL(this.files[0]); // set src to blob url
+			}
+		});
+	});
+</script>
+
 <div class="pt-5 pb-5">
 	<div class="container">
 		<div class="card">
@@ -40,7 +60,7 @@
 				</div>
 			</div>
 			<div class="card-body">
-				<form id="userprofilec" method="post" class="needs-validation" novalidate>
+				<form id="userprofilec" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
 					<div class="row">
 						<div class="col-md-3">
 							<div class="form-group">
@@ -48,10 +68,11 @@
 							</div>
 						</div>
 						<div class="col-md-9">
-							<div class="form-group d-none">
-								<label for="profpic">Profile Picture:</label>
+							<div class="form-group">
+								<label for="profpic">Profile Picture: <?php echo $pimglnkurl; ?></label>
 								<div class="input-group mb-3">
-									<input type="text" class="form-control" id="profpic" placeholder="Profile Picture" name="profpic" autofocus required readonly value="<?php echo $pimglnkurl; ?>">
+									<input type="text" class="form-control d-none" id="profpic" placeholder="Profile Picture" name="profpic" autofocus readonly value="<?php echo $pimglnkurl; ?>">
+									<input type="file" id="itemfilenem" name="itemfilenem" class="form-control" placeholder="Upload File" accept="image/*">
 									<div class="valid-feedback">Valid.</div>
 									<div class="invalid-feedback">Please fill out this field.</div>
 								</div>
@@ -100,9 +121,7 @@
 							<div class="form-group">
 								<label for="pmname">Middle Name:</label>
 								<div class="input-group mb-3">
-									<input type="text" class="form-control" id="pmname" placeholder="Middle Name" name="pmname" autofocus required value="<?php echo $pmiddlename; ?>">
-									<div class="valid-feedback">Valid.</div>
-									<div class="invalid-feedback">Please fill out this field.</div>
+									<input type="text" class="form-control" id="pmname" placeholder="Middle Name" name="pmname" value="<?php echo $pmiddlename; ?>">
 								</div>
 							</div>
 						</div>

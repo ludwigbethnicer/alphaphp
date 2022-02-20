@@ -178,8 +178,8 @@
 				<fieldset class="border pb-0 pt-3 pl-3 pr-3">
 					<legend class="w-auto pb-0 pt-3 pl-3 pr-3">Legend: Remarks</legend>
 					<div class="d-flex flex-wrap">
-						<div class="p-2 m-2 border text-danger">Process</div>
-						<div class="p-2 m-2 border text-muted">Checkout</div>
+						<div class="p-2 m-2 border text-muted">Process</div>
+						<div class="p-2 m-2 border text-danger">Checkout</div>
 						<div class="p-2 m-2 border text-info">Reviewed</div>
 						<div class="p-2 m-2 border text-primary">Approved</div>
 						<div class="p-2 m-2 border text-warning">Declined</div>
