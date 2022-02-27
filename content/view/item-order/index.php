@@ -162,7 +162,7 @@
 									<a href="#" class="btn-sm btn-success btn-inline" title="Edit">
 										<span class="far fa-edit"></span>
 									</a>
-									<a class="btn-sm btn-dark btn-inline ml-1" href="#" title="Delete">
+									<a class="btn-sm btn-dark btn-inline ml-1" href="../../content/view/user/deteled.php?orderid={$orderid}" title="Delete">
 										<span class="fas fa-trash-alt"></span>
 									</a>
 								</td>

@@ -34,7 +34,7 @@
 	window.addEventListener('load', function() {
 		document.querySelector('#itemfilenem').addEventListener('change', function() {
 			if (this.files && this.files[0]) {
-				var img = document.querySelector('#itmvwimgfl');
+				var img = document.querySelector('#imgogsrc3');
 				img.onload = () => {
 					URL.revokeObjectURL(img.src);  // no longer needed, free memory
 				}
@@ -64,10 +64,10 @@
 					<div class="row">
 						<div class="col-md-3">
 							<div class="form-group">
-								<img id="imgogsrc3" class="img-thumbnail" src="<?php echo $pimglnkurl; ?>">
+								<img id="imgogsrc3" class="img-thumbnail" src="<?php echo $pimglnkurl; ?>" data-toggle="modal" data-target="#ymModalItemPreview">
 							</div>
 						</div>
-						<div class="col-md-9">
+						<div class="col-md-9 mt-auto">
 							<div class="form-group">
 								<label for="profpic">Profile Picture: <?php echo $pimglnkurl; ?></label>
 								<div class="input-group mb-3">
@@ -178,7 +178,7 @@
 						<div class="input-group mb-3">
 							<textarea class="form-control" id="zaddress" placeholder="Address" name="zaddress" autofocus required readonly><?php echo $paddress; ?></textarea>
 							<div class="input-group-append">
-								<button class="btn btn-success" type="button" data-toggle="modal" data-target="#ymModalAddress">Update Address</button>
+								<button id="updaddress" class="btn btn-success" type="button" data-toggle="modal" data-target="#ymModalAddress">Update Address</button>
 							</div>
 							<div class="valid-feedback">Valid.</div>
 							<div class="invalid-feedback">Please fill out this field.</div>
@@ -199,7 +199,7 @@
 						</div>
 						<div class="col-md-6">
 							<div class="form-group">
-								<button type="submit" class="btn btn-block btn-info" name="btnUpdateProfile">
+								<button id="btnUpdateProfile" type="submit" class="btn btn-block btn-info" name="btnUpdateProfile">
 									Update <i class='fas fa-user-edit'></i>
 								</button>
 							</div>
@@ -220,6 +220,17 @@
 		</div>
 	</div>
 </div>
+
+<div class="modal" id="ymModalItemPreview">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<button type="button" class="close text-right mr-1" data-dismiss="modal">&times;</button>
+			<div class="modal-body">
+				<img id="itmvwimgfl2" src="<?php echo $pimglnkurl; ?>">
+			</div>
+		</div>
+	</div>
+</div>/
 
 <?php
 	include_once "../../inc/address/index.php";

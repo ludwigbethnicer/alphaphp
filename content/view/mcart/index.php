@@ -15,11 +15,25 @@
 	if ($numorder>0) {
 		foreach ($stmt_order as $roworder) {
 			$curr_ordr_id = $roworder['order_id'];
+		}
+	} else {
+		echo "<script>window.location = '../../';</script>";
+	}
 
-			$egreceiver = $roworder['receiver'];
-			$egreceiverphone = $roworder['receiver_phone'];
-			$egremail = $roworder['remail'];
-			$egdlocation = $roworder['d_location'];
+	$cnn_ouser = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
+	$qry_ouser = "SELECT * FROM tblsysuser WHERE usercode=:ocustomeer_id LIMIT 1";
+	$stmt_ouser = $cnn_ouser->prepare($qry_ouser);
+	$ocustomeer_id = $_SESSION["usercode"];
+	$stmt_ouser->bindParam(':ocustomeer_id', $ocustomeer_id);
+	$stmt_ouser->execute();
+	$onumorder = $stmt_ouser->rowCount();
+
+	if ($onumorder>0) {
+		foreach ($stmt_ouser as $oroworder) {
+			$ogreceiver = $oroworder['fullname'];
+			$ogreceiverphone = $oroworder['umobileno'];
+			$ogremail = $oroworder['uemail'];
+			$ogdlocation = $oroworder['address'];
 		}
 	} else {
 		echo "<script>window.location = '../../';</script>";
@@ -212,7 +226,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text">Receiver *</span>
 						</div>
-						<input id="receiver" type="text" class="form-control" placeholder="Receiver" name="receiver" value="<?php echo $egreceiver; ?>" list="receiverList" required autofocus>
+						<input id="receiver" type="text" class="form-control" placeholder="Receiver" name="receiver" value="<?php echo $ogreceiver; ?>" list="receiverList" required autofocus>
 						<div class="valid-feedback">Valid.</div>
 						<div class="invalid-feedback">Please fill out this field.</div>
 						<datalist id="receiverList">
@@ -234,7 +248,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text">Phone *</span>
 						</div>
-						<input id="rphone" type="tel" class="form-control" placeholder="Phone" name="rphone" value="<?php echo $egreceiverphone; ?>" list="rphoneList" required autofocus>
+						<input id="rphone" type="tel" class="form-control" placeholder="Phone" name="rphone" value="<?php echo $ogreceiverphone; ?>" list="rphoneList" required autofocus>
 						<div class="valid-feedback">Valid.</div>
 						<div class="invalid-feedback">Please fill out this field.</div>
 						<datalist id="rphoneList">
@@ -256,7 +270,7 @@
 						<div class="input-group-prepend">
 							<span class="input-group-text">E-mail</span>
 						</div>
-						<input id="remail" type="email" class="form-control" placeholder="E-mail" name="remail" value="<?php echo $egremail; ?>" list="remailList">
+						<input id="remail" type="email" class="form-control" placeholder="E-mail" name="remail" value="<?php echo $ogremail; ?>" list="remailList">
 						<datalist id="remailList">
 						<?php
 							$stmtREmail = $cnn->prepare("SELECT * FROM tbl_order_customer WHERE customer_id=:cstmride GROUP BY remail ORDER BY remail ASC");
@@ -311,8 +325,8 @@
 					</div>
 
 					<div class="form-group">
-						<label class="default-address">Default Address: <span class="text-primary">(Change Default Address)</span></label>
-						<p><?php echo $egdlocation; ?></p>
+						<label class="default-address">Default Address: <span class="text-primary"><a href="../../routes/mprofile/#updaddress">(Change Default Address)</a></span></label>
+						<p><?php echo $ogdlocation; ?></p>
 					</div>
 					
 					<div class="form-group text-right">

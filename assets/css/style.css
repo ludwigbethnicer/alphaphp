@@ -107,10 +107,13 @@ span#nmbtemi {
 	right: 32px;
 }
 
+.img-thumbnail {
+	cursor: pointer;
+}
+
 #dash-itemprod .img-thumbnail {
 	max-height: 182px;
 	margin: 0 auto;
-	cursor: pointer;
 }
 
 #user-add .img-thumbnail {

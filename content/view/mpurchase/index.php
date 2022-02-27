@@ -20,9 +20,11 @@
 		`tbl_order_customer`.`status`,
 		`tbl_order_customer`.`modified`,
 		`tbl_order_item`.`deleted` 
-	FROM tbl_order_item INNER JOIN tbl_order_customer ON `tbl_order_customer`.`order_id` = `tbl_order_item`.`order_id` WHERE customer_id=:customerid9";
+	FROM tbl_order_item INNER JOIN tbl_order_customer ON `tbl_order_customer`.`order_id` = `tbl_order_item`.`order_id` WHERE customer_id=:customerid9 AND remarks<>:mrmrkz AND `tbl_order_item`.`deleted`=0 ORDER BY order_id DESC";
 	$stmt_purchase = $cnn_purchase->prepare($qry_purchase);
 	$customerid9 = $_SESSION["usercode"];
+	$mrmrkz = 'Process';
+	$stmt_purchase->bindParam(':mrmrkz', $mrmrkz);
 	$stmt_purchase->bindParam(':customerid9', $customerid9);
 	$stmt_purchase->execute();
 	$numpurchase = $stmt_purchase->rowCount();
@@ -134,7 +136,7 @@
 												<td data-filter="<?php echo $datey; ?>"><?php echo $datey; ?></td>
 												<td data-filter="<?php echo $ctrly; ?>"><?php echo $ctrly; ?></td>
 												<td class="text-right tbl-action">
-													<a href="#" class="btn-sm btn-success btn-inline" title="View">
+													<a href="../../routes/mpurchase/order?orderid=<?php echo $orderidy; ?>" class="btn-sm btn-success btn-inline" title="View">
 														<span class="far fa-edit"></span>
 													</a>
 												</td>
