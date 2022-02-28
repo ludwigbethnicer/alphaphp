@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 20, 2022 at 09:35 AM
+-- Generation Time: Feb 28, 2022 at 01:13 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -69,7 +69,7 @@ CREATE TABLE `conf` (
 --
 
 INSERT INTO `conf` (`id`, `cmpny_name`, `sys_name`, `sys_ver`, `sys_logo`, `navbar_logo`, `favicon`, `quote_title`, `ceo_pres`, `memail`, `telno`, `mobileno`, `maddress`, `idletime`, `themename`, `domainhome`, `fontglobal`, `datetoday`, `created`, `primary_color`, `second_color`, `third_color`, `forth_color`, `fifth_color`, `sixth_color`, `seventh_color`, `eight_color`, `ninght_color`, `tenth_color`, `geo_map`, `build_by`, `cwebzite`, `dcurrencyx`, `modified`) VALUES
-(1, 'KJJ\'s Closets', 'KJJ\'s Closets', '1.0.0', 'logo.png', 'logo.svg', 'logo.png', 'Bring the customers closer to their dream fashion.', 'Baay Katherine', 'kjjscloset@gmail.com', '+32 333 2469', '+639678407618', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 5, 'default', '/alphaphp/', '', '20220208', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.6010913,122.4230158', 'Joseph Drillon', 'kjjsclosets.com', '&#8369;', '2022-02-08 05:37:08');
+(1, 'KJJ\'s Closets', 'KJJ\'s Closets', '1.0.0', 'logo.png', 'logo.svg', 'logo.png', 'Bring the customers closer to their dream fashion.', 'Baay Katherine', 'kjjscloset@gmail.com', '+32 333 2469', '+639678407618', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 5, 'default', '/alphaphp/', '', '20220208', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.6010913,122.4230158', 'Joseph Drillon', 'kjjsclosets.com', '&#8369;', '2022-02-20 15:30:49');
 
 -- --------------------------------------------------------
 
@@ -168,11 +168,7 @@ INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `img_url`, 
 ('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'Admin A. Minad', 'admin@info.com', '1', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Surname', 'Admin', 'Amind', NULL, 0, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.', 'Manuver', 'Administrator', '2021-12-06 00:12:35', '2022-01-22 22:04:07'),
 ('00000000001', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', '123456', '', 'User U. Resu', 'user@info.com', '2', 'User', 'What is your the name of your favorite dog?', 'me', 2, 0, 1, '00000000000', 'Resu', 'User', 'Uesr', NULL, 0, '', '', '', '2021-12-06 00:12:35', '2022-01-22 22:04:10'),
 ('00000000002', 'guest', '084e0343a0486ff05530df6c705c8bb4', '123456', '', 'Guest G. Tseug', 'guest@info.com', '3', 'Guest', 'What is your the name of your favorite dog?', 'him', 3, 0, 0, '00000000000', 'Tseug', 'Guest', 'Geust', NULL, 0, '', '', '', '2021-12-06 00:12:35', '2022-01-22 22:04:14'),
-('111176140783446179165', 'kjjscloset', 'd487ae74352082b55cce14c61d033849', '156438', 'https://lh3.googleusercontent.com/a/AATXAJwyS74TKXYflialYIyW1c_dTAzbOuiIU1juYYiN=s96-c', 'Baay Katherine', 'kjjscloset@gmail.com', '', 'Subscriber', '', '', 6, 0, 1, '', 'Katherine', 'Baay', '', NULL, 0, '', '', '', '2022-02-19 19:31:28', '2022-02-19 11:31:28'),
-('114792514623933940437', 'napigkitludwigbethnicer', '918927f6b737bb450287e295811e7b95', '379651', 'https://lh3.googleusercontent.com/a-/AOh14Giuv75Tw-DdTw036rQKVh1QAZBzeGrGywoucUzvtA=s96-c', 'Ludwig Bethnicer Napigkit', 'napigkitludwigbethnicer@gmail.com', '09154826025', 'Subscriber', '', '', 6, 0, 1, '', 'Napigkit', 'Ludwig Bethnicer', 'Cagas', 'Near Arique Store, Nuevo 1, Sanito, Ipil 7001, District-2, Zamboanga Sibugay, Region IX, Mindanao, Philippines, Asia', 0, 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.', 'Company', 'Web Developer', '2022-01-13 19:48:34', '2022-02-13 22:54:25'),
-('115715897343574915504', 'marnelieannariquenapigkit', '9db33939a8a65d3570e6db0f8085c4a3', '137809', 'https://lh3.googleusercontent.com/a-/AOh14GitpTMJcAIfWdA8oYvbrUrKbXARYDIEsSPmvVdf=s96-c', 'Marnelie Ann Napigkit', 'marnelieannariquenapigkit@gmail.com', '', 'Subscriber', '', '', 6, 0, 1, '', 'Napigkit', 'Marnelie Ann', '', NULL, 0, '', '', '', '2022-02-19 19:30:24', '2022-02-19 11:30:24'),
-('117000830823875168641', 'devusayrshire', '783bb14a6e418d0a33ded60080a55113', '873056', 'https://lh3.googleusercontent.com/a/AATXAJxkcGzhwPC9GfYBjzlkZHBeZ7uIPrLrc83Y83iq=s96-c', 'Usayr Shire', 'devusayrshire@gmail.com', '', 'Subscriber', '', '', 6, 0, 1, '', 'Shire', 'Usayr', '', NULL, 0, '', '', '', '2022-02-19 19:30:52', '2022-02-19 11:30:52'),
-('202202080001', 'Subscriber', 'b741a6325c1e9b80f46db6a777547cf5', '019684', '', '', 'dfbdfbdf@dsfvsdv.com', '65156156156165615615', 'Subscriber', '', '', 6, 0, 1, '', '', '', '', NULL, 0, '', '', '', '2022-02-08 13:37:09', '2022-02-08 05:37:09');
+('111176140783446179165', 'kjjscloset', '8251cb8d6c876953df80d2945cc12bfa', '718230', 'https://lh3.googleusercontent.com/a/AATXAJwyS74TKXYflialYIyW1c_dTAzbOuiIU1juYYiN=s96-c', 'Baay Katherine', 'kjjscloset@gmail.com', '', 'Subscriber', '', '', 6, 0, 1, '', 'Katherine', 'Baay', '', NULL, 0, '', '', '', '2022-02-28 03:17:22', '2022-02-27 19:17:22');
 
 -- --------------------------------------------------------
 
@@ -213,13 +209,6 @@ CREATE TABLE `tblsysuser_autoid` (
   `fieldtxt` text NOT NULL,
   `created` timestamp NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tblsysuser_autoid`
---
-
-INSERT INTO `tblsysuser_autoid` (`id`, `fieldtxt`, `created`) VALUES
-(1, 'a', '2022-02-08 05:37:09');
 
 -- --------------------------------------------------------
 
@@ -591,13 +580,6 @@ CREATE TABLE `tbl_order_customer` (
   `deleted` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
---
--- Dumping data for table `tbl_order_customer`
---
-
-INSERT INTO `tbl_order_customer` (`order_id`, `receipt_no`, `customer_id`, `customer_name`, `phone`, `cemail`, `address`, `sub_total_qty`, `sub_total_item`, `sub_total`, `shipping_fee`, `total_all`, `remarks`, `status`, `process_by`, `review_by`, `approved_by`, `receiver`, `receiver_phone`, `remail`, `d_location`, `long_lat`, `courier`, `otherinfo`, `created`, `modified`, `deleted`) VALUES
-(1, NULL, '114792514623933940437', 'Ludwig Bethnicer Napigkit', '09154826025', 'napigkitludwigbethnicer@gmail.com', 'African St., Mahogany, Tirso Babiera, Ipil 7001, District-2, Zamboanga Sibugay, Region IX, Mindanao, Philippines, Asia', 21, 2, 3, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, 'Marnelie Ann', '0912345689', 'marnelie@gmail.com', 'Near Arique Store, Nuevo 1, Sanito, Ipil 7001, District-2, Zamboanga Sibugay, Region IX, Mindanao, Philippines, Asia', '', '', '', '2022-02-13 08:24:26', '2022-02-13 16:41:42', 0);
-
 -- --------------------------------------------------------
 
 --
@@ -621,43 +603,6 @@ CREATE TABLE `tbl_order_item` (
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `tbl_order_item`
---
-
-INSERT INTO `tbl_order_item` (`item_order_id`, `order_id`, `item_id`, `barcode`, `item_name`, `qty`, `unit`, `price`, `total_amt`, `extnem`, `cstock`, `status`, `modified`, `created`, `deleted`) VALUES
-(1, 1, 7, '', 'Golden Pear', 1, 'pc', 600, 600, 'jpg', 1000, NULL, '2022-02-13 08:24:26', '2022-02-13 08:24:26', 0),
-(2, 1, 6, '', 'Huda Liquid Mate', 20, 'pc', 120, 2400, 'jpg', 20, NULL, '2022-02-14 00:40:42', '2022-02-14 00:40:42', 0);
-
--- --------------------------------------------------------
-
---
--- Stand-in structure for view `vw_address`
--- (See below for the actual view)
---
-CREATE TABLE `vw_address` (
-`prk_id` int(11)
-,`purok` text
-,`barangay` text
-,`municipality_town` text
-,`zipostal_code` text
-,`districtno` int(2)
-,`province` text
-,`abrv` text
-,`island_archipelago` text
-,`country` varchar(100)
-,`continent` varchar(15)
-);
-
--- --------------------------------------------------------
-
---
--- Structure for view `vw_address`
---
-DROP TABLE IF EXISTS `vw_address`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vw_address`  AS SELECT `tbl_address_prk`.`prk_id` AS `prk_id`, `tbl_address_prk`.`purok` AS `purok`, `tbl_address_brgy`.`barangay` AS `barangay`, `tbl_address_city_town`.`municipality_town` AS `municipality_town`, `tbl_address_city_town`.`zipostal_code` AS `zipostal_code`, `tbl_address_city_town`.`districtno` AS `districtno`, `tbl_address_province`.`province` AS `province`, `tbl_address_region`.`abrv` AS `abrv`, `tbl_address_island`.`island_archipelago` AS `island_archipelago`, `tbl_address_country`.`country` AS `country`, `tbl_address_continent`.`continent` AS `continent` FROM (((((((`tbl_address_prk` join `tbl_address_brgy` on(`tbl_address_prk`.`brgy_id` = `tbl_address_brgy`.`brgy_id`)) join `tbl_address_city_town` on(`tbl_address_brgy`.`town_id` = `tbl_address_city_town`.`town_id`)) join `tbl_address_province` on(`tbl_address_city_town`.`province_id` = `tbl_address_province`.`province_id`)) join `tbl_address_region` on(`tbl_address_province`.`region_id` = `tbl_address_region`.`region_id`)) join `tbl_address_island` on(`tbl_address_region`.`island_code` = `tbl_address_island`.`island_code`)) join `tbl_address_country` on(`tbl_address_island`.`country_id` = `tbl_address_country`.`country_id`)) join `tbl_address_continent` on(`tbl_address_country`.`continent_code` = `tbl_address_continent`.`continent_code`)) ;
 
 --
 -- Indexes for dumped tables
@@ -842,7 +787,7 @@ ALTER TABLE `tblsysuser_address`
 -- AUTO_INCREMENT for table `tblsysuser_autoid`
 --
 ALTER TABLE `tblsysuser_autoid`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tblthemename`
@@ -914,13 +859,13 @@ ALTER TABLE `tbl_headbanner_btn`
 -- AUTO_INCREMENT for table `tbl_order_customer`
 --
 ALTER TABLE `tbl_order_customer`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_item`
 --
 ALTER TABLE `tbl_order_item`
-  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- Constraints for dumped tables

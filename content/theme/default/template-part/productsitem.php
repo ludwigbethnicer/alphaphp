@@ -136,6 +136,7 @@
 		var dirg = "<?php echo $domainhome; ?>";
 		var userCodeg = "<?php echo $deuzerked; ?>";
 		console.log(h);
+		console.log(userCodeg);
 		if (userCodeg==0) {
 			console.log('No User');
 			window.open(dirg+'routes/login', '_self');

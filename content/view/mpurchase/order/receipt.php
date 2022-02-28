@@ -58,6 +58,10 @@
 					<div class="col-md-6"><label>Order ID: <?php echo $pcurr_ordrid; ?></label></div>
 					<div class="col-md-6"><label>Receipt#: <?php echo $precpno; ?></label></div>
 				</div>
+				<div class="row">
+					<div class="col-md-6"><label>Remarks: <?php echo $prmrksz; ?></label></div>
+					<div class="col-md-6"><label>Status: <?php echo $pstatus; ?></label></div>
+				</div>
 				<h5>Receiver / Recipient Information</h5>
 				<div class="row">
 					<div class="col-md-6"><label>Recipient: <?php echo $name_recepient; ?></label></div>

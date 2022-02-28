@@ -1,9 +1,9 @@
 <?php
 
 	try {
-		$temidid = isset($_GET['itemid']) ? $_GET['itemid'] : die('ERROR: Record ID not found.');
-		$nowuid = isset($_GET['uid']) ? $_GET['uid'] : die('ERROR: Record ID not found.');
-		$nqty = isset($_GET['gqty']) ? $_GET['gqty'] : die('ERROR: Record ID not found.');
+		$temidid = isset($_GET['itemid']) ? $_GET['itemid'] : '<script>window.open("../../../routes/productsitems/","_self");</script>';
+		$nowuid = isset($_GET['uid']) ? $_GET['uid'] : '<script>window.open("../../../routes/productsitems/","_self");</script>';
+		$nqty = isset($_GET['gqty']) ? $_GET['gqty'] : '<script>window.open("../../../routes/productsitems/","_self");</script>';
 
 		include_once "../../../inc/srvr.php";
 		$cnn = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
@@ -99,22 +99,23 @@
 				echo '<script>window.open("../../../routes/productsitems/","_self");</script>';
 			}
 		} else {
-			$qryGetCUser = "SELECT * FROM tblsysuser WHERE usercode=:nowuid LIMIT 1";
+			$qryGetCUser = "SELECT * FROM tblsysuser WHERE usercode=:idcustomer45 LIMIT 1";
 			$stmtGetCUser = $cnn->prepare($qryGetCUser);
-			$stmtGetCUser->bindParam(':nowuid', $nowuid);
+			$idcustomer45 = $nowuid;
+			$stmtGetCUser->bindParam(':idcustomer45', $idcustomer45);
 			$stmtGetCUser->execute();
 			$cntGetCUser = $stmtGetCUser->rowCount();
 
 			if ($cntGetCUser > 0) {
 				foreach ($stmtGetCUser as $rowGetCUser) {
 					$clientname3 = $rowGetCUser["fullname"];
-					$clientphone3 = $rowGetCUser["umobileno"];
+					$clientphone3 = $rowGetCUser["umobileno"] ? $rowGetCUser["umobileno"] : header("location:../../../routes/mpurchase");
 					$clientemail3 = $rowGetCUser["uemail"];
-					$clientaddress3 = $rowGetCUser["address"];
+					$clientaddress3 = $rowGetCUser["address"] ? $rowGetCUser["address"] : header("location:../../../routes/mpurchase");
 					$receivername3 = $rowGetCUser["fullname"];
-					$receiverphone3 = $rowGetCUser["umobileno"];
+					$receiverphone3 = $rowGetCUser["umobileno"] ? $rowGetCUser["umobileno"] : header("location:../../../routes/mpurchase");
 					$receiveremail3 = $rowGetCUser["uemail"];
-					$receiveraddress3 = $rowGetCUser["address"];
+					$receiveraddress3 = $rowGetCUser["address"] ? $rowGetCUser["address"] : header("location:../../../routes/mpurchase");
 				}
 			}
 
@@ -132,8 +133,9 @@
 				status=:statuz3, 
 				deleted=0
 			";
+
 			$stmt3 = $cnn->prepare($qry3);
-			$idcustomer3 = $nowuid;
+			$idcustomer3 = $idcustomer45;
 			$remarkx3 = 'Process';
 			$statuz3 = 'Unpaid';
 			$stmt3->bindParam(':idcustomer3', $idcustomer3);
@@ -205,7 +207,7 @@
 			} else {
 				echo '<script>window.open("../../../routes/productsitems/","_self");</script>';
 			}
-			echo '<script>window.open("../../../routes/productsitems/","_self");</script>';
+			echo '<script>window.open("../../../routes/productsitems/","_self");</script>';	
 		}
 	} catch (PDOException $exception) {
 		die('ERROR: ' . $exception->getMessage());

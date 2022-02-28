@@ -3,13 +3,14 @@
 	include_once "../../../content/theme/".$themename."/carousel-header.php";
 
 	$cnn_chckqty = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
-	$qry_chckqty = "SELECT SUM(qty) AS total_qty FROM tbl_order_item WHERE order_id=:orderidqty";
+	$qry_chckqty = "SELECT COUNT(*) AS total_rows, SUM(qty) AS total_qty FROM tbl_order_item WHERE order_id=:orderidqty";
 	$stmt_chckqty = $cnn_chckqty->prepare($qry_chckqty);
 	$orderidqty = isset($_GET['orderid']) ? $_GET['orderid'] : "";
 	$stmt_chckqty->bindParam(':orderidqty', $orderidqty);
 	$stmt_chckqty->execute();
 	$row_chckqty = $stmt_chckqty->fetch(PDO::FETCH_ASSOC);
 	$chckqtynw = $row_chckqty['total_qty'];
+	$chcktotrwz = $row_chckqty['total_rows'];
 
 	$cnn_porder = new PDO("mysql:host={$host};dbname={$db}", $unameroot, $pw);
 	$qry_porder = "SELECT * FROM tbl_order_customer WHERE order_id=:orderid AND remarks<>:prmrkz LIMIT 1";
@@ -72,7 +73,7 @@
 			$frmtdtzx = date("Ymd", strtotime($datecreatedz));;
 			$recptnom = '';
 
-			if ( $prmrksz == 'Complete' && $pstatus=='Paid' ) {
+			if ( $pstatus=='Paid' ) {
 				$recptnom = 'OR'.$frmtdtzx.$pcurr_ordrid;
 			} else {
 				$recptnom = $proworder['receipt_no'];
@@ -93,24 +94,115 @@
 				<label>Purchase Order#: <?php echo $pcurr_ordrid; ?></label><br>
 				<label>Receipt#: <?php echo $recptnom; ?></label>
 				<div class="float-right">
-					<a class="btn <?php echo $rbsTxtColor; ?>"><?php echo $prmrksz; ?></a>
-					<a class="btn <?php echo $sbsTxtColor; ?>" title="<?php echo $titled; ?>"><?php echo $pstatus; ?></a>
+					<a class="btn <?php echo $rbsTxtColor; ?>"><strong>Remarks:</strong> <?php echo $prmrksz; ?></a>
+					<a class="btn <?php echo $sbsTxtColor; ?>" title="<?php echo $titled; ?>"><strong>Status:</strong> <?php echo $pstatus; ?></a>
 					<a href="" class="btn btn-primary">Refresh</a>
-					<a href="../../../routes/mpurchase/order/receipt.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-info">Print Preview</a>
 					
 					<?php
-						if($pstatus=='Cancel') {
-							?>
-								<a href="../../../content/view/mpurchase/order/continue-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-dark">Continue</a>
-							<?php
-						} elseif ($pstatus=='Paid') {
-							?>
-								<a href="#" class="btn btn-dark">Completed</a>
-							<?php
-						} else {
-							?>
-								<a href="../../../content/view/mpurchase/order/cancel-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-danger">Cancel Order</a>
-							<?php
+						switch (true) {
+							case ($prmrksz=='Checkout' and $pstatus=='Unpaid'):
+								?>
+									<a href="../../../content/view/mpurchase/order/cancel-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-danger">Cancel Order</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Checkout' and $pstatus=='Paid'):
+								?>
+									<a href="../../../routes/mpurchase/order/receipt.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-info">Print Preview</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Checkout' and $pstatus=='Cancel'):
+								?>
+									<a href="../../../content/view/mpurchase/order/continue-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-dark">Continue</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Reviewed' and $pstatus=='Unpaid'):
+								?>
+									<a href="../../../content/view/mpurchase/order/cancel-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-danger">Cancel Order</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Reviewed' and $pstatus=='Paid'):
+								?>
+									<a href="../../../routes/mpurchase/order/receipt.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-info">Print Preview</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Reviewed' and $pstatus=='Cancel'):
+								?>
+									<a href="../../../content/view/mpurchase/order/continue-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-dark">Continue</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Approved' and $pstatus=='Unpaid'):
+								?>
+									<a href="../../../routes/mpurchase/order/receipt.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-info">Print Preview</a>
+									<a href="../../../content/view/mpurchase/order/cancel-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-danger">Cancel Order</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Approved' and $pstatus=='Paid'):
+								?>
+									<a href="../../../routes/mpurchase/order/receipt.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-info">Print Preview</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Approved' and $pstatus=='Cancel'):
+								?>
+									<a href="../../../content/view/mpurchase/order/continue-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-dark">Continue</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Declined' and $pstatus=='Unpaid'):
+								break;
+
+							case ($prmrksz=='Declined' and $pstatus=='Paid'):
+								?>
+									<a href="../../../routes/mpurchase/order/receipt.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-info">Print Preview</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Declined' and $pstatus=='Cancel'):
+								break;
+
+							case ($prmrksz=='Shipped' and $pstatus=='Unpaid'):
+								?>
+									<a href="../../../routes/mpurchase/order/receipt.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-info">Print Preview</a>
+									<a href="../../../content/view/mpurchase/order/cancel-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-danger">Cancel Order</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Shipped' and $pstatus=='Paid'):
+								?>
+									<a href="../../../routes/mpurchase/order/receipt.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-info">Print Preview</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Shipped' and $pstatus=='Cancel'):
+								?>
+									<a href="../../../content/view/mpurchase/order/continue-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-dark">Continue</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Complete' and $pstatus=='Unpaid'):
+								?>
+									<a href="../../../routes/mpurchase/order/receipt.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-info">Print Preview</a>
+								<?php
+								break;
+
+							case ($prmrksz=='Complete' and $pstatus=='Paid'):
+								?>
+									<a href="../../../routes/mpurchase/order/receipt.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-info">Print Preview</a>
+								<?php
+								break;
+
+							default:
+								?>
+									<a href="../../../content/view/mpurchase/order/cancel-order.php?orderid=<?php echo $pcurr_ordrid; ?>" class="btn btn-danger">Cancel Order</a>
+								<?php
+								break;
 						}
 					?>
 				</div>
@@ -192,13 +284,25 @@
 										<td data-filter="<?php echo $item_name; ?>"><?php echo $item_name; ?></td>
 										<td data-filter="<?php echo $qty; ?>">
 											<?php
-												if ( $chckqtynw==1 ) {
+												if ( $prmrksz == 'Complete' || $pstatus=='Paid' ) {
 													echo $qty;
-												} elseif ( $prmrksz == 'Complete' && $pstatus=='Paid' ) {
+												} elseif ( $pstatus=='Cancel' ) {
+													echo $qty;
+												} elseif ( $prmrksz=='Checkout' || $pstatus=='Unpaid' ) {
+													?>
+														<input type="number" id="qtyedit<?php echo $id2; ?>" name="qty_edit" class="qty_edit none-zero-input" value="<?php echo $qty; ?>" onchange="fnChangeQty(<?php echo $id2; ?>,this.value)" step="1" min="1" max="<?php echo $cstock; ?>" onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
+													<?php
+												} elseif ( $prmrksz=='Reviewed' ) {
+													echo $qty;
+												} elseif ( $prmrksz=='Approved' ) {
+													echo $qty;
+												} elseif ( $prmrksz=='Declined' ) {
+													echo $qty;
+												} elseif ( $prmrksz=='Shipped' ) {
 													echo $qty;
 												} else {
 													?>
-														<input type="number" id="qtyedit<?php echo $id2; ?>" name="qty_edit" class="qty_edit none-zero-input" value="<?php echo $qty; ?>" onchange="fnChangeQty(<?php echo $id2; ?>,this.value)" step="1" min="1" max="<?php echo $cstock; ?>"  onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
+														<input type="number" id="qtyedit<?php echo $id2; ?>" name="qty_edit" class="qty_edit none-zero-input" value="<?php echo $qty; ?>" onchange="fnChangeQty(<?php echo $id2; ?>,this.value)" step="1" min="1" max="<?php echo $cstock; ?>" onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
 													<?php
 												}
 											?>
@@ -211,9 +315,19 @@
 										<td class="d-none"><?php echo $id2; ?></td>
 										<td class="text-right tbl-action">
 											<?php
-												if ( $chckqtynw==1 ) {
+												if ( $chcktotrwz==1 ) {
 													echo '';
 												} elseif ( $prmrksz == 'Complete' && $pstatus=='Paid') {
+													echo '';
+												} elseif ( $pstatus=='Cancel') {
+													echo '';
+												} elseif ( $prmrksz=='Approved' ) {
+													echo '';
+												} elseif ( $prmrksz=='Declined' ) {
+													echo '';
+												} elseif ( $prmrksz=='Shipped' ) {
+													echo '';
+												} elseif ( $prmrksz=='Complete' ) {
 													echo '';
 												} else {
 													?>

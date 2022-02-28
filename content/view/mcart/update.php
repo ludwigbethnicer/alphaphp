@@ -2,7 +2,11 @@
 
 	try {
 		$itmordid = isset($_GET['itmordid']) ? $_GET['itmordid'] : die('ERROR: Record ID not found.');
-		$zqty = isset($_GET['zqty']) ? $_GET['zqty'] : die('ERROR: Record ID not found.');
+		$zqty = isset($_GET['zqty']) ? $_GET['zqty'] : 1;
+
+		if ($zqty==0) {
+			$zqty = 1;
+		}
 
 		include_once "../../../inc/core.php";
 		include_once "../../../inc/srvr.php";
@@ -29,6 +33,8 @@
 				item_order_id	= '$itmordid'
 				";
 			$cnn->exec($qry_update);
+		} else {
+
 		}
 
 		echo '<script>window.open("../../../routes/mcart/","_self");</script>';
