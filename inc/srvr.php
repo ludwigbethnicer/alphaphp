@@ -9,17 +9,18 @@
 	$dir		= "/alphaphp/"; // Domain Directory
 	$lnkfont	= "//fonts.googleapis.com/css?family=Sofia"; // Google Font
 
-	$company	= "Company"; // Company Name
-	$title		= "Title"; // System Title
-	$tagline	= "Quote, saying or moto"; // Tagline
-	$owner		= "Owner T. Businness";
-	$email		= "info@contact.com"; // E-mail
-	$telno		= "+32 333 2469"; // Telephone Number
-	$mobileno	= "+63 909 482 6025"; // Mobile Number
-	$address	= "Sed ut perspiciatis unde omnis iste natus"; // Address
-	$gps		= "7.784875,122.592581"; // Google Map Location
-	$build_by	= "Who";
-	$cwebzite	= "google.com";
-	$dcurrencyx	= "$";
+	// $company	= "Company"; // Company Name
+	// $title		= "Title"; // System Title
+	// $tagline	= "Quote, saying or moto"; // Tagline
+	// $owner		= "Owner T. Businness";
+	// $email		= "info@contact.com"; // E-mail
+	// $telno		= "+323332469"; // Telephone Number
+	// $mobileno	= "+639094826025"; // Mobile Number
+	// $address	= "Sed ut perspiciatis unde omnis iste natus"; // Address
+	// $gps		= "7.784875,122.592581"; // Google Map Location
+	// $build_by	= "Who";
+	// $cwebzite	= "google.com";
+	// $dcurrencyx	= "$";
 
-	$gauthlogin	= "915105451708-09slv78bomdcnij292kvgmfijv229f3i.apps.googleusercontent.com";
+	// $gauthlogin	= "915105451708-09slv78bomdcnij292kvgmfijv229f3i.apps.googleusercontent.com";
+	$gauthlogin	= "775302666686-j83mcm9edhjb2gd80a7k3ctehpuuqipv.apps.googleusercontent.com";

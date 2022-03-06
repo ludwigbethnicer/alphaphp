@@ -167,8 +167,23 @@
 									</a>
 								</td>
 								<td data-filter="<?php echo $created; ?>"><?php echo $created; ?></td>
-								<td data-filter="<?php echo $remarks; ?>" class="<?php echo $rbsTxtColor; ?>"><?php echo $remarks; ?></td>
-								<td data-filter="<?php echo $status; ?>" class="<?php echo $sbsTxtColor; ?>" title="<?php echo $titled; ?>"><?php echo $status; ?></td>
+								<td data-filter="<?php echo $remarks; ?>">
+									<select name="remarks" class="<?php echo $rbsTxtColor; ?>" onchange="fnChngeRenarks(<?php echo $orderid; ?>,this.value);">
+										<option value="Checkout" class="text-danger" <?php if($remarks=='Checkout') echo 'selected="selected"'; ?>>Checkout</option>
+										<option value="Reviewed" class="text-info" <?php if($remarks=='Reviewed') echo 'selected="selected"'; ?>>Reviewed</option>
+										<option value="Approved" class="text-primary" <?php if($remarks=='Approved') echo 'selected="selected"'; ?>>Approved</option>
+										<option value="Declined" class="text-warning" <?php if($remarks=='Declined') echo 'selected="selected"'; ?>>Declined</option>
+										<option value="Shipped" class="text-secondary" <?php if($remarks=='Shipped') echo 'selected="selected"'; ?>>Shipped</option>
+										<option value="Complete" class="text-success" <?php if($remarks=='Complete') echo 'selected="selected"'; ?>>Complete</option>
+									</select>
+								</td>
+								<td data-filter="<?php echo $status; ?>" class="<?php echo $sbsTxtColor; ?>" title="<?php echo $titled; ?>">
+									<select name="status" class="<?php echo $sbsTxtColor; ?>" onchange="fnChngeStatus(<?php echo $orderid; ?>,this.value);">
+										<option value="Unpaid" class="text-danger" <?php if($status=='Unpaid') echo 'selected="selected"'; ?>>Unpaid</option>
+										<option value="Cancel" class="text-warning" <?php if($status=='Cancel') echo 'selected="selected"'; ?>>Cancel</option>
+										<option value="Paid" class="text-success" <?php if($status=='Paid') echo 'selected="selected"'; ?>>Paid</option>
+									</select>
+								</td>
 								<td data-filter="<?php echo $orderid; ?>"><?php echo $orderid; ?></td>
 								<td data-filter="<?php echo $receiptno; ?>"><?php echo $receiptno; ?></td>
 								<td data-filter="<?php echo $totalall; ?>"><?php echo $totalall; ?></td>
@@ -281,6 +296,16 @@
 		if (answer) {
 			window.location = '../../content/view/item-order/deteled.php?upidid=' + id;
 		} 
+	}
+
+	function fnChngeRenarks(id,remark) {
+		window.location = '../../content/view/item-order/update-remarks.php?orderid=' + id + '&remaks=' + remark;
+		console.log(id, remark);
+	}
+
+	function fnChngeStatus(id,status) {
+		window.location = '../../content/view/item-order/update-status.php?orderid=' + id + '&status=' + status;
+		console.log(id, status);
 	}
 </script>
 

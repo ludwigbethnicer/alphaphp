@@ -10,4 +10,4 @@
 	<script src="<?php echo $domainhome; ?>content/theme/<?php echo $themename; ?>/assets/js/custom-script.js"></script>
 </body>
 </html>
-<!-- Lludvick Novechskie -->
+<!-- Lludvick Novechskie PHP CMS Framework -->

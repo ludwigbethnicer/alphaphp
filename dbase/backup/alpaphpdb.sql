@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Feb 28, 2022 at 01:13 AM
+-- Generation Time: Mar 05, 2022 at 03:18 AM
 -- Server version: 10.4.22-MariaDB
 -- PHP Version: 7.4.27
 
@@ -69,7 +69,7 @@ CREATE TABLE `conf` (
 --
 
 INSERT INTO `conf` (`id`, `cmpny_name`, `sys_name`, `sys_ver`, `sys_logo`, `navbar_logo`, `favicon`, `quote_title`, `ceo_pres`, `memail`, `telno`, `mobileno`, `maddress`, `idletime`, `themename`, `domainhome`, `fontglobal`, `datetoday`, `created`, `primary_color`, `second_color`, `third_color`, `forth_color`, `fifth_color`, `sixth_color`, `seventh_color`, `eight_color`, `ninght_color`, `tenth_color`, `geo_map`, `build_by`, `cwebzite`, `dcurrencyx`, `modified`) VALUES
-(1, 'KJJ\'s Closets', 'KJJ\'s Closets', '1.0.0', 'logo.png', 'logo.svg', 'logo.png', 'Bring the customers closer to their dream fashion.', 'Baay Katherine', 'kjjscloset@gmail.com', '+32 333 2469', '+639678407618', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 5, 'default', '/alphaphp/', '', '20220208', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.6010913,122.4230158', 'Joseph Drillon', 'kjjsclosets.com', '&#8369;', '2022-02-20 15:30:49');
+(1, 'KJJ\'s Closets', 'KJJ\'s Closets', '1.0.0', 'logo.png', 'logo.svg', 'logo.png', 'Bring the customers closer to their dream fashion.', 'Baay Katherine', 'kjjscloset@gmail.com', '+323332469', '+639678407618', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 5, 'default', '/alphaphp/', '', '20220208', '2021-11-03 21:09:34', '', '', '', '', '', '', '', '', '', '', '7.6010913,122.4230158', 'Joseph Drillon', 'kjjsclosets.com', '&#8369;', '2022-03-02 14:40:20');
 
 -- --------------------------------------------------------
 
@@ -168,7 +168,8 @@ INSERT INTO `tblsysuser` (`usercode`, `username`, `passcode`, `pin`, `img_url`, 
 ('00000000000', 'admin', '21232f297a57a5a743894a0e4a801fc3', '123456', '', 'Admin A. Minad', 'admin@info.com', '1', 'Administrator', 'What is your the name of your favorite dog?', 'you', 1, 0, 1, '00000000000', 'Surname', 'Admin', 'Amind', NULL, 0, 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt.', 'Manuver', 'Administrator', '2021-12-06 00:12:35', '2022-01-22 22:04:07'),
 ('00000000001', 'user', 'ee11cbb19052e40b07aac0ca060c23ee', '123456', '', 'User U. Resu', 'user@info.com', '2', 'User', 'What is your the name of your favorite dog?', 'me', 2, 0, 1, '00000000000', 'Resu', 'User', 'Uesr', NULL, 0, '', '', '', '2021-12-06 00:12:35', '2022-01-22 22:04:10'),
 ('00000000002', 'guest', '084e0343a0486ff05530df6c705c8bb4', '123456', '', 'Guest G. Tseug', 'guest@info.com', '3', 'Guest', 'What is your the name of your favorite dog?', 'him', 3, 0, 0, '00000000000', 'Tseug', 'Guest', 'Geust', NULL, 0, '', '', '', '2021-12-06 00:12:35', '2022-01-22 22:04:14'),
-('111176140783446179165', 'kjjscloset', '8251cb8d6c876953df80d2945cc12bfa', '718230', 'https://lh3.googleusercontent.com/a/AATXAJwyS74TKXYflialYIyW1c_dTAzbOuiIU1juYYiN=s96-c', 'Baay Katherine', 'kjjscloset@gmail.com', '', 'Subscriber', '', '', 6, 0, 1, '', 'Katherine', 'Baay', '', NULL, 0, '', '', '', '2022-02-28 03:17:22', '2022-02-27 19:17:22');
+('108391343713626068995', 'louisevickalois', 'e4093283c97127bd4538bc1182722c57', '791856', 'https://lh3.googleusercontent.com/a/AATXAJySoJIRP_pIVIlqG7sRV53ZP97u1QcDOl1gIz_a=s96-c', 'Louisevick Alois', 'louisevickalois@gmail.com', '', 'Subscriber', '', '', 6, 0, 1, '', 'Alois', 'Louisevick', '', NULL, 0, '', '', '', '2022-03-02 16:51:47', '2022-03-02 08:51:47'),
+('111176140783446179165', 'kjjscloset', '8251cb8d6c876953df80d2945cc12bfa', '718230', 'https://lh3.googleusercontent.com/a/AATXAJwyS74TKXYflialYIyW1c_dTAzbOuiIU1juYYiN=s96-c', 'Baay Katherine', 'kjjscloset@gmail.com', '+639678407618', 'Subscriber', '', '', 6, 0, 1, '', 'Katherine', 'Baay', '', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 0, '', 'KJJ\'s Closets', 'Owner', '2022-02-28 03:17:22', '2022-02-28 10:53:14');
 
 -- --------------------------------------------------------
 
@@ -580,6 +581,16 @@ CREATE TABLE `tbl_order_customer` (
   `deleted` int(1) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Dumping data for table `tbl_order_customer`
+--
+
+INSERT INTO `tbl_order_customer` (`order_id`, `receipt_no`, `customer_id`, `customer_name`, `phone`, `cemail`, `address`, `sub_total_qty`, `sub_total_item`, `sub_total`, `shipping_fee`, `total_all`, `remarks`, `status`, `process_by`, `review_by`, `approved_by`, `receiver`, `receiver_phone`, `remail`, `d_location`, `long_lat`, `courier`, `otherinfo`, `created`, `modified`, `deleted`) VALUES
+(1, 'OR202203011', '111176140783446179165', 'Baay Katherine', '+639678407618', 'kjjscloset@gmail.com', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 1, 1, 600, NULL, NULL, 'Checkout', 'Paid', NULL, NULL, NULL, 'Baay Katherine', '+639678407618', 'kjjscloset@gmail.com', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', '', '', '', '2022-03-01 07:14:43', '2022-03-01 06:29:40', 0),
+(2, NULL, '111176140783446179165', 'Baay Katherine', '+639678407618', 'kjjscloset@gmail.com', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 3, 3, 500, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, 'Baay Katherine', '+639678407618', 'kjjscloset@gmail.com', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', '', '', '', '2022-03-02 22:27:15', '2022-03-02 14:36:14', 0),
+(3, NULL, '111176140783446179165', 'Baay Katherine', '+639678407618', 'kjjscloset@gmail.com', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 100, 1, 5, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, 'Baay Katherine', '+639678407618', 'kjjscloset@gmail.com', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', '', '', '', '2022-03-02 22:38:45', '2022-03-02 14:39:17', 0),
+(4, NULL, '111176140783446179165', 'Baay Katherine', '+639678407618', 'kjjscloset@gmail.com', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', 2, 2, 310, NULL, NULL, 'Checkout', 'Unpaid', NULL, NULL, NULL, 'Baay Katherine', '+639678407618', 'kjjscloset@gmail.com', 'Libertad, Tungawan, Zamboanga Sibugay, PH 07018', '', '', '', '2022-03-02 23:19:37', '2022-03-02 15:19:49', 0);
+
 -- --------------------------------------------------------
 
 --
@@ -603,6 +614,19 @@ CREATE TABLE `tbl_order_item` (
   `created` datetime NOT NULL DEFAULT current_timestamp(),
   `deleted` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `tbl_order_item`
+--
+
+INSERT INTO `tbl_order_item` (`item_order_id`, `order_id`, `item_id`, `barcode`, `item_name`, `qty`, `unit`, `price`, `total_amt`, `extnem`, `cstock`, `status`, `modified`, `created`, `deleted`) VALUES
+(1, 1, 7, '', 'Golden Pear', 1, 'pc', 600, 600, 'jpg', 1000, NULL, '2022-03-01 07:14:43', '2022-03-01 07:14:43', 0),
+(3, 2, 6, '', 'Huda Liquid Mate', 1, 'pc', 120, 120, 'jpg', 20, NULL, '2022-03-02 22:34:21', '2022-03-02 22:34:21', 0),
+(4, 2, 3, '', 'Pink Body Mist', 1, 'pc', 130, 130, 'jpg', 20, NULL, '2022-03-02 22:34:55', '2022-03-02 22:34:55', 0),
+(5, 2, 5, '', 'Black Shoes', 1, 'pair', 250, 250, 'jpg', 5, NULL, '2022-03-02 22:35:26', '2022-03-02 22:35:26', 0),
+(6, 3, 1, '', 'Nike Sock', 100, 'pair', 55, 5500, 'jpg', 100, NULL, '2022-03-02 22:39:08', '2022-03-02 22:38:45', 0),
+(7, 4, 3, '', 'Pink Body Mist', 1, 'pc', 130, 130, 'jpg', 20, NULL, '2022-03-02 23:19:37', '2022-03-02 23:19:37', 0),
+(8, 4, 4, '', 'Pink Dress', 1, 'pc', 180, 180, 'jpg', 20, NULL, '2022-03-02 23:19:40', '2022-03-02 23:19:40', 0);
 
 --
 -- Indexes for dumped tables
@@ -859,13 +883,13 @@ ALTER TABLE `tbl_headbanner_btn`
 -- AUTO_INCREMENT for table `tbl_order_customer`
 --
 ALTER TABLE `tbl_order_customer`
-  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `tbl_order_item`
 --
 ALTER TABLE `tbl_order_item`
-  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `item_order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- Constraints for dumped tables

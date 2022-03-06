@@ -53,9 +53,9 @@
 				<div class="card-header">
 					<img id="<?php echo $id4img; ?>" class="card-img-top img-front-product" style="background-image: url('<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id.'.'.$extnem; ?>');" data-item-id="<?php echo $item_id; ?>" data-unit="<?php echo $unit; ?>" data-currency="<?php echo $dcurrencyx; ?>" data-toggle="modal" data-target="#ymModalItemPreviewFront" data-item-name="<?php echo $name; ?>" data-price="<?php echo $sell_price; ?>" data-size="<?php echo $size; ?>" data-color="<?php echo $color; ?>" data-quality="<?php echo $quality; ?>" data-stock="<?php echo $stock_available; ?>" onclick="getIdOnClick(this.id);" data-value="<?php echo $domainhome; ?>storage/img/items/ITEM<?php echo $item_id.'.'.$extnem; ?>">
 				</div>
-				<div class="card-body text-right">
-					<h5 class="card-title"><?php echo $name; ?></h5>
-					<p class="card-text"><?php echo $dcurrencyx.' '.$sell_price; ?></p>
+				<div class="card-body text-right p-1">
+					<h5 class="card-title mb-0"><?php echo $name; ?></h5>
+					<p class="card-text mb-0"><?php echo $dcurrencyx.' '.$sell_price; ?></p>
 					<div class="text-center"><a href="#" class="btn btn-link" onclick="document.getElementById('<?php echo $id4img; ?>').click();">See details</a></div>		
 				</div>
 				<div class="card-footer">
@@ -98,9 +98,9 @@
 							<h4 id="ghprice" class="card-text"></h4>
 							<p class="mb-0" id="ghsize"></p>
 							<p class="mb-0" id="ghcolor"></p>
-							<p class="mb-0" id="ghquality"></p>
+							<p class="mb-0 d-none" id="ghquality"></p>
 							<div class="d-flex">
-								<div class="input-group">
+								<div class="input-group fit-product-qty">
 									<input type="button" value="-" class="button-minus" data-field="quantity">
 									<input id="ghqty" type="number" step="1" min="1" value="1" name="quantity" class="addminusentry text-center" onkeydown="if(event.key==='.'){event.preventDefault();}" oninput="event.target.value = event.target.value.replace(/[^0-9]*/g,'');">
 									<input type="button" value="+" class="button-plus" data-field="quantity">
@@ -143,7 +143,11 @@
 		} else {
 			console.log(userCodeg);
 			// Add to Cart
-			window.open(dirg+'content/view/productsitems/tocart.php?itemid='+h+'&uid='+userCodeg+'&gqty='+kuantity, '_self');
+			if ( kuantity==0 || kuantity=='' || empty(kuantity) ) {
+				window.open(dirg+'content/view/productsitems/tocart.php?itemid='+h+'&uid='+userCodeg+'&gqty=1', '_self');
+			} else {
+				window.open(dirg+'content/view/productsitems/tocart.php?itemid='+h+'&uid='+userCodeg+'&gqty='+kuantity, '_self');
+			}
 		}
 	}
 </script>

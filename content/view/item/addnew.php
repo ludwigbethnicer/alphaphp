@@ -45,7 +45,7 @@
 
 				<div class="input-group mb-3 input-group-sm">
 					<div class="input-group-prepend">
-						<span class="input-group-text">Item Name</span>
+						<span class="input-group-text">Item</span>
 					</div>
 					<input id="nameitem" type="text" class="form-control" placeholder="Name of the Item" name="nameitem" required autofocus>
 					<div class="valid-feedback">Valid.</div>
@@ -131,7 +131,7 @@
 					</datalist>
 				</div>
 
-				<div class="input-group mb-3 input-group-sm">
+				<div class="input-group mb-3 input-group-sm d-none">
 					<div class="input-group-prepend">
 						<span class="input-group-text">Quality</span>
 					</div>

@@ -17,7 +17,7 @@
 				<thead>
 					<tr>
 						<th>No.</th>
-						<th>Item Name</th>
+						<th>Item</th>
 						<th>Category</th>
 						<th>Unit</th>
 						<th>Selling Price</th>

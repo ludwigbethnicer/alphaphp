@@ -56,6 +56,14 @@ body {
 	margin-right: 12px;
 }
 
+.fit-product-qty {
+	max-width: 102px;
+}
+
+#ghunit {
+	width: 100%;
+}
+
 .page-innerx button#adtestmsg {
 	display: block!important;
 }

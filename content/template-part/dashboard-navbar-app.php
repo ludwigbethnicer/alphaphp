@@ -69,10 +69,14 @@
 								<a href="#">User(s)</a>
 							</li>
 							<li>
-								<a href="#" class="d-none">User Log</a>
-							</li>
-							<li>
-								<a href="#" class="d-none">System Log</a>
+								<a href="#" title="d-none">Sales</a>
+								<div class="sidebar-dropdown">
+									<ul>
+										<li><a href="#">Daily</a></li>
+										<li><a href="#">Monthly</a></li>
+										<li><a href="#">Yearly</a></li>
+									</ul>
+								</div>
 							</li>
 						</ul>
 					</div>

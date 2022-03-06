@@ -4,6 +4,7 @@
 	height: auto;
 	max-height: 300px;
 	margin-left: auto;
+	width: 100%;
 }
 
 .dropdown-toggle::after {
